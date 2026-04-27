@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useState, useRef } from "react";
 
@@ -44,19 +43,17 @@ export default function EnvelopeGrow() {
     return (
         <button
             type="button"
-            className="absolute -top-[200px] right-[75px] flex flex-col items-center justify-end bg-transparent border-none cursor-pointer p-0"
+            className="absolute flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
+            style={{ top: "clamp(-170px, -15vw, -100px)", right: "clamp(20px, 5vw, 120px)" }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             <div
-                className="flex items-end"
                 style={{
-                    width: "20vw",
-                    maxWidth: "332px",
-                    minWidth: "120px",
-                    height: "25vw",
-                    maxHeight: "415px",
-                    minHeight: "150px",
+                    width: "clamp(130px, 21vw, 332px)",
+                    height: "clamp(125px, 22.5vw, 415px)",
+                    display: "flex",
+                    alignItems: "flex-end",
                 }}
             >
                 {FRAMES_OPEN[frameIndex] ? (
@@ -74,19 +71,13 @@ export default function EnvelopeGrow() {
                     />
                 ) : null}
             </div>
-            <div
-                style={{
-                    opacity: 1,
-                    marginTop: "12px",
-                    height: "41px",
-                }}
-            >
+            <div style={{ marginTop: "clamp(4px, 1vw, 12px)", height: "clamp(20px, 3vw, 41px)" }}>
                 <Image
                     src="/images/homepage/tagline/Grow.png"
                     alt="Grow"
                     width={111}
                     height={41}
-                    style={{ width: "8vw", height: "auto", maxWidth: "100px", minWidth: "40px" }}
+                    style={{ width: "clamp(50px, 4.5vw, 111px)", height: "auto" }}
                 />
             </div>
         </button>

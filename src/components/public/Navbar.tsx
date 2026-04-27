@@ -1,10 +1,7 @@
-// src/components/public/Navbar.tsx
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -16,6 +13,13 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-rose-100">
@@ -26,7 +30,7 @@ export default function Navbar() {
             UI
           </div>
           <div className="leading-tight">
-            <p className="text-xs font-bold text-navy-700 tracking-wide" style={{ color: "var(--color-navy)" }}>
+            <p className="text-xs font-bold tracking-wide" style={{ color: "var(--color-navy)" }}>
               UI Women in Business
             </p>
             <p className="text-[10px] text-neutral-400 tracking-widest uppercase">Empower · Connect · Grow</p>

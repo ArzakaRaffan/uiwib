@@ -1,3 +1,4 @@
+// SliderSection.tsx
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,10 +6,10 @@ import { useRef } from "react";
 
 const slides = [
     { src: "/images/homepage/tagline/Slider1.png", label: "Pre-Event", href: "/pre-event", color: "text-blue-300" },
-    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "wce/competition", color: "text-orange-400" },
-    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "wce/training", color: "text-pink-400" },
-    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "wce/grand-seminar", color: "text-blue-700" },
-    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "wce/job-expo", color: "text-orange-400" },
+    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "/wce/competition", color: "text-orange-400" },
+    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "/wce/training", color: "text-pink-400" },
+    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "/wce/grand-seminar", color: "text-blue-700" },
+    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "/wce/job-expo", color: "text-orange-400" },
 ];
 
 export default function SliderSection() {
@@ -44,7 +45,7 @@ export default function SliderSection() {
     };
 
     return (
-        <section aria-label="Sub Events Slider" className="w-full py-6">
+        <section aria-label="Sub Events Slider" className="w-full pt-0 pb-3 md:pb-3">
             <button
                 type="button"
                 aria-label="Sub events slider"
@@ -59,24 +60,46 @@ export default function SliderSection() {
             >
                 <div
                     ref={containerRef}
-                    className="flex gap-4 overflow-x-auto px-6"
-                    style={{ scrollbarWidth: "none" }}
+                    className="flex gap-3 md:gap-5 overflow-x-auto px-3 md:px-6"
+                    style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                     {slides.map((slide, i) => (
                         <div key={i} className="flex-shrink-0 relative">
+                            {/* Mobile */}
                             <Image
                                 src={slide.src}
                                 alt={slide.label}
                                 width={401}
                                 height={785}
-                                className="h-[720px] w-auto object-cover"
+                                className="block md:hidden"
+                                style={{
+                                    height: "65vw",
+                                    width: "auto",
+                                    objectFit: "cover",
+                                    minHeight: "200px",
+                                    maxHeight: "785px",
+                                }}
                                 draggable={false}
                             />
-                            <div className="absolute bottom-[80px] left-0 right-0 flex flex-col items-center gap-1">
+                            {/* Desktop */}
+                            <Image
+                                src={slide.src}
+                                alt={slide.label}
+                                width={401}
+                                height={785}
+                                className="hidden md:block"
+                                style={{
+                                    height: "clamp(400px, 50vw, 720px)",
+                                    width: "auto",
+                                    objectFit: "cover",
+                                }}
+                                draggable={false}
+                            />
+                            <div className="absolute bottom-[8%] left-0 right-0 flex flex-col items-center">
                                 <Link
                                     href={slide.href}
                                     onClick={(e) => isDragging.current && e.preventDefault()}
-                                    className={`text-l font-semibold underline ${slide.color}`}
+                                    className={`text-xs md:text-base font-semibold underline ${slide.color}`}
                                 >
                                     Learn More
                                 </Link>
