@@ -38,7 +38,7 @@ export default function GetToKnowSection() {
 
             <div className="absolute z-30 top-[120px] right-[150px] -translate-y-1/2">
                 <Image
-                    src="/images/about-us/get-to-know/Get-To-Know-UIWIB.png"
+                    src="/images/about-us/get-to-know/Get-to-Know-UIWIB.png"
                     alt="Get To Know UIWIB"
                     width={532}
                     height={311}
