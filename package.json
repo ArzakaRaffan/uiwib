@@ -1,0 +1,39 @@
+{
+  "name": "uiwib-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@supabase/supabase-js": "^2.104.1",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "next": "^16.2.4",
+    "next-auth": "^4.24.14",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-hook-form": "^7.73.1",
+    "zod": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^3.4.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3"
+  }
+}

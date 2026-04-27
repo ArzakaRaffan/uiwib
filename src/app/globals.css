@@ -1,0 +1,129 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors — UIWIB */
+    --color-rose-blush: #fce4ec;
+    --color-rose-mid: #f48fb1;
+    --color-rose-deep: #e91e8c;
+    --color-rose-vivid: #d81b60;
+    --color-navy: #1a237e;
+    --color-navy-mid: #283593;
+    --color-gold: #f9a825;
+    --color-cream: #fff8f0;
+
+    /* Spacing & Layout */
+    --nav-height: 64px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-neutral-800;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Reusable hero banner */
+  .hero-banner {
+    @apply relative h-48 md:h-64 overflow-hidden flex items-center justify-center;
+    background: var(--color-rose-blush);
+  }
+
+  .hero-banner::before {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%);
+    opacity: 0.6;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-md -translate-y-1;
+  }
+
+  /* Button primary */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-200;
+    background: linear-gradient(135deg, var(--color-rose-vivid), var(--color-rose-deep));
+  }
+
+  .btn-primary:hover {
+    @apply scale-105 shadow-lg;
+    box-shadow: 0 8px 24px -4px rgba(216, 27, 96, 0.4);
+  }
+
+  /* Button outline */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border-2 transition-all duration-200;
+    border-color: var(--color-rose-vivid);
+    color: var(--color-rose-vivid);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-rose-vivid);
+    @apply text-white;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-center;
+    color: var(--color-navy);
+  }
+
+  .section-subtitle {
+    @apply text-center text-neutral-500 mt-2 max-w-xl mx-auto;
+  }
+
+  /* Admin sidebar link */
+  .admin-nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-neutral-600 hover:bg-rose-50 hover:text-rose-700;
+  }
+
+  .admin-nav-link.active {
+    @apply bg-rose-50 text-rose-700 font-semibold;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+  }
+
+  /* Pink gradient background */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #fce4ec 0%, #fdf2f8 100%);
+  }
+
+  /* Navy gradient */
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  }
+
+  /* Floating animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
