@@ -5,10 +5,10 @@ import { useRef } from "react";
 
 const slides = [
     { src: "/images/homepage/tagline/Slider1.png", label: "Pre-Event", href: "/pre-event", color: "text-blue-300" },
-    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "/competition", color: "text-orange-400" },
-    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "/training", color: "text-pink-400" },
-    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "/grand-seminar", color: "text-blue-700" },
-    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "/job-expo", color: "text-orange-400" },
+    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "wce/competition", color: "text-orange-400" },
+    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "wce/training", color: "text-pink-400" },
+    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "wce/grand-seminar", color: "text-blue-700" },
+    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "wce/job-expo", color: "text-orange-400" },
 ];
 
 export default function SliderSection() {
