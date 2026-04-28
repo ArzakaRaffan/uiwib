@@ -89,7 +89,7 @@ export default function SliderSection() {
                                 height={785}
                                 className="hidden md:block"
                                 style={{
-                                    height: "clamp(400px, 50vw, 720px)",
+                                    height: "clamp(430px, 55vw, 785px)",
                                     width: "auto",
                                     objectFit: "cover",
                                 }}

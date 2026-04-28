@@ -72,13 +72,16 @@ export default function EnvelopeConnect() {
                 ) : null}
             </div>
             <div style={{ marginTop: "clamp(4px, 1vw, 12px)", height: "clamp(20px, 3vw, 41px)" }}>
-                <Image
-                    src="/images/homepage/tagline/Connect.png"
-                    alt="Connect"
-                    width={111}
-                    height={41}
-                    style={{ width: "clamp(50px, 7vw, 111px)", height: "auto" }}
-                />
+                <p style={{
+                    fontFamily: "TTCommons, serif",
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.5rem, 2cqw, 4rem)",
+                    color: "#CF388E",
+                    lineHeight: 1.4,
+                }}>
+                    {"Connect"}
+                </p>
             </div>
         </button>
     );

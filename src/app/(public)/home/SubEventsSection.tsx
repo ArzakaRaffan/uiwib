@@ -6,7 +6,7 @@ export default function SubEventsSection() {
     return (
         <>
             {/* ── DESKTOP ── */}
-            <div className="hidden md:block relative w-full -mt-4 z-10">
+            <div className="hidden md:block relative w-full -mt-4    z-10">
                 <Image
                     src="/images/homepage/tagline/Background-Sub-Events.png"
                     alt=""
@@ -15,17 +15,22 @@ export default function SubEventsSection() {
                     style={{ width: "100%", height: "auto" }}
                     className="block"
                 />
-                <div className="absolute -top-[2.5%] left-0 w-full">
+                <div className="absolute -top-[2.75%] left-0 w-full">
                     <SliderSection />
                 </div>
-                <div className="absolute bottom-[8vh] left-0 right-0 flex justify-center px-4">
-                    <Image
-                        src="/images/homepage/tagline/Sub-Events.png"
-                        alt="Sub Events"
-                        width={481}
-                        height={335}
-                        style={{ width: "clamp(140px, 27vw, 481px)", height: "auto" }}
-                    />
+                <div className="absolute bottom-[17%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                    <p style={{
+                        fontFamily: "TimesNewRoman, serif",
+                        fontStyle: "italic",
+                        fontWeight: 700,
+                        fontSize: "clamp(4rem, 4cqw, 12rem)",
+                        color: "#CF388E",
+                        lineHeight: 1.4,
+                        textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                    }}>
+                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
+                        {"ub Events"}
+                    </p>
                 </div>
             </div>
 

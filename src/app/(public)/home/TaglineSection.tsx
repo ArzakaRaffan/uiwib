@@ -33,15 +33,24 @@ export default function TaglineSection() {
                         style={{ width: "100%", height: "auto" }}
                         className="block"
                     />
-                    <div className="absolute top-[25%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
-                        <Image
-                            src="/images/homepage/tagline/Tagline.png"
-                            alt="Empowering women in Universitas Indonesia"
-                            width={791}
-                            height={708}
-                            style={{ width: "clamp(200px, 55vw, 700px)", height: "auto" }}
-                            priority
-                        />
+                    <div className="absolute top-[30%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                        <p style={{
+                            fontFamily: "TimesNewRoman, serif",
+                            fontStyle: "italic",
+                            fontWeight: 300,
+                            fontSize: "clamp(1.2rem, 2.5cqw, 3.5rem)",
+                            color: "white",
+                            lineHeight: 1.4,
+                            textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                        }}>
+                            {"Empowering women in Universitas Indonesia for"}
+                            <br />
+                            {"their future and beyond #"}
+                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
+                            {"tronger"}
+                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>T</span>
+                            {"ogether."}
+                        </p>
                     </div>
                 </div>
 
@@ -71,14 +80,36 @@ export default function TaglineSection() {
                     </div>
 
                     {/* WCE Explanation */}
-                    <div className="absolute top-[35%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
-                        <Image
-                            src="/images/homepage/tagline/WCE-Explanation.png"
-                            alt="Weekend Career Expo"
-                            width={960}
-                            height={343}
-                            style={{ width: "clamp(280px, 60vw, 960px)", height: "auto" }}
-                        />
+                    <div className="absolute top-[37%] left-1/2 -translate-x-1/2 z-[25] w-full px-4 text-center">
+                        <p style={{
+                            fontFamily: "TimesNewRoman, serif",
+                            fontStyle: "italic",
+                            fontWeight: 500,
+                            fontSize: "clamp(4rem, 6cqw, 12rem)",
+                            color: "#CF388E",
+                            lineHeight: 1.4,
+                            textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                            textAlign: "center",
+                        }}>
+                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>W</span>
+                            {"eekend Career Expo"}
+                        </p>
+                    </div>
+
+                    <div className="absolute top-[48%] left-1/2 -translate-x-1/2 z-[25] w-full  flex justify-center px-4 text-center">
+                        <p style={{
+                            fontFamily: "TTCommons, sans-serif",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            fontSize: "clamp(1.5rem,1.5cqw, 4rem)",
+                            color: "#2555B7",
+                            lineHeight: 1.4,
+                            textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                        }}>
+                            {"Established in 2021, Weekend Career Expo by UI Women in Business aims to bridge fresh"}
+                            <br />
+                            {"graduates and students to the professional fields through various informational sessions."}
+                        </p>
                     </div>
 
                     {/* Calendar */}
