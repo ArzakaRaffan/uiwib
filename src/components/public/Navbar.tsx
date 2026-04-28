@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -22,22 +23,37 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-rose-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-navy-gradient flex items-center justify-center text-white text-xs font-bold font-display">
-            UI
-          </div>
-          <div className="leading-tight">
-            <p className="text-xs font-bold tracking-wide" style={{ color: "var(--color-navy)" }}>
-              UI Women in Business
-            </p>
-            <p className="text-[10px] text-neutral-400 tracking-widest uppercase">Empower · Connect · Grow</p>
+    <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "#CF388E" }}>
+      <div className="w-full px-6 h-16 flex items-center justify-between">
+
+        {/* Left — brand name */}
+        <Link href="/" className="flex items-center">
+          <span style={{
+            fontFamily: "TTCommons, sans-serif",
+            fontWeight: 700,
+            fontSize: "clamp(0.8rem, 1.5vw, 1rem)",
+            color: "white",
+            letterSpacing: "0.03em",
+            textTransform: "uppercase",
+          }}>
+            UI Women in Business
+          </span>
+        </Link>
+
+        {/* Center — logo */}
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white flex items-center justify-center bg-[#1a1a2e]">
+            <Image
+              src="/images/UIWIB-LOGO.png"
+              alt="UIWIB Logo"
+              width={48}
+              height={48}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </div>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Right — desktop nav links */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -45,11 +61,23 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-rose-50 text-rose-700 font-semibold"
-                    : "text-neutral-600 hover:text-rose-600 hover:bg-rose-50"
-                }`}
+                style={{
+                  fontFamily: "TTCommons, sans-serif",
+                  fontWeight: isActive ? 700 : 400,
+                  fontSize: "clamp(0.8rem, 1.2vw, 1rem)",
+                  color: "white",
+                  padding: "0.4rem 1rem",
+                  borderRadius: "999px",
+                  background: isActive ? "rgba(255,255,255,0.2)" : "transparent",
+                  transition: "background 0.2s",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={e => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";
+                }}
+                onMouseLeave={e => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
               >
                 {link.label}
               </Link>
@@ -59,31 +87,38 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-neutral-600 hover:bg-rose-50"
+          className="md:hidden p-2 rounded-lg"
+          style={{ color: "white" }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           <div className="w-5 flex flex-col gap-1">
-            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
-            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+            <span className={`block h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+            <span className={`block h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
           </div>
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-rose-100 px-4 py-3 flex flex-col gap-1">
+        <div className="md:hidden px-4 py-3 flex flex-col gap-1" style={{ background: "#b52d7a" }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-4 py-2.5 rounded-xl text-sm font-medium ${
-                pathname === link.href
-                  ? "bg-rose-50 text-rose-700 font-semibold"
-                  : "text-neutral-600 hover:bg-rose-50"
-              }`}
+              style={{
+                fontFamily: "TTCommons, sans-serif",
+                fontWeight: pathname === link.href ? 700 : 400,
+                fontSize: "1rem",
+                color: "white",
+                padding: "0.6rem 1rem",
+                borderRadius: "0.75rem",
+                background: pathname === link.href ? "rgba(255,255,255,0.2)" : "transparent",
+                textDecoration: "none",
+                display: "block",
+              }}
             >
               {link.label}
             </Link>

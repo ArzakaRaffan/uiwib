@@ -12,6 +12,9 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         display: ["var(--font-playfair)", "Georgia", "serif"],
+        amoresa: ["Amoresa", "serif"],
+        times: ["TimesNewRoman", "serif"],
+        ttcommons: ["TTCommons", "sans-serif"],
       },
       colors: {
         navy: {
