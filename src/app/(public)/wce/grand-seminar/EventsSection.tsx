@@ -89,6 +89,82 @@ export default function EventsSectionGS() {
                     </div>
                 </div>
             </div>
+            <div className="absolute z-30" style={{ bottom: "6%", left: "50%", transform: "translateX(-50%)", width: "90%" }}>
+                {/* Title */}
+                <div style={{ textAlign: "center", marginBottom: "4%" }}>
+                    <p style={{
+                        fontFamily: "TimesNewRoman, serif",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        fontSize: "5cqw",
+                        color: "#CF388E",
+                    }}>
+                        Our Series of Events
+                    </p>
+                </div>
+
+                {/* 3 Cards */}
+                <div style={{ display: "flex", gap: "2%", justifyContent: "center" }}>
+                    {[
+                        {
+                            bg: "CompanyPresentation",
+                            title: "Company Presentation",
+                            content: <>Providing an opportunity for leading organizations to <strong>introduce their values, workplace environment, and available career paths.</strong></>,
+                        },
+                        {
+                            bg: "SeminarSession",
+                            title: "Seminar Session",
+                            content: <>Gain insights from <strong>inspiring women leaders</strong> and change makers through engaging discussions.</>,
+                        },
+                        {
+                            bg: "AwardingSession",
+                            title: "Awarding Session",
+                            content: <><strong>Honoring remarkable participants</strong> of both the essay and mini case competitions of Weekend Career Expo 2026.</>,
+                        },
+                    ].map(({ bg, title, content }) => (
+                        <div key={bg} style={{ flex: 1, position: "relative" }}>
+                            <Image
+                                src={`/images/wce/grand-seminar/${bg}.png`}
+                                alt={title}
+                                width={400}
+                                height={400}
+                                style={{ width: "100%", height: "auto", borderRadius: "1.5cqw" }}
+                            />
+                            <div style={{
+                                position: "absolute",
+                                inset: 0,
+                                padding: "8%",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "4%",
+                                textAlign: "center",
+                            }}>
+                                <p style={{
+                                    fontFamily: "TTCommons, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "2.1cqw",
+                                    color: "white",
+                                    textDecoration: "underline",
+                                    textUnderlineOffset: "3px",
+                                    textAlign: "center",
+                                }}>
+                                    {title}
+                                </p>
+                                <p style={{
+                                    fontFamily: "TTCommons, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "1.6cqw",
+                                    color: "white",
+                                    lineHeight: 1.5,
+                                    textAlign: "center",
+                                }}>
+                                    {content}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </section>
     )
 }

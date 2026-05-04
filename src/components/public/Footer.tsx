@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { relative } from "node:path";
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#CF388E" }} className="pt-12 pb-6">
+    <footer style={{ backgroundColor: "#CF388E", position: "relative", zIndex: 50 }} className="pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex flex-col md:flex-row justify-between gap-10 pb-8">
 
