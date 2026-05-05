@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { relative } from "node:path";
-
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#CF388E", position: "relative", zIndex: 50 }} className="pt-12 pb-6">

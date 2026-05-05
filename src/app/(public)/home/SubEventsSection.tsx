@@ -36,7 +36,7 @@ export default function SubEventsSection() {
 
             {/* ── MOBILE ── */}
             <div
-                className="block md:hidden w-full -mt-6 z-10 flex flex-col items-center py-8 px-4 gap-6"
+                className="md:hidden w-full -mt-6 z-10 flex flex-col items-center py-8 px-4 gap-6"
                 style={{
                     backgroundImage: "url('/images/homepage/tagline/Background-Sub-Events.png')",
                     backgroundSize: "cover",

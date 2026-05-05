@@ -43,7 +43,7 @@ export default function PartnerSection() {
 
             {/* ── MOBILE ── */}
             <div
-                className="block md:hidden w-full -mt-[30px] z-0 flex flex-col items-center py-10 px-4 gap-10"
+                className="md:hidden w-full -mt-[30px] z-0 flex flex-col items-center py-10 px-4 gap-10"
                 style={{
                     backgroundImage: "url('/images/homepage/partner/Background-Medpar.png')",
                     backgroundSize: "cover",
