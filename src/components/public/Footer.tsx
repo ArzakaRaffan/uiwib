@@ -55,7 +55,7 @@ export default function Footer() {
               color: "#FFF5E1",
               lineHeight: 2,
             }}>
-              <p>Phone: +6289614285420 (Raina)</p>
+              <p>Phone: +6281385800886 (Love)</p>
               <p>Email: womeninbusiness.ui@gmail.com</p>
             </div>
 

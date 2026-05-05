@@ -133,7 +133,7 @@ export default function EventsSectionGS() {
                             <div style={{
                                 position: "absolute",
                                 inset: 0,
-                                padding: "8%",
+                                padding: "10%",
                                 display: "flex",
                                 flexDirection: "column",
                                 gap: "4%",
