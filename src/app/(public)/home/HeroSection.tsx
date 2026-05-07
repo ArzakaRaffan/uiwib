@@ -104,47 +104,94 @@ export default function HeroSectionHomepage() {
             </section >
 
             {/* MOBILE */}
-            < section
-                className="block md:hidden relative min-h-screen overflow-hidden pt-16"
-                style={{ backgroundColor: "#f5e6c8" }
-                }
-            >
-                <div className="absolute inset-0">
-                    <Image src="/images/homepage/hero/Background.png" alt="" fill sizes="100vw"
-                        className="object-cover object-center" priority />
+            <section className="block md:hidden relative overflow-hidden" style={{ height: "50svh" }}>
+                {/* Background */}
+                <div className="absolute inset-0" style={{
+                    backgroundImage: "url('/images/homepage/hero/mobile/BG-Yellow-mb.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center top",
+                    backgroundRepeat: "no-repeat",
+                }} />
+
+                {/* Swirls */}
+                <div className="absolute top-[5%] left-[2%] z-[40]">
+                    <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282} style={{ width: "35vw", height: "auto" }} />
+                </div>
+                <div className="absolute top-[3%] right-[2%] z-[40]">
+                    <Image src="/images/homepage/hero/Swirl3.png" alt="" width={276} height={282} style={{ width: "20vw", height: "auto" }} />
+                </div>
+                <div className="absolute bottom-[8%] left-[2%] z-[40]">
+                    <Image src="/images/homepage/hero/Swirl2.png" alt="" width={276} height={282} style={{ width: "20vw", height: "auto" }} />
+                </div>
+                <div className="absolute bottom-[8%] right-[2%] z-[40]">
+                    <Image src="/images/homepage/hero/Swirl4.png" alt="" width={295} height={197} style={{ width: "20vw", height: "auto" }} />
                 </div>
 
-                <div className="absolute top-4 left-4 z-[40]">
-                    <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282}
-                        style={{ width: "20vw", height: "auto" }} />
-                </div>
-                <div className="absolute top-4 right-4 z-[40]">
-                    <Image src="/images/homepage/hero/Swirl3.png" alt="" width={276} height={282}
-                        style={{ width: "20vw", height: "auto" }} />
+                {/* Dots */}
+                <div className="absolute top-[28%] left-[0%] z-[30]">
+                    <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "12vw", height: "auto" }} />
                 </div>
 
-                <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 gap-6">
-                    <Image src="/images/homepage/hero/Lanyard UIWIB.png" alt="Welcome to UI Women in Business"
-                        width={791} height={708}
-                        style={{ width: "85vw", height: "auto", maxWidth: "400px" }}
-                        className="drop-shadow-2xl" priority />
-                    <div className="flex gap-3 justify-center w-full">
-                        <div className="rotate-[-4deg]">
-                            <Image src="/images/homepage/hero/Picture 6.png" alt="" width={250} height={514}
-                                style={{ width: "38vw", height: "auto" }} />
-                        </div>
-                        <div className="rotate-[4deg]">
-                            <Image src="/images/homepage/hero/Picture 1.png" alt="" width={296} height={293}
-                                style={{ width: "38vw", height: "auto" }} />
+                {/* Layout utama — pakai absolute positioning biar ga push section */}
+                <div className="absolute inset-0 z-10 pt-14">
+
+                    {/* Photo1 kiri atas */}
+                    <div className="absolute z-[20]" style={{ top: "0%", left: "5%" }}>
+                        <Image src="/images/homepage/hero/mobile/Photo1-mb.png" alt="" width={296} height={293}
+                            style={{ width: "30vw", height: "auto" }} />
+                    </div>
+
+                    {/* Photo2 kanan atas */}
+                    <div className="absolute z-[10]" style={{ top: "-10%", right: "0%" }}>
+                        <Image src="/images/homepage/hero/mobile/Photo2-mb.png" alt="" width={296} height={293}
+                            style={{ width: "30vw", height: "auto" }} />
+                    </div>
+
+                    <div className="absolute z-[40]" style={{ top: "-5%", right: "0%" }}>
+                        <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "12vw", height: "auto" }} />
+                    </div>
+
+                    {/* Photo3 kiri tengah */}
+                    <div className="absolute z-[20]" style={{ top: "38%", left: "2%" }}>
+                        <div className="rotate-[-3deg]">
+                            <Image src="/images/homepage/hero/mobile/Photo3-mb.png" alt="" width={296} height={293}
+                                style={{ width: "25vw", height: "auto" }} />
                         </div>
                     </div>
-                </div>
 
-                <div className="absolute bottom-0 left-0 right-0 z-[50]">
-                    <Image src="/images/homepage/hero/Flower Border.png" alt="" width={1440} height={50}
-                        style={{ width: "100%", height: "auto" }} />
+                    {/* Photo4 kanan tengah */}
+                    <div className="absolute z-[20]" style={{ top: "38%", right: "2%" }}>
+                        <div className="rotate-[3deg]">
+                            <Image src="/images/homepage/hero/mobile/Photo4-mb.png" alt="" width={296} height={293}
+                                style={{ width: "25vw", height: "auto" }} />
+                        </div>
+                    </div>
+
+                    {/* Photo5 kiri bawah */}
+                    <div className="absolute z-[20]" style={{ top: "65%", left: "2%" }}>
+                        <div className="rotate-[-3deg]">
+                            <Image src="/images/homepage/hero/mobile/Photo5-mb.png" alt="" width={250} height={514}
+                                style={{ width: "25vw", height: "auto" }} />
+                        </div>
+                    </div>
+
+                    {/* Photo6 kanan bawah */}
+                    <div className="absolute z-[20]" style={{ top: "65%", right: "2%" }}>
+                        <div className="rotate-[3deg]">
+                            <Image src="/images/homepage/hero/mobile/Photo6-mb.png" alt="" width={250} height={514}
+                                style={{ width: "25vw", height: "auto" }} />
+                        </div>
+                    </div>
+
+                    {/* Lanyard — center */}
+                    <div className="absolute z-[25]" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+                        <Image src="/images/homepage/hero/mobile/Lanyard-mb.png" alt="Welcome to UI Women in Business"
+                            width={791} height={708}
+                            style={{ width: "70vw", height: "auto" }}
+                            className="drop-shadow-2xl" priority />
+                    </div>
                 </div>
-            </section >
+            </section>
         </>
     );
 }
