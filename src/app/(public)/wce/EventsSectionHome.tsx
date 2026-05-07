@@ -5,7 +5,7 @@ export default function EventsSectionHome() {
     return (
         <section
             className="hidden md:block relative w-full overflow-visible"
-            style={{ marginTop: "-8vw" }}
+            style={{ marginTop: "-8vw", zIndex: 10}}
         >
             <div className="relative w-full" style={{ aspectRatio: "1443/1202", containerType: "inline-size" }}>
                 <div className="absolute inset-0">
@@ -16,7 +16,7 @@ export default function EventsSectionHome() {
 
             <div className="absolute top-[8%] w-full text-center">
                 <p style={{
-                    fontFamily: "TimesNewRoman, serif",
+                    fontFamily: "Times New Roman, serif",
                     fontWeight: 500,
                     fontSize: "6.5cqw",
                     color: "#CF388E",
@@ -62,7 +62,7 @@ export default function EventsSectionHome() {
                 style={{
                     position: "absolute", bottom: "15%", left: "1.5%",
                     width: "clamp(60px, 7vw, 120px)", height: "auto",
-                    zIndex: 35, pointerEvents: "none", opacity: 0.9,
+                    zIndex: 1, pointerEvents: "none", opacity: 0.9,
                 }}
             />
             <Image src="/images/wce/pre-event/Flower.png" alt="" width={55} height={55}

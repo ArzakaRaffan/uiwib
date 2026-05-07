@@ -113,14 +113,14 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
 
                 {/* Kolom kanan */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "clamp(6px, 1vw, 10px)", minWidth: 0, marginTop: "2%", height: "100%" }}>
-                    <p style={{ fontSize: "clamp(13px, 2vw, 50px)", fontWeight: 900, textDecoration: "underline", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
+                    <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(13px, 2.5vw, 50px)", fontWeight: 700, textDecoration: "underline", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
                         Pre Event
                     </p>
-                    <p style={{ fontSize: "clamp(12px, 1.5vw, 15px)", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
-                        <strong style={{ fontWeight: 900 }}>Timeline:</strong> Saturday, 16 May 2026
+                    <p style={{ fontSize: "clamp(12px, 2vw, 20px)", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
+                        <strong style={{ fontWeight: 700 }}>Timeline:</strong> Saturday, 16 May 2026
                     </p>
-                    <p style={{ fontSize: "clamp(12px, 1.5vw, 15px)", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
-                        <strong style={{ fontWeight: 900 }}>Place :</strong> Online, Zoom
+                    <p style={{ fontSize: "clamp(12px, 2vw, 20px)", color: "#DF56A4", margin: 0, letterSpacing: "-0.05em" }}>
+                        <strong style={{ fontWeight: 700 }}>Place :</strong> Online, Zoom
                     </p>
                     <p style={{ fontSize: "clamp(11px, 1.2vw, 20px)", color: "#DF56A4", lineHeight: 1.6, margin: 0, fontWeight: 500 }}>
                         A professional exposure session that gives participants a realistic glimpse

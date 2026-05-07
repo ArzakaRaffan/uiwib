@@ -66,21 +66,21 @@ export default function TrainingCard({
                     {/* Logo — muncul saat open */}
                     <div style={{
                         overflow: "hidden",
-                        maxHeight: open ? "200px" : "0px",
+                        maxHeight: open ? "300px" : "0px",
                         opacity: open ? 1 : 0,
                         transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
                     }}>
                         <div style={{
                             display: "flex",
                             alignItems: "center",
-                            gap: "clamp(6px, 1vw, 12px)",
+                            gap: "clamp(6px, 2vw, 20px)",
                             paddingLeft: "15%",
                             paddingTop: "4%",
                         }}>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(36px, 6vw, 96px)",
-                                height: "clamp(36px, 6vw, 96px)",
+                                width: "clamp(36px, 11vw, 200px)",
+                                height: "clamp(36px, 11vw, 200px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -94,8 +94,8 @@ export default function TrainingCard({
                             }}>x</span>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(36px, 6vw, 96px)",
-                                height: "clamp(36px, 6vw, 96px)",
+                                width: "clamp(36px, 11vw, 200px)",
+                                height: "clamp(36px, 11vw, 200px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -115,9 +115,9 @@ export default function TrainingCard({
                     marginTop: "2%",
                 }}>
                     <p style={{
-                        fontFamily: "TimesNewRoman, serif",
-                        fontSize: "clamp(13px, 1.8vw, 28px)",
-                        fontWeight: 900,
+                        fontFamily: "Times New Roman, serif",
+                        fontSize: "clamp(13px, 2.5vw, 28px)",
+                        fontWeight: 700,
                         textDecoration: "underline",
                         color: "#DF56A4",
                         margin: 0,
@@ -126,7 +126,7 @@ export default function TrainingCard({
                         {title}
                     </p>
                     <p style={{
-                        fontSize: "clamp(11px, 1.3vw, 16px)",
+                        fontSize: "clamp(11px, 2vw, 18px)",
                         color: "#DF56A4",
                         margin: 0,
                         letterSpacing: "-0.05em",
@@ -134,7 +134,7 @@ export default function TrainingCard({
                         <strong style={{ fontWeight: 900 }}>Timeline:</strong> {timeline}
                     </p>
                     <p style={{
-                        fontSize: "clamp(11px, 1.3vw, 16px)",
+                        fontSize: "clamp(11px, 2vw, 18px)",
                         color: "#DF56A4",
                         margin: 0,
                         letterSpacing: "-0.05em",
@@ -144,7 +144,7 @@ export default function TrainingCard({
 
                     {!open ? (
                         <p style={{
-                            fontSize: "clamp(11px, 1.1vw, 15px)",
+                            fontSize: "clamp(11px, 1.2vw, 18px)",
                             color: "#DF56A4",
                             lineHeight: 1.6,
                             margin: 0,
@@ -155,7 +155,7 @@ export default function TrainingCard({
                     ) : (
                         <>
                             <p style={{
-                                fontSize: "clamp(11px, 1.1vw, 15px)",
+                                fontSize: "clamp(11px, 1.2vw, 18px)",
                                 color: "#DF56A4",
                                 lineHeight: 1.6,
                                 margin: 0,
@@ -165,7 +165,7 @@ export default function TrainingCard({
                             </p>
                             {fullDesc.map((para, i) => (
                                 <p key={i} style={{
-                                    fontSize: "clamp(11px, 1.1vw, 15px)",
+                                    fontSize: "clamp(11px, 1.2vw, 18px)",
                                     color: "#DF56A4",
                                     lineHeight: 1.6,
                                     margin: 0,

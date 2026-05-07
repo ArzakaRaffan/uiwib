@@ -119,11 +119,11 @@ export default function CompetitionSection() {
                             onToggle={() => toggle(0)}
                             photoSrc="/images/wce/competition/Photo1.png"
                             timelineSrc="/images/wce/competition/Timeline1.png"
-                            title="Mini Case Competition"
+                            title="Business Case Competition"
                             timeline="Monday, 25 May 2026–Saturday, 1 August 2026"
                             place="TBA"
-                            shortDesc="The Mini Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to analyze and solve real-world business problems provided by our case collaborator."
-                            fullDesc="The solutions made will be presented to a panel of esteemed judges and the top five teams will advance to the final round, pitching their solutions in a professional setting. This competition aims to strengthen participants' problem-solving, creativity and innovation, as well as their critical thinking skills. The Mini Case Competition is an ideal place for you to expand your networks and enhance your business acumen. This competition is a great stepping stone for those of you who are keen in business and appreciate challenges."
+                            shortDesc="The Business Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to analyze and solve real-world business problems provided by our case collaborator."
+                            fullDesc="The solutions made will be presented to a panel of esteemed judges and the top five teams will advance to the final round, pitching their solutions in a professional setting. This competition aims to strengthen participants' problem-solving, creativity and innovation, as well as their critical thinking skills. The Business Case Competition is an ideal place for you to expand your networks and enhance your business acumen. This competition is a great stepping stone for those of you who are keen in business and appreciate challenges."
                         />
                         <CompetitionCard
                             open={openStates[1]}

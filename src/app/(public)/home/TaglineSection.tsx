@@ -5,7 +5,7 @@ import EnvelopeGrow from "@/components/homepage/EnvelopeGrow";
 
 export default function TaglineSection() {
     return (
-        <section className="relative" style={{ backgroundColor: "#f0d060" }}>
+        <section id="tagline" className="relative" style={{ backgroundColor: "#f0d060" }}>
 
             {/* Flower Border */}
             <div className="absolute top-0 left-0 right-0 z-[40]" style={{ transform: "translateY(-50%)" }}>
@@ -85,18 +85,25 @@ export default function TaglineSection() {
                             fontFamily: "TimesNewRoman, serif",
                             fontStyle: "italic",
                             fontWeight: 500,
-                            fontSize: "clamp(4rem, 6cqw, 12rem)",
+                            fontSize: "clamp(4rem, 6.5cqw, 12rem)",
                             color: "#CF388E",
                             lineHeight: 1.4,
                             textShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             textAlign: "center",
+                            letterSpacing: "-0.07em",
                         }}>
-                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>W</span>
+                            <span style={{
+                                fontFamily: "Amoresa, serif",
+                                fontStyle: "normal",
+                                marginBottom: "1%",
+                                position: "relative",
+                                top: "-0.1em"  // naik dikit, sesuaikan nilainya
+                            }}>W</span>
                             {"eekend Career Expo"}
                         </p>
                     </div>
 
-                    <div className="absolute top-[48%] left-1/2 -translate-x-1/2 z-[25] w-full  flex justify-center px-4 text-center">
+                    <div className="absolute top-[47%] left-1/2 -translate-x-1/2 z-[25] w-full flex flex-col items-center px-4 text-center">
                         <p style={{
                             fontFamily: "TTCommons, sans-serif",
                             fontStyle: "normal",
@@ -110,6 +117,20 @@ export default function TaglineSection() {
                             <br />
                             {"graduates and students to the professional fields through various informational sessions."}
                         </p>
+                        <a
+                            href="/wce/"
+                            style={{
+                                fontFamily: "TTCommons, sans-serif",
+                                fontSize: "clamp(1rem, 2cqw, 5rem)",
+                                fontWeight: 600,
+                                color: "#CF388E",
+                                textDecoration: "underline",
+                                textAlign: "center",
+                                marginTop: "3rem",
+                            }}
+                        >
+                            Learn More
+                        </a>
                     </div>
 
                     {/* Calendar */}
@@ -243,6 +264,6 @@ export default function TaglineSection() {
                 </div>
             </div>
 
-        </section>
+        </section >
     );
 }

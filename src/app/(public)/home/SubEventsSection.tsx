@@ -18,20 +18,20 @@ export default function SubEventsSection() {
                 <div className="absolute -top-[2.75%] left-0 w-full">
                     <SliderSection />
                 </div>
-                <div className="absolute bottom-[17%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
-                    <p style={{
-                        fontFamily: "TimesNewRoman, serif",
-                        fontStyle: "italic",
-                        fontWeight: 700,
-                        fontSize: "clamp(4rem, 4cqw, 12rem)",
-                        color: "#CF388E",
-                        lineHeight: 1.4,
-                        textShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                    }}>
-                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
-                        {"ub Events"}
-                    </p>
-                </div>
+                    <div className="absolute bottom-[14%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                        <p style={{
+                            fontFamily: "Times New Roman, serif",
+                            fontStyle: "italic",
+                            fontWeight: 100,
+                            fontSize: "clamp(4rem, 6.5cqw, 15rem)",
+                            color: "#CF388E",
+                            lineHeight: 1.4,
+                            textShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                        }}>
+                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
+                            {"ub Events"}
+                        </p>
+                    </div>
             </div>
 
             {/* ── MOBILE ── */}
@@ -45,15 +45,6 @@ export default function SubEventsSection() {
             >
                 {/* Slider */}
                 <SliderSection />
-
-                {/* Sub Events title */}
-                <Image
-                    src="/images/homepage/tagline/Sub-Events.png"
-                    alt="Sub Events"
-                    width={481}
-                    height={335}
-                    style={{ width: "75vw", height: "auto", maxWidth: "350px" }}
-                />
             </div>
         </>
     );

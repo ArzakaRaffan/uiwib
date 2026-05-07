@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRef } from "react";
 
 const slides = [
-    { src: "/images/homepage/tagline/Slider1.png", label: "Pre-Event", href: "wce/pre-event", color: "text-blue-300" },
-    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "#", color: "text-orange-400" },
-    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "#", color: "text-pink-400" },
-    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "/wce/grand-seminar", color: "text-blue-700" },
-    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "#", color: "text-orange-400" },
+    { src: "/images/homepage/tagline/Slider1.png", label: "Pre-Event", href: "wce/pre-event", color: "#F576AF" },
+    { src: "/images/homepage/tagline/Slider2.png", label: "Competition", href: "wce/competition", color: "#FFA94F" },
+    { src: "/images/homepage/tagline/Slider3.png", label: "Training", href: "wce/training", color: "#F576AF" },
+    { src: "/images/homepage/tagline/Slider4.png", label: "Grand Seminar", href: "/wce/grand-seminar", color: "#2555B7" },
+    { src: "/images/homepage/tagline/Slider5.png", label: "Job Expo", href: "/wce/job-expo", color: "#FFA94F" },
 ];
 
 export default function SliderSection() {
@@ -99,7 +99,8 @@ export default function SliderSection() {
                                 <Link
                                     href={slide.href}
                                     onClick={(e) => isDragging.current && e.preventDefault()}
-                                    className={`text-xs md:text-base font-semibold underline ${slide.color}`}
+                                    style={{ color: slide.color }}
+                                    className="text-xs md:text-base font-semibold underline"
                                 >
                                     Learn More
                                 </Link>

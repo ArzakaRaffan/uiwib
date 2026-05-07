@@ -18,6 +18,33 @@ export default function HeroSectionHomepage() {
                             style={{ width: "100%", height: "auto" }} className="drop-shadow-2xl" priority />
                     </div>
 
+                    {/* Button Learn More inside Lanyard */}
+                    <div style={{
+                        position: "absolute",
+                        top: "65%",
+                        left: "51%",
+                        transform: "translateX(-50%) rotate(-4deg)",
+                        zIndex: 30,
+                    }}>
+                        <a
+                            href="#tagline"
+                            style={{
+                                display: "inline-block",
+                                fontFamily: "TTCommons, sans-serif",
+                                fontSize: "clamp(0.9rem, 1.2cqw, 2rem)",
+                                fontWeight: 500,
+                                color: "#ffffff",
+                                backgroundColor: "#2555B7",
+                                padding: "0.6em 2em",
+                                borderRadius: "15px",
+                                textDecoration: "none",
+                                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                                whiteSpace: "nowrap",
+                            }}>
+                            Learn More
+                        </a>
+                    </div>
+
                     {/* Dots */}
                     <div style={{ position: "absolute", top: "25%", left: "3%", width: "18cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
@@ -74,12 +101,13 @@ export default function HeroSectionHomepage() {
                         <Image src="/images/homepage/hero/Picture 8.png" alt="" width={385} height={298} style={{ width: "100%", height: "auto" }} />
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* MOBILE */}
-            <section
+            < section
                 className="block md:hidden relative min-h-screen overflow-hidden pt-16"
-                style={{ backgroundColor: "#f5e6c8" }}
+                style={{ backgroundColor: "#f5e6c8" }
+                }
             >
                 <div className="absolute inset-0">
                     <Image src="/images/homepage/hero/Background.png" alt="" fill sizes="100vw"
@@ -116,7 +144,7 @@ export default function HeroSectionHomepage() {
                     <Image src="/images/homepage/hero/Flower Border.png" alt="" width={1440} height={50}
                         style={{ width: "100%", height: "auto" }} />
                 </div>
-            </section>
+            </section >
         </>
     );
 }
