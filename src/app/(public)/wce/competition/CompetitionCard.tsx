@@ -3,7 +3,7 @@ import Image from "next/image"
 
 interface CompetitionCardProps {
     photoSrc: string
-    timelineSrc: string
+    timelineSrc?: string
     title: string
     timeline: string
     place: string
@@ -62,23 +62,25 @@ export default function CompetitionCard({
                     </div>
 
                     {/* Timeline — animasi muncul saat open */}
-                    <div style={{
-                        overflow: "hidden",
-                        maxHeight: open ? "500px" : "0px",
-                        opacity: open ? 1 : 0,
-                        transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
-                        marginTop: "1vw",   // ← dorong ke bawah dalam flex
-                    }}>
-                        <div style={{ width: "100%" }}>
-                            <Image
-                                src={timelineSrc}
-                                alt="Timeline"
-                                width={612 * timelineScale}
-                                height={192}
-                                style={{ width: "100%", height: "auto", display: "block" }}
-                            />
+                    {timelineSrc && (
+                        <div style={{
+                            overflow: "hidden",
+                            maxHeight: open ? "500px" : "0px",
+                            opacity: open ? 1 : 0,
+                            transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
+                            marginTop: "1vw",
+                        }}>
+                            <div style={{ width: "100%" }}>
+                                <Image
+                                    src={timelineSrc}
+                                    alt="Timeline"
+                                    width={612 * timelineScale}
+                                    height={192}
+                                    style={{ width: "100%", height: "auto", display: "block" }}
+                                />
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
 
                 {/* Kolom kanan */}

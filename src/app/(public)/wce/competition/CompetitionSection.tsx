@@ -1,28 +1,29 @@
 "use client"
 import Image from "next/image"
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import CompetitionCard from "./CompetitionCard"
 
 const BG_W = 5750
-const BG_H_FULL = 8092   // ← height asli asset, jangan diubah
+const BG_H_FULL = 8092
 
-const BG_H_CLOSED = 4300  // adjust ini
-const BG_H_OPEN1 = 5200  // adjust ini  
-const BG_H_OPEN2 = 6150  // adjust ini — tidak harus sama dengan BG_H_FULL
+const BG_H_CLOSED = 4300
+const BG_H_OPEN_CARD1_ONLY = 5150
+const BG_H_OPEN_CARD2_ONLY = 4800  // adjust ini
+const BG_H_OPEN_BOTH = 5600
 
-function getClipRatio(openCount: number) {
-    if (openCount === 0) return BG_H_CLOSED / BG_W
-    if (openCount === 1) return BG_H_OPEN1 / BG_W
-    return BG_H_OPEN2 / BG_W
+function getClipRatio(openStates: boolean[]) {
+    const [open1, open2] = openStates
+    if (open1 && open2)  return BG_H_OPEN_BOTH / BG_W
+    if (open1)           return BG_H_OPEN_CARD1_ONLY / BG_W
+    if (open2)           return BG_H_OPEN_CARD2_ONLY / BG_W
+    return BG_H_CLOSED / BG_W
 }
 
 export default function CompetitionSection() {
     const [openStates, setOpenStates] = useState([false, false])
-    const contentRef = useRef<HTMLDivElement>(null)
     const [containerHeight, setContainerHeight] = useState<string>(
-        `calc(100vw * ${BG_H_CLOSED / BG_W})`  // ← init langsung, bukan "auto"
+        `calc(100vw * ${BG_H_CLOSED / BG_W})`
     )
-    const openCount = openStates.filter(Boolean).length
 
     const toggle = (i: number) => {
         setOpenStates(prev => {
@@ -32,20 +33,13 @@ export default function CompetitionSection() {
         })
     }
 
-    // Update height setelah animasi selesai
     useEffect(() => {
-        const clipRatio = getClipRatio(openCount)
-        // Gunakan vw-based height yang responsif
+        const clipRatio = getClipRatio(openStates)
         setContainerHeight(`calc(100vw * ${clipRatio})`)
-    }, [openCount])
+    }, [openStates])
 
     return (
-        <div style={{
-            overflow: "hidden",
-            marginTop: "-6vw",
-            position: "relative",
-            zIndex: 20,
-        }}>
+        <div style={{ overflow: "hidden", marginTop: "-6vw", position: "relative", zIndex: 20 }}>
             <div style={{
                 position: "relative",
                 width: "100%",
@@ -54,11 +48,10 @@ export default function CompetitionSection() {
                 overflow: "hidden",
                 transition: "height 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
             }}>
-                {/* Background — full height, tidak di-stretch */}
                 <div style={{
                     position: "absolute",
                     top: 0, left: 0, right: 0,
-                    height: `calc(100vw * ${BG_H_FULL / BG_W})`,  // ← pakai BG_H_FULL
+                    height: `calc(100vw * ${BG_H_FULL / BG_W})`,
                 }}>
                     <Image
                         src="/images/wce/competition/BG-Pink-Competition.png"
@@ -68,20 +61,16 @@ export default function CompetitionSection() {
                     />
                 </div>
 
-                {/* Konten */}
-                <div
-                    ref={contentRef}
-                    style={{
-                        position: "absolute",
-                        top: 0, left: 0, right: 0,
-                        zIndex: 1,
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        paddingTop: "clamp(40px, 6vw, 120px)",
-                        paddingBottom: "clamp(32px, 4vw, 64px)",
-                    }}
-                >
+                <div style={{
+                    position: "absolute",
+                    top: 0, left: 0, right: 0,
+                    zIndex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    paddingTop: "clamp(40px, 6vw, 120px)",
+                    paddingBottom: "clamp(32px, 4vw, 64px)",
+                }}>
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
                         fontWeight: 100,
@@ -118,9 +107,8 @@ export default function CompetitionSection() {
                             open={openStates[0]}
                             onToggle={() => toggle(0)}
                             photoSrc="/images/wce/competition/Photo1.png"
-                            timelineSrc="/images/wce/competition/Timeline1.png"
                             title="Business Case Competition"
-                            timeline="Monday, 25 May 2026–Saturday, 1 August 2026"
+                            timeline="TBA"
                             place="TBA"
                             shortDesc="The Business Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to analyze and solve real-world business problems provided by our case collaborator."
                             fullDesc="The solutions made will be presented to a panel of esteemed judges and the top five teams will advance to the final round, pitching their solutions in a professional setting. This competition aims to strengthen participants' problem-solving, creativity and innovation, as well as their critical thinking skills. The Business Case Competition is an ideal place for you to expand your networks and enhance your business acumen. This competition is a great stepping stone for those of you who are keen in business and appreciate challenges."
@@ -129,10 +117,9 @@ export default function CompetitionSection() {
                             open={openStates[1]}
                             onToggle={() => toggle(1)}
                             photoSrc="/images/wce/competition/Photo2.png"
-                            timelineSrc="/images/wce/competition/Timeline2.png"
                             title="Essay Competition"
                             timelineScale={0.7}
-                            timeline="Monday, 25 May 2026–Saturday, 1 August 2026"
+                            timeline="TBA"
                             place="TBA"
                             shortDesc="The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to write essays on themes related to real-world issues."
                             fullDesc="Through this competition, participants are also able to hone their research, writing, and analytical skills. The Essay Competition is a perfect opportunity for you to showcase your opinions, views, and interpretations of specific topics. Through this competition, you are able to expand your network and advance ideas that can shape the world."

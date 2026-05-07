@@ -126,7 +126,7 @@ export default function TaglineSection() {
                                 color: "#CF388E",
                                 textDecoration: "underline",
                                 textAlign: "center",
-                                marginTop: "3rem",
+                                marginTop: "2rem",
                             }}
                         >
                             Learn More
@@ -134,13 +134,13 @@ export default function TaglineSection() {
                     </div>
 
                     {/* Calendar */}
-                    <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
+                    <div className="absolute bottom-[3%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
                         <Image
                             src="/images/homepage/tagline/Calendar WCE.png"
                             alt="WCE Calendar"
                             width={1360}
                             height={679}
-                            style={{ width: "clamp(280px, 80vw, 1360px)", height: "auto" }}
+                            style={{ width: "clamp(280px, 85vw, 1360px)", height: "auto" }}
                         />
                     </div>
                 </div>

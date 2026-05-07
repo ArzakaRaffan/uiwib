@@ -1,5 +1,8 @@
-"use client"
-import Image from "next/image"
+"use client";
+import { motion } from "framer-motion";
+
+const ITEM_W = 180;
+const GAP = 60;
 
 export const mediaPartnersRow1 = [
     "/images/media-partners/DWDG Binus.png",
@@ -7,8 +10,7 @@ export const mediaPartnersRow1 = [
     "/images/media-partners/Ristek.png",
     "/images/media-partners/Senandika.png",
     "/images/media-partners/Atma Jaya.png",
-]
-
+];
 export const mediaPartnersRow2 = [
     "/images/media-partners/Growth Skill.png",
     "/images/media-partners/Overcome.png",
@@ -17,46 +19,47 @@ export const mediaPartnersRow2 = [
     "/images/media-partners/YouthFounders.png",
     "/images/media-partners/Hima Bisdig.png",
     "/images/media-partners/Hellocation.png",
-]
+];
 
-export function MarqueeRow({ logos, speed = 20 }: { logos: string[], speed?: number }) {
-    const doubled = [...logos, ...logos]
+function MarqueeRow({ logos, duration }: { logos: string[]; duration: number }) {
+    const travel = logos.length * (ITEM_W + GAP);
+
     return (
         <div style={{ overflow: "hidden", width: "100%" }}>
-            <div style={{
-                display: "flex",
-                gap: "clamp(24px, 4vw, 60px)",
-                width: "max-content",
-                animation: `marquee ${speed}s linear infinite`,
-                alignItems: "center",
-            }}>
-                {doubled.map((src, i) => (
+            <motion.div
+                animate={{ x: [0, -travel] }}
+                transition={{ duration, repeat: Infinity, ease: "linear",repeatType: "loop" }}
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "max-content",
+                    padding: "20px 0",
+                }}
+            >
+                {[...logos, ...logos, ...logos].map((src, i) => (
                     <div key={i} style={{
-                        position: "relative",
-                        height: "clamp(40px, 12vw, 250px)",
-                        width: "clamp(60px, 12vw, 250px)",
+                        width: `${ITEM_W}px`,
+                        height: "90px",
                         flexShrink: 0,
+                        marginRight: `${GAP}px`,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                     }}>
-                        <Image src={src} alt="" fill style={{ objectFit: "contain" }} />
+                        <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                     </div>
                 ))}
-            </div>
+            </motion.div>
         </div>
-    )
+    );
 }
 
 export default function MediaPartnersSection() {
     return (
-        <div style={{ overflow: "hidden", width: "100%" }}>
-            <style>{`
-                @keyframes marquee {
-                    0%   { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-            `}</style>
-            <MarqueeRow logos={mediaPartnersRow1} speed={15} />
-            <div style={{ marginTop: "clamp(12px, 2vw, 24px)" }} />
-            <MarqueeRow logos={mediaPartnersRow2} speed={13} />
+        <div style={{ width: "100%" }}>
+            <MarqueeRow logos={mediaPartnersRow1} duration={5} />
+            <div style={{ marginTop: "16px" }} />
+            <MarqueeRow logos={mediaPartnersRow2} duration={5} />
         </div>
-    )
+    );
 }
