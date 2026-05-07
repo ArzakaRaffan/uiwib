@@ -9,7 +9,7 @@ const photos = [
     "/images/wce/home/Photo4.png",
 ];
 
-export default function PhotoCollage() {
+export default function PhotoCollage({ isMobile = false }: { isMobile?: boolean }) {
     const [current, setCurrent] = useState(0);
     const [mounted, setMounted] = useState(false);
 
@@ -24,10 +24,10 @@ export default function PhotoCollage() {
     return (
         <div style={{
             position: "absolute",
-            bottom: "13%",
+            bottom: isMobile ? "5%" : "13%",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "80%",
+            width: isMobile ? "90%" : "80%",
         }}>
             {photos.map((src, i) => (
                 <Image

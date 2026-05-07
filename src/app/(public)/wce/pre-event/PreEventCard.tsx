@@ -65,7 +65,7 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                     >
                         <div style={{ display: "flex", flexDirection: "column", gap: "clamp(6px, 1vw, 10px)", paddingTop: "4px" }}>
                             {/* Timeline pills */}
-                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(4px, 0.5vw, 6px)", flexWrap: "wrap" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(4px, 0.5vw, 6px)", flexWrap: "wrap", marginLeft: "18%" }}>
                                 <span style={{
                                     background: "#FDE8EF", color: "#B03060", borderRadius: "20px",
                                     padding: "clamp(2px, 0.3vw, 3px) clamp(6px, 0.8vw, 10px)",
@@ -88,11 +88,11 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                             </div>
 
                             {/* Logos */}
-                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px, 1vw, 10px)", marginLeft: "3%" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px, 1vw, 20px)", marginLeft: "21.5%" }}>
                                 <div style={{
                                     position: "relative",
-                                    width: "clamp(40px, 8vw, 128px)",
-                                    height: "clamp(40px, 8vw, 128px)",
+                                    width: "clamp(40px, 8vw, 192px)",
+                                    height: "clamp(40px, 8vw, 192px)",
                                     borderRadius: "50%", overflow: "hidden",
                                 }}>
                                     <Image src="/images/wce/pre-event/UIWIB.png" alt="UIWIB" fill className="object-cover" />
@@ -100,8 +100,8 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                                 <span style={{ fontSize: "clamp(10px, 1.2vw, 14px)", color: "#666" }}>x</span>
                                 <div style={{
                                     position: "relative",
-                                    width: "clamp(40px, 8vw, 128px)",
-                                    height: "clamp(40px, 8vw, 128px)",
+                                    width: "clamp(40px, 8vw, 192px)",
+                                    height: "clamp(40px, 8vw, 192px)",
                                     borderRadius: "50%", overflow: "hidden",
                                 }}>
                                     <Image src="/images/wce/pre-event/Unilever.png" alt="Unilever" fill className="object-cover" />
