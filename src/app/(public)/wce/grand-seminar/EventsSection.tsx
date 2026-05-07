@@ -45,7 +45,7 @@ export default function EventsSectionGS() {
                         textDecoration: "none",
                     }}
                 >
-                    Register Now
+                    Coming Soon!
                 </a>
             </div>
             {/* Photo Strip */}
@@ -66,9 +66,10 @@ export default function EventsSectionGS() {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-around",
-                        padding: "2% 2%",
+                        padding: "3% 3%",
                         gap: "2%",
-                        transform: "rotate(-1.5deg)",
+                        marginTop: "3vw",
+                        transform: "rotate(-1.6deg)",
                     }}>
                         {["Photo1", "Photo2", "Photo3"].map((photo) => (
                             <div key={photo} style={{ flex: 1, aspectRatio: "4/3" }}>
@@ -78,8 +79,8 @@ export default function EventsSectionGS() {
                                     width={400}
                                     height={300}
                                     style={{
-                                        width: "95%",
-                                        height: "95%",
+                                        width: "90%",
+                                        height: "85%",
                                         borderRadius: "1.5cqw",
                                         objectFit: "cover",
                                     }}

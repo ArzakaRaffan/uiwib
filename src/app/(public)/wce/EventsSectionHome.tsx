@@ -42,6 +42,43 @@ export default function EventsSectionHome() {
             <div className="absolute w-full" style={{ top: "30%", zIndex: 30 }}>
                 <SliderWCEHome height="clamp(400px, 45vw, 650px)" />
             </div>
+
+            {/* Bunga dekorasi */}
+            <Image src="/images/wce/pre-event/Flower.png" alt="" width={100} height={100}
+                style={{
+                    position: "absolute", top: "5%", left: "2%",
+                    width: "clamp(50px, 6vw, 100px)", height: "auto",
+                    zIndex: 1, pointerEvents: "none", opacity: 0.9,
+                }}
+            />
+            <Image src="/images/wce/pre-event/Flower.png" alt="" width={70} height={70}
+                style={{
+                    position: "absolute", top: "12%", right: "3%",
+                    width: "clamp(35px, 4.5vw, 75px)", height: "auto",
+                    zIndex: 1, pointerEvents: "none", opacity: 0.85,
+                }}
+            />
+            <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                style={{
+                    position: "absolute", bottom: "15%", left: "1.5%",
+                    width: "clamp(60px, 7vw, 120px)", height: "auto",
+                    zIndex: 35, pointerEvents: "none", opacity: 0.9,
+                }}
+            />
+            <Image src="/images/wce/pre-event/Flower.png" alt="" width={55} height={55}
+                style={{
+                    position: "absolute", bottom: "50%", right: "2%",
+                    width: "clamp(30px, 5vw, 150px)", height: "auto",
+                    zIndex: 1, pointerEvents: "none", opacity: 0.8,
+                }}
+            />
+            <Image src="/images/wce/pre-event/Flower.png" alt="" width={55} height={55}
+                style={{
+                    position: "absolute", bottom: "25%", right: "2%",
+                    width: "clamp(30px, 5vw, 150px)", height: "auto",
+                    zIndex: 1, pointerEvents: "none", opacity: 0.8,
+                }}
+            />
         </section>
     );
 }

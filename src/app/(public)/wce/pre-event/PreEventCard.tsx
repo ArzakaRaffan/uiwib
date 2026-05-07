@@ -2,7 +2,11 @@
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 
-export default function PreEventCard() {
+interface PreEventCardProps {
+    onOpenChange?: (open: boolean) => void
+}
+
+export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
     const [open, setOpen] = useState(false)
     const expandRef = useRef<HTMLDivElement>(null)
     const [height, setHeight] = useState(0)
@@ -12,6 +16,12 @@ export default function PreEventCard() {
             setHeight(open ? expandRef.current.scrollHeight : 0)
         }
     }, [open])
+
+    const handleToggle = () => {
+        const next = !open
+        setOpen(next)
+        onOpenChange?.(next)
+    }
 
     return (
         <div style={{
@@ -31,17 +41,16 @@ export default function PreEventCard() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "clamp(8px, 1vw, 12px)" }}>
                     {/* Foto */}
                     <div style={{
-                        position: "relative",
                         width: "100%",
-                        height: "clamp(180px, 19vw, 320px)",
                         borderRadius: "clamp(8px, 1vw, 12px)",
                         overflow: "hidden",
                     }}>
                         <Image
                             src="/images/wce/pre-event/Photo1.png"
                             alt="Pre Event Speaker"
-                            fill
-                            className="object-cover object-center"
+                            width={598}
+                            height={338}
+                            style={{ width: "100%", height: "auto", display: "block" }}
                         />
                     </div>
 
@@ -122,7 +131,7 @@ export default function PreEventCard() {
                             : "..."}
                     </p>
 
-                    <button onClick={() => setOpen(!open)} style={{
+                    <button onClick={handleToggle} style={{
                         background: "none", border: "none", cursor: "pointer",
                         color: "#F576AF", fontSize: "clamp(11px, 1vw, 20px)",
                         textAlign: "left", padding: 0, width: "fit-content",
@@ -148,7 +157,7 @@ export default function PreEventCard() {
                         marginBottom: "3%",
                         paddingTop: "clamp(4px, 0.8vw, 8px)",
                     }}>
-                        <a href="#" style={{
+                        <a href="https://bit.ly/WCEUnilever2026" style={{
                             background: "#E91E8C", color: "#fff",
                             padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
                             borderRadius: "20px",

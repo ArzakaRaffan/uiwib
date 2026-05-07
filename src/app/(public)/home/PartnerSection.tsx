@@ -1,4 +1,6 @@
 import Image from "next/image";
+import MediaPartnersSection from "@/components/homepage/MediaPartners";
+
 
 export default function PartnerSection() {
     return (
@@ -13,10 +15,10 @@ export default function PartnerSection() {
                     style={{ width: "100%", height: "auto" }}
                     className="block"
                 />
+                {/* Judul */}
                 <div className="absolute top-[20%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
-                        fontStyle: "normal",
                         fontWeight: 700,
                         fontSize: "clamp(1.5rem, 2.75cqw, 4rem)",
                         color: "#2555B7",
@@ -25,6 +27,11 @@ export default function PartnerSection() {
                     }}>
                         {"Our Media Partners"}
                     </p>
+                </div>
+
+                {/* Marquee — di bawah judul */}
+                <div className="absolute z-[25] w-full" style={{ top: "25%" }}>
+                    <MediaPartnersSection />
                 </div>
                 <div className="absolute bottom-[30%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
                     <p style={{

@@ -11,6 +11,37 @@ export default function HeroSectionHome() {
                 </div>
             </div>
 
+            {/* Bunga dekorasi */}
+            <Image src="/images/wce/home/Flower.png" alt="" width={120} height={120}
+                style={{
+                    position: "absolute", bottom: "10%", left: "10%",
+                    width: "clamp(60px, 10vw, 200px)", height: "auto",
+                    zIndex: 10, pointerEvents: "none",
+                }}
+            />
+            <Image src="/images/wce/home/Flower.png" alt="" width={80} height={80}
+                style={{
+                    position: "absolute", top: "22%", left: "4%",
+                    width: "clamp(40px, 7vw, 90px)", height: "auto",
+                    zIndex: 10, pointerEvents: "none",
+                }}
+            />
+            <Image src="/images/wce/home/Flower.png" alt="" width={60} height={60}
+                style={{
+                    position: "absolute", top: "5%", right: "10%",
+                    width: "clamp(30px, 7vw, 70px)", height: "auto",
+                    zIndex: 10, pointerEvents: "none",
+                }}
+            />
+
+            <Image src="/images/wce/home/Flower.png" alt="" width={60} height={60}
+                style={{
+                    position: "absolute", bottom: "10%", right: "15%",
+                    width: "clamp(30px, 7vw, 70px)", height: "auto",
+                    zIndex: 10, pointerEvents: "none",
+                }}
+            />
+
             <div className="absolute top-[8%] w-full text-center">
                 <p style={{
                     fontFamily: "TimesNewRoman, serif",
