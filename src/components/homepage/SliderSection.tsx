@@ -45,7 +45,7 @@ export default function SliderSection() {
     };
 
     return (
-        <section aria-label="Sub Events Slider" className="w-full pt-0 pb-3 md:pb-3">
+        <section aria-label="Sub Events Slider" className="w-full pt-0 pb-3 md:pb-3 -mt-[10.2%] md:mt-0">
             <button
                 type="button"
                 aria-label="Sub events slider"
@@ -60,11 +60,12 @@ export default function SliderSection() {
             >
                 <div
                     ref={containerRef}
-                    className="flex gap-3 md:gap-5 overflow-x-auto px-3 md:px-6"
+                    className="flex gap-1 md:gap-5 overflow-x-auto px-3 md:px-6"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                     {slides.map((slide, i) => (
                         <div key={i} className="flex-shrink-0 relative">
+                            {/* Mobile */}
                             {/* Mobile */}
                             <Image
                                 src={slide.src}
@@ -73,11 +74,11 @@ export default function SliderSection() {
                                 height={785}
                                 className="block md:hidden"
                                 style={{
-                                    height: "65vw",
-                                    width: "auto",
+                                    width: "40vw",
+                                    height: "auto",
                                     objectFit: "cover",
-                                    minHeight: "200px",
-                                    maxHeight: "785px",
+                                    minWidth: "100px",
+                                    maxWidth: "300px",
                                 }}
                                 draggable={false}
                             />
@@ -100,7 +101,7 @@ export default function SliderSection() {
                                     href={slide.href}
                                     onClick={(e) => isDragging.current && e.preventDefault()}
                                     style={{ color: slide.color }}
-                                    className="text-xs md:text-base font-semibold underline"
+                                    className="text-[8px] md:text-base font-semibold underline"
                                 >
                                     Learn More
                                 </Link>

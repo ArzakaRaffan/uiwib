@@ -9,8 +9,8 @@ const FRAMES_OPEN = [
     "/images/homepage/tagline/Empower2.png",
 ];
 
-export default function EnvelopeEmpower() {
-    const [frameIndex, setFrameIndex] = useState(0);
+export default function EnvelopeEmpower({ isStatic = false, isMobile = false }: { isStatic?: boolean; isMobile?: boolean }) {
+    const [frameIndex, setFrameIndex] = useState(isStatic ? FRAMES_OPEN.length - 1 : 0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     function stopAnimation() {
@@ -44,9 +44,12 @@ export default function EnvelopeEmpower() {
         <button
             type="button"
             className="absolute flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
-            style={{ top: "clamp(-170px, -15vw, -100px)", left: "clamp(20px, 5vw, 120px)" }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            style={{
+                top: isMobile ? "clamp(20px, 38vw, 110px)" : "clamp(-170px, -15vw, -100px)",
+                left: isMobile ? "clamp(5px, 1vw, 20px)" : "clamp(20px, 5vw, 120px)"
+            }}
+            onMouseEnter={isStatic ? undefined : handleMouseEnter}
+            onMouseLeave={isStatic ? undefined : handleMouseLeave}
         >
             <div
                 style={{
@@ -76,8 +79,8 @@ export default function EnvelopeEmpower() {
                     fontFamily: "TTCommons, serif",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    fontSize: "clamp(1.5rem, 2cqw, 4rem)",
-                    color: "#CF388E",
+                    fontSize: isMobile ? "clamp(0.8rem, 3.5vw, 1.2rem)" : "clamp(1.5rem, 2cqw, 4rem)",
+                    color: isMobile ? "#FFF0AF" : "#CF388E",
                     lineHeight: 1.4,
                 }}>
                     {"Empower"}

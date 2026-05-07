@@ -55,27 +55,45 @@ export default function PartnerSection() {
 
             {/* ── MOBILE ── */}
             <div
-                className="md:hidden w-full -mt-[30px] z-0 flex flex-col items-center py-10 px-4 gap-10"
+                className="md:hidden w-full z-0 flex flex-col items-center py-8 px-0"
                 style={{
-                    backgroundImage: "url('/images/homepage/partner/Background-Medpar.png')",
+                    backgroundImage: "url('/images/media-partners/mobile/BG-Medpar-mb.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center top",
+                    backgroundRepeat: "no-repeat",
+                    marginTop: "-10vw",
                 }}
             >
-                <Image
-                    src="/images/homepage/partner/Media Partners.png"
-                    alt="Media Partners"
-                    width={380}
-                    height={64}
-                    style={{ width: "55vw", height: "auto", maxWidth: "280px" }}
-                />
-                <Image
-                    src="/images/homepage/partner/Company Partners.png"
-                    alt="Company Partners"
-                    width={450}
-                    height={64}
-                    style={{ width: "65vw", height: "auto", maxWidth: "320px" }}
-                />
+                {/* Our Media Partners */}
+                <p style={{
+                    fontFamily: "TimesNewRoman, serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.2rem, 5.5vw, 2rem)",
+                    color: "#2555B7",
+                    letterSpacing: "0.05em",
+                    textAlign: "center",
+                    marginTop: "7%",
+                }}>
+                    Our Media Partners
+                </p>
+                <MediaPartnersSection />
+
+                {/* Our Company Partners */}
+                <p style={{
+                    fontFamily: "TimesNewRoman, serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.2rem, 5.5vw, 2rem)",
+                    color: "#2555B7",
+                    letterSpacing: "0.05em",
+                    textAlign: "center",
+                    margin: 0,
+                    marginTop: "4%",
+                }}>
+                    Our Company Partners
+                </p>
+                <CompanyPartnersSlider />
+
+                <div style={{ paddingBottom: "8%" }} />
             </div>
         </>
     );

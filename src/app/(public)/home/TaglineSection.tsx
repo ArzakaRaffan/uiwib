@@ -147,110 +147,101 @@ export default function TaglineSection() {
             </div>
 
             {/* ═══════════════════════════════════════
-                MOBILE (di bawah md)
-            ═══════════════════════════════════════ */}
-            <div className="block md:hidden">
+    MOBILE (di bawah md)
+═══════════════════════════════════════ */}
+            <div className="block md:hidden relative w-full">
+                <Image
+                    src="/images/homepage/tagline/mobile/BG-Blue-mb.png"
+                    alt=""
+                    width={393}
+                    height={600}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                />
+                <div className="absolute inset-0 flex items-start justify-center pt-[10%] px-6">
+                    <p style={{
+                        fontFamily: '"Times New Roman", serif',
+                        fontStyle: "normal",
+                        fontWeight: 300,
+                        fontSize: "clamp(0.5rem, 4.4vw, 2rem)",
+                        color: "white",
+                        lineHeight: 1.5,
+                        textAlign: "center",
+                    }}>
+                        {"Empowering women in Universitas Indonesia for their future and beyond #"}
+                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
+                        {"tronger"}
+                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>T</span>
+                        {"ogether."}
+                    </p>
+                </div>
+                <EnvelopeEmpower isMobile={true} isStatic={true} />
+                <EnvelopeConnect isMobile={true} isStatic={true} />
+                <EnvelopeGrow isMobile={true} isStatic={true} />
+            </div>
 
-                {/* 1. Tagline */}
-                <div
-                    className="w-full flex items-center justify-center py-12 px-6"
-                    style={{
-                        backgroundImage: "url('/images/homepage/tagline/Blue-Background.png')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        minHeight: "180px",
-                    }}
-                >
+            {/* WCE Section Mobile */}
+            <div className="block md:hidden relative w-full" style={{ marginTop: "-3.5%" }}>
+                {/* Background */}
+                <div className="absolute inset-0">
                     <Image
-                        src="/images/homepage/tagline/Tagline.png"
-                        alt="Empowering women in Universitas Indonesia"
-                        width={791}
-                        height={708}
-                        style={{ width: "85vw", height: "auto", maxWidth: "400px" }}
-                        priority
+                        src="/images/homepage/tagline/mobile/BG-Pink-mb.png"
+                        alt=""
+                        fill
+                        style={{ objectFit: "cover", objectPosition: "top" }}
                     />
                 </div>
 
-                {/* 2. Pillars (Empower, Connect, Grow) */}
-                <div
-                    className="w-full flex flex-col items-center py-10 px-6 gap-8"
-                    style={{
-                        backgroundImage: "url('/images/homepage/tagline/Pink-Background.png')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
-                >
-                    {/* Empower */}
-                    <div className="flex flex-col items-center gap-3">
-                        <Image
-                            src="/images/homepage/tagline/Envelope-Closed-Empower.png"
-                            alt="Empower"
-                            width={332}
-                            height={203}
-                            style={{ width: "70vw", height: "auto", maxWidth: "300px" }}
-                        />
-                        <Image
-                            src="/images/homepage/tagline/Empower.png"
-                            alt="Empower"
-                            width={111}
-                            height={41}
-                            style={{ width: "25vw", height: "auto", maxWidth: "120px" }}
-                        />
-                    </div>
+                {/* Konten — in flow, bukan absolute */}
+                <div className="relative z-10 flex flex-col items-center px-4 py-8">
+                    {/* WCE Logo */}
+                    <Image
+                        src="/images/homepage/tagline/WCE Logo.png"
+                        alt="WCE Logo"
+                        width={188}
+                        height={198}
+                        style={{ width: "clamp(50px, 18vw, 120px)", height: "auto", marginTop: "4%" }}
+                    />
 
-                    {/* Connect */}
-                    <div className="flex flex-col items-center gap-3">
-                        <Image
-                            src="/images/homepage/tagline/Envelope-Closed-Connect.png"
-                            alt="Connect"
-                            width={332}
-                            height={203}
-                            style={{ width: "70vw", height: "auto", maxWidth: "300px" }}
-                        />
-                        <Image
-                            src="/images/homepage/tagline/Connect.png"
-                            alt="Connect"
-                            width={111}
-                            height={41}
-                            style={{ width: "25vw", height: "auto", maxWidth: "120px" }}
-                        />
-                    </div>
+                    {/* Weekend Career Expo title */}
+                    <p style={{
+                        fontFamily: "TimesNewRoman, serif",
+                        fontStyle: "italic",
+                        fontWeight: 500,
+                        fontSize: "clamp(2rem, 9vw, 4rem)",
+                        color: "#CF388E",
+                        lineHeight: 1.2,
+                        textAlign: "center",
+                        letterSpacing: "-0.07em",
+                        marginTop: "4%",
+                    }}>
+                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal", position: "relative", top: "-0.1em" }}>W</span>
+                        {"eekend Career Expo"}
+                    </p>
 
-                    {/* Grow */}
-                    <div className="flex flex-col items-center gap-3">
-                        <Image
-                            src="/images/homepage/tagline/Envelope-Closed-Grow.png"
-                            alt="Grow"
-                            width={332}
-                            height={203}
-                            style={{ width: "70vw", height: "auto", maxWidth: "300px" }}
-                        />
-                        <Image
-                            src="/images/homepage/tagline/Grow.png"
-                            alt="Grow"
-                            width={80}
-                            height={41}
-                            style={{ width: "18vw", height: "auto", maxWidth: "80px" }}
-                        />
-                    </div>
+                    {/* Description */}
+                    <p style={{
+                        fontFamily: "TTCommons, sans-serif",
+                        fontWeight: 500,
+                        fontSize: "clamp(0.75rem, 3.2vw, 1rem)",
+                        color: "#2555B7",
+                        lineHeight: 1.5,
+                        textAlign: "center",
+                        marginTop: "4%",
+                    }}>
+                        {"Established in 2021, Weekend Career Expo by UI Women in Business aims to bridge fresh graduates and students to the professional fields through various informational sessions."}
+                    </p>
 
-                    {/* WCE Logo + Explanation */}
-                    <div className="flex flex-col items-center gap-4 mt-4">
-                        <Image
-                            src="/images/homepage/tagline/WCE Logo.png"
-                            alt="WCE Logo"
-                            width={188}
-                            height={198}
-                            style={{ width: "25vw", height: "auto", maxWidth: "120px" }}
-                        />
-                        <Image
-                            src="/images/homepage/tagline/WCE-Explanation.png"
-                            alt="Weekend Career Expo"
-                            width={960}
-                            height={343}
-                            style={{ width: "90vw", height: "auto", maxWidth: "500px" }}
-                        />
-                    </div>
+                    {/* Learn More */}
+                    <a href="/wce/" style={{
+                        fontFamily: "TTCommons, sans-serif",
+                        fontSize: "clamp(0.85rem, 3.5vw, 1.2rem)",
+                        fontWeight: 600,
+                        color: "#CF388E",
+                        textDecoration: "underline",
+                        marginTop: "4%",
+                    }}>
+                        Learn More
+                    </a>
 
                     {/* Calendar */}
                     <Image
@@ -258,12 +249,10 @@ export default function TaglineSection() {
                         alt="WCE Calendar"
                         width={1360}
                         height={679}
-                        style={{ width: "95vw", height: "auto", maxWidth: "600px" }}
-                        className="rounded-xl shadow-lg"
+                        style={{ width: "92vw", height: "auto", marginTop: "4%" }}
                     />
                 </div>
             </div>
-
         </section >
     );
 }

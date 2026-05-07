@@ -9,8 +9,8 @@ const FRAMES_OPEN = [
     "/images/homepage/tagline/Connect2.png",
 ];
 
-export default function EnvelopeConnect() {
-    const [frameIndex, setFrameIndex] = useState(0);
+export default function EnvelopeConnect({ isStatic = false, isMobile = false }: { isStatic?: boolean; isMobile?: boolean }) {
+    const [frameIndex, setFrameIndex] = useState(isStatic ? FRAMES_OPEN.length - 1 : 0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     function stopAnimation() {
@@ -32,42 +32,31 @@ export default function EnvelopeConnect() {
         }, 120);
     }
 
-    function handleMouseEnter() {
-        playFrames(frameIndex, FRAMES_OPEN.length - 1);
-    }
-
-    function handleMouseLeave() {
-        playFrames(frameIndex, 0);
-    }
+    function handleMouseEnter() { playFrames(frameIndex, FRAMES_OPEN.length - 1); }
+    function handleMouseLeave() { playFrames(frameIndex, 0); }
 
     return (
         <button
             type="button"
             className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
-            style={{ top: "clamp(-225px, -20vw, -100px)" }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            style={{ top: isMobile ? "clamp(20px, 40vw, 110px)" : "clamp(-225px, -20vw, -100px)", left: "50%" }}
+            
+            onMouseEnter={isStatic ? undefined : handleMouseEnter}
+            onMouseLeave={isStatic ? undefined : handleMouseLeave}
         >
-            <div
-                style={{
-                    width: "clamp(130px, 21vw, 332px)",
-                    height: "clamp(125px, 22.5vw, 415px)",
-                    display: "flex",
-                    alignItems: "flex-end",
-                }}
-            >
+            <div style={{
+                width: "clamp(130px, 21vw, 332px)",
+                height: "clamp(125px, 22.5vw, 415px)",
+                display: "flex",
+                alignItems: "flex-end",
+            }}>
                 {FRAMES_OPEN[frameIndex] ? (
                     <Image
                         src={FRAMES_OPEN[frameIndex]}
                         alt="Connect envelope"
                         width={332}
                         height={318}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                            objectPosition: "bottom"
-                        }}
+                        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom" }}
                     />
                 ) : null}
             </div>
@@ -76,8 +65,8 @@ export default function EnvelopeConnect() {
                     fontFamily: "TTCommons, serif",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    fontSize: "clamp(1.5rem, 2cqw, 4rem)",
-                    color: "#CF388E",
+                    fontSize: isMobile ? "clamp(0.8rem, 3.5vw, 1.2rem)" : "clamp(1.5rem, 2cqw, 4rem)",
+                    color: isMobile ? "#FFF0AF" : "#CF388E",
                     lineHeight: 1.4,
                 }}>
                     {"Connect"}
