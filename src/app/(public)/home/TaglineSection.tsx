@@ -38,7 +38,7 @@ export default function TaglineSection() {
                             fontFamily: "TimesNewRoman, serif",
                             fontStyle: "italic",
                             fontWeight: 300,
-                            fontSize: "clamp(1.2rem, 2.5cqw, 3.5rem)",
+                            fontSize: "clamp(1.2rem, 2.3cqw, 3.5rem)",
                             color: "white",
                             lineHeight: 1.4,
                             textShadow: "0 2px 8px rgba(0,0,0,0.15)",
@@ -157,7 +157,7 @@ export default function TaglineSection() {
                     height={600}
                     style={{ width: "100%", height: "auto", display: "block" }}
                 />
-                <div className="absolute inset-0 flex items-start justify-center pt-[10%] px-6">
+                <div className="absolute inset-0 flex items-start justify-center pt-[8%] px-6">
                     <p style={{
                         fontFamily: '"Times New Roman", serif',
                         fontStyle: "normal",

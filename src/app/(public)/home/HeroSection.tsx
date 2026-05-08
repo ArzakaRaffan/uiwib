@@ -31,7 +31,7 @@ export default function HeroSectionHomepage() {
                             style={{
                                 display: "inline-block",
                                 fontFamily: "TTCommons, sans-serif",
-                                fontSize: "clamp(0.9rem, 1.2cqw, 2rem)",
+                                fontSize: "clamp(0.7rem, 1.2vw, 1.4rem)",
                                 fontWeight: 500,
                                 color: "#ffffff",
                                 backgroundColor: "#2555B7",
