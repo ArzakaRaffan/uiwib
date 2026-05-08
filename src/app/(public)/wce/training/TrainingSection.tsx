@@ -104,7 +104,7 @@ export default function TrainingSection() {
                             open={openStates[0]}
                             onToggle={() => toggle(0)}
                             photoSrc="/images/wce/training/Photo1.png"
-                            logoSrc="/images/wce/training/UIWIB Logo.png"
+                            logoSrc="/images/wce/training/Logo WCE.png"
                             companySrc="/images/wce/training/TBA.png"
                             title="External Training"
                             timeline="TBA"
@@ -119,7 +119,7 @@ export default function TrainingSection() {
                             open={openStates[1]}
                             onToggle={() => toggle(1)}
                             photoSrc="/images/wce/training/Photo2.png"
-                            logoSrc="/images/wce/training/UIWIB Logo.png"
+                            logoSrc="/images/wce/training/Logo WCE.png"
                             companySrc="/images/wce/training/TBA.png"
                             title="Internal Training"
                             timeline="TBA"

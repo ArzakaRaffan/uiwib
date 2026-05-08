@@ -25,13 +25,13 @@ export default function EventsSectionGS() {
                     lineHeight: 1.8,
                 }}>
                     {"The event will be held on "}
-                    <span style={{ fontWeight: 700 }}>{"Saturday, August 1, 2026,"}</span>
+                    <span style={{ fontWeight: 700 }}>{"Saturday, 25 July, 2026,"}</span>
                     {" from "}
                     <span style={{ fontWeight: 700 }}>{"08.00 to 17:00."}</span>
                     {" It will feature a talk show with inspiring women leaders, along with presentations from participating companies."}
                 </p>
                 <a
-                    href="/register"
+                    href="#"
                     style={{
                         display: "inline-block",
                         marginTop: "3%",
