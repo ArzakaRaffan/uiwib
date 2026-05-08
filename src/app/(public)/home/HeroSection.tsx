@@ -5,15 +5,14 @@ export default function HeroSectionHomepage() {
         <>
             {/* DESKTOP */}
             <section className="hidden md:block relative w-full overflow-hidden" style={{ height: "100vh" }}>
-                {/* Background */}
                 <div className="absolute inset-0">
                     <Image src="/images/homepage/hero/Background.png" alt="" fill sizes="100vw"
                         className="object-cover object-center" priority />
                 </div>
-                <div style={{ position: "absolute", inset: 0, containerType: "size" }}>
+                <div style={{ position: "absolute", inset: 0, containerType: "inline-size" }}>
 
                     {/* Lanyard */}
-                    <div style={{ position: "absolute", top: "-7%", left: "50%", transform: "translateX(-50%)", width: "51cqw", zIndex: 25 }}>
+                    <div style={{ position: "absolute", top: "-3.5cqw", left: "50%", transform: "translateX(-50%)", width: "51cqw", zIndex: 25 }}>
                         <Image src="/images/homepage/hero/Lanyard UIWIB.png" alt="" width={791} height={708}
                             style={{ width: "100%", height: "auto" }} className="drop-shadow-2xl" priority />
                     </div>
@@ -21,7 +20,7 @@ export default function HeroSectionHomepage() {
                     {/* Button Learn More inside Lanyard */}
                     <div style={{
                         position: "absolute",
-                        top: "65%",
+                        top: "calc( 68cqw * 0.708 * 0.72)",
                         left: "51%",
                         transform: "translateX(-50%) rotate(-4deg)",
                         zIndex: 30,
@@ -49,15 +48,16 @@ export default function HeroSectionHomepage() {
                     <div style={{ position: "absolute", top: "25%", left: "3%", width: "18cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "0%", right: "1.7%", width: "16cqw", zIndex: 15 }}>
+                    <div style={{ position: "absolute", bottom: "0cqw", right: "1.7%", width: "16cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
 
                     {/* Swirls */}
-                    <div style={{ position: "absolute", top: "5%", left: "11%", width: "15cqw", zIndex: 40 }}>
+                    <div style={{ position: "absolute", top: "4cqw", left: "11%", width: "15cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "5%", left: "8.7%", width: "15cqw", zIndex: 40 }}>
+                    {/* bottom: 5% dari 100vh ≈ top: 95% */}
+                    <div style={{ position: "absolute", top: "calc(100% - 16cqw)", left: "8.7%", width: "15cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl2.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "2%", right: "8.3%", width: "15cqw", zIndex: 40 }}>
@@ -76,7 +76,7 @@ export default function HeroSectionHomepage() {
                     </div>
 
                     {/* Pictures */}
-                    <div style={{ position: "absolute", top: "18%", left: "12%", width: "19cqw", zIndex: 10 }}>
+                    <div style={{ position: "absolute", top: "10cqw", left: "12%", width: "19cqw", zIndex: 10 }}>
                         <Image src="/images/homepage/hero/Picture 1.png" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", bottom: "10%", right: "13%", width: "20cqw", zIndex: 15 }}>
@@ -85,13 +85,13 @@ export default function HeroSectionHomepage() {
                     <div style={{ position: "absolute", bottom: "-15%", left: "22%", width: "21cqw", zIndex: 10 }}>
                         <Image src="/images/homepage/hero/Picture 3.png" alt="" width={386} height={311} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", top: "-5%", left: "0%", width: "14cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "-3cqw", left: "0%", width: "14cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 4.png" alt="" width={240} height={206} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "-10%", right: "0%", width: "18cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 5.png" alt="" width={263} height={165} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", top: "60%", left: "0%", transform: "translateY(-50%)", width: "16cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "32cqw", left: "0%", transform: "translateY(-50%)", width: "16cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 6.png" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", bottom: "-12%", right: "5.2%", width: "15cqw", zIndex: 20 }}>
