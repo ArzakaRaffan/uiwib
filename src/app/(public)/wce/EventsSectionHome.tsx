@@ -94,17 +94,14 @@ export default function EventsSectionHome() {
             </section>
 
             {/* MOBILE */}
-            <section className="block md:hidden relative w-full overflow-hidden" style={{ zIndex: 10, marginTop: "-2.5vw" }}>
-                <div className="relative w-full">
-                    <Image
-                        src="/images/wce/home/mobile/BG-Events-mb.png"
-                        alt=""
-                        width={393}
-                        height={900}
-                        style={{ width: "100%", height: "90svh", display: "block" }}
-                        priority
-                    />
-                </div>
+            <section className="block md:hidden relative w-full" style={{
+                zIndex: 10,
+                marginTop: "-2.5vw",
+                backgroundImage: "url('/images/wce/home/mobile/BG-Events-mb.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "top center",
+                backgroundRepeat: "no-repeat",
+            }}>
 
                 <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
                     style={{ position: "absolute", top: "8%", left: "2%", width: "12vw", height: "auto", zIndex: 0, opacity: 0.9 }} />
@@ -115,7 +112,7 @@ export default function EventsSectionHome() {
                 <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
                     style={{ position: "absolute", bottom: "3%", right: "2%", width: "15vw", height: "auto", zIndex: 0, opacity: 0.8 }} />
 
-                <div className="absolute inset-0 flex flex-col items-center px-4" style={{ paddingTop: "6%" }}>
+                <div className="relative flex flex-col items-center px-4" style={{ paddingTop: "6%", paddingBottom: "6%", zIndex: 10 }}>
                     <p style={{
                         fontFamily: "Times New Roman, serif",
                         fontWeight: 500,
@@ -148,7 +145,7 @@ export default function EventsSectionHome() {
                         flexDirection: "column",
                     }}>
                         {/* Row 1: Pre-Event + Competition */}
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
                             {eventCards.slice(0, 2).map((card, i) => (
                                 <div key={i} style={{ position: "relative" }}>
                                     <Image src={card.src} alt={card.label} width={1250} height={1250}
@@ -156,8 +153,8 @@ export default function EventsSectionHome() {
                                     <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, display: "flex", justifyContent: "center" }}>
                                         <Link href={card.href} style={{
                                             background: card.btnColor, color: "#fff",
-                                            padding: "3px 10px", borderRadius: "20px",
-                                            fontSize: "clamp(5px, 1.7vw, 11px)", fontWeight: 600,
+                                            padding: "5px clamp(10px, 3vw, 14px)", borderRadius: "20px",
+                                            fontSize: "clamp(1px, 1.5vw, 14px)", fontWeight: 600,
                                             textDecoration: "none", whiteSpace: "nowrap",
                                         }}>Learn More</Link>
                                     </div>
@@ -166,7 +163,7 @@ export default function EventsSectionHome() {
                         </div>
 
                         {/* Row 2: Training + Grand Seminar */}
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
                             {eventCards.slice(2, 4).map((card, i) => (
                                 <div key={i} style={{ position: "relative" }}>
                                     <Image src={card.src} alt={card.label} width={1200} height={1200}
@@ -174,8 +171,8 @@ export default function EventsSectionHome() {
                                     <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, display: "flex", justifyContent: "center" }}>
                                         <Link href={card.href} style={{
                                             background: card.btnColor, color: "#fff",
-                                            padding: "3px 10px", borderRadius: "20px",
-                                            fontSize: "clamp(5px, 1.7vw, 11px)", fontWeight: 600,
+                                            padding: "5px clamp(10px, 3vw, 14px)", borderRadius: "20px",
+                                            fontSize: "clamp(1px, 1.5vw, 14px)", fontWeight: 600,
                                             textDecoration: "none", whiteSpace: "nowrap",
                                         }}>Learn More</Link>
                                     </div>

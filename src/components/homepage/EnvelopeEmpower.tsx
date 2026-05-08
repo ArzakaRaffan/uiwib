@@ -46,15 +46,15 @@ export default function EnvelopeEmpower({ isStatic = false, isMobile = false }: 
             className="absolute flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
             style={{
                 top: isMobile ? "clamp(20px, 38vw, 110px)" : "clamp(-170px, -15vw, -100px)",
-                left: isMobile ? "clamp(5px, 1vw, 20px)" : "clamp(20px, 5vw, 120px)"
+                left: isMobile ? "1%" : "clamp(20px, 5vw, 120px)"
             }}
             onMouseEnter={isStatic ? undefined : handleMouseEnter}
             onMouseLeave={isStatic ? undefined : handleMouseLeave}
         >
             <div
                 style={{
-                    width: "clamp(130px, 21vw, 332px)",
-                    height: "clamp(125px, 22.5vw, 415px)",
+                    width: isMobile ? "clamp(90px, 28vw, 120px)" : "clamp(130px, 21vw, 332px)",
+                    height: isMobile ? "clamp(86px, 27vw, 115px)" : "clamp(125px, 22.5vw, 415px)",
                     display: "flex",
                     alignItems: "flex-end",
                 }}

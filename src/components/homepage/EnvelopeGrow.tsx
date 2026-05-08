@@ -37,14 +37,14 @@ export default function EnvelopeGrow({ isStatic = false, isMobile = false }: { i
             className="absolute flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
             style={{
                 top: isMobile ? "clamp(20px, 40vw, 110px)" : "clamp(-170px, -15vw, -100px)",
-                right: isMobile ? "clamp(5px, 1.5vw, 18px)" : "clamp(20px, 5vw, 120px)",
+                right: isMobile ? "1%" : "clamp(20px, 5vw, 120px)",
             }}
             onMouseEnter={isStatic ? undefined : handleMouseEnter}
             onMouseLeave={isStatic ? undefined : handleMouseLeave}
         >
             <div style={{
-                width: "clamp(130px, 21vw, 332px)",
-                height: "clamp(125px, 22.5vw, 415px)",
+                width: isMobile ? "clamp(90px, 28vw, 120px)" : "clamp(130px, 21vw, 332px)",
+                height: isMobile ? "clamp(86px, 27vw, 115px)" : "clamp(125px, 22.5vw, 415px)",
                 display: "flex",
                 alignItems: "flex-end",
             }}>

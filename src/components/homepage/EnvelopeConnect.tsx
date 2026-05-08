@@ -45,8 +45,8 @@ export default function EnvelopeConnect({ isStatic = false, isMobile = false }: 
             onMouseLeave={isStatic ? undefined : handleMouseLeave}
         >
             <div style={{
-                width: "clamp(130px, 21vw, 332px)",
-                height: "clamp(125px, 22.5vw, 415px)",
+                width: isMobile ? "clamp(90px, 28vw, 120px)" : "clamp(130px, 21vw, 332px)",
+                height: isMobile ? "clamp(86px, 27vw, 115px)" : "clamp(125px, 22.5vw, 415px)",
                 display: "flex",
                 alignItems: "flex-end",
             }}>

@@ -36,12 +36,14 @@ export default function TrainingCard({
             padding: "clamp(10px, 1.2vw, 16px)",
             width: "100%",
         }}>
-            <div style={{
-                display: "grid",
-                gridTemplateColumns: "clamp(180px, 40%, 560px) 1fr",
-                gap: "clamp(12px, 2vw, 20px)",
-                alignItems: "start",
-            }}>
+            <div
+                className="flex flex-col md:grid"
+                style={{
+                    gridTemplateColumns: "clamp(180px, 40%, 560px) 1fr",
+                    gap: "clamp(12px, 2vw, 20px)",
+                    alignItems: "start",
+                }}
+            >
                 {/* Kolom kiri: foto + logo */}
                 <div style={{
                     display: "flex",
@@ -74,13 +76,13 @@ export default function TrainingCard({
                             display: "flex",
                             alignItems: "center",
                             gap: "clamp(6px, 2vw, 20px)",
-                            paddingLeft: "10%",
+                            paddingLeft: "7%",
                             paddingTop: "4%",
                         }}>
                             <div style={{
                                 position: "relative",
                                 width: "clamp(36px, 13vw, 220px)",
-                                height: "clamp(36px, 13w, 220px)",
+                                height: "clamp(36px, 13vw, 220px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -88,7 +90,7 @@ export default function TrainingCard({
                                 <Image src={logoSrc} alt="WCE" fill className="object-cover" />
                             </div>
                             <span style={{
-                                fontSize: "clamp(10px, 1vw, 16px)",
+                                fontSize: "clamp(10px, 2vw, 64px)",
                                 color: "#888",
                                 fontWeight: 500,
                             }}>x</span>

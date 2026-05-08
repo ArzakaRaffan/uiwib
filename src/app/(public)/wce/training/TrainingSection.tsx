@@ -29,7 +29,9 @@ export default function TrainingSection() {
     }
 
     return (
-        <div style={{
+        <>
+        {/* DESKTOP */}
+        <div className="hidden md:block" style={{
             overflow: "hidden",
             marginTop: "-6vw",
             position: "relative",
@@ -134,5 +136,69 @@ export default function TrainingSection() {
                 </div>
             </div>
         </div>
+
+        {/* MOBILE */}
+        <div className="block md:hidden relative w-full" style={{ marginTop: "-3vw" }}>
+            <div className="absolute inset-0">
+                <Image src="/images/wce/training/BG-Yellow-Training.png" alt="" fill
+                    style={{ objectFit: "cover", objectPosition: "top" }} />
+            </div>
+            <div className="relative z-10 flex flex-col items-center px-4" style={{ paddingTop: "8%", paddingBottom: "8%" }}>
+                <p style={{
+                    fontFamily: "TimesNewRoman, serif",
+                    fontWeight: 500,
+                    fontSize: "clamp(1rem, 5vw, 1.8rem)",
+                    color: "#FFA94F",
+                    lineHeight: 1.4,
+                    textAlign: "center",
+                    marginBottom: "16px",
+                }}>
+                    Skill-Up With Us!
+                </p>
+                <div style={{
+                    border: "1.5px solid #F5D96B",
+                    borderRadius: "16px",
+                    padding: "16px",
+                    width: "100%",
+                    backgroundImage: `repeating-linear-gradient(to right, #F5D96B 0px, #F5D96B 1.5px, transparent 1.5px, transparent calc(100% / 6))`,
+                    backgroundSize: "100% 100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
+                }}>
+                    <TrainingCard
+                        open={openStates[0]}
+                        onToggle={() => toggle(0)}
+                        photoSrc="/images/wce/training/Photo1.png"
+                        logoSrc="/images/wce/training/Logo WCE.png"
+                        companySrc="/images/wce/training/TBA.png"
+                        title="External Training"
+                        timeline="TBA"
+                        place="TBA"
+                        shortDesc="External Training is an exclusive event held under Weekend Career Expo 2025, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
+                        fullDesc={[
+                            "The upcoming External Training will be conducted in collaboration with various companies. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.",
+                            "Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.",
+                        ]}
+                    />
+                    <TrainingCard
+                        open={openStates[1]}
+                        onToggle={() => toggle(1)}
+                        photoSrc="/images/wce/training/Photo2.png"
+                        logoSrc="/images/wce/training/Logo WCE.png"
+                        companySrc="/images/wce/training/TBA.png"
+                        title="Internal Training"
+                        timeline="TBA"
+                        place="TBA"
+                        shortDesc="Internal Training is an exclusive program under Weekend Career Expo 2026, intended for the top five finalist teams of the Essay Competition and Mini Case Competition. The program features a series of interactive sessions guided by experienced mentors."
+                        fullDesc={[
+                            "Designed to enrich participants with deeper insights and professional perspectives relevant to their competition journey. The topics are designed to be flexible and adaptive to the needs of each team, ensuring a more tailored and meaningful learning experience for all participants.",
+                            "Through Internal Training, each finalist team will receive focused guidance to strengthen their way of thinking, improve how they develop ideas, and communicate them more clearly.",
+                        ]}
+                    />
+                </div>
+            </div>
+        </div>
+        </>
     )
 }
