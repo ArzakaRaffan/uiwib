@@ -45,10 +45,10 @@ export default function HeroSectionHomepage() {
                     </div>
 
                     {/* Dots */}
-                    <div style={{ position: "absolute", top: "25%", left: "3%", width: "18cqw", zIndex: 15 }}>
+                    <div style={{ position: "absolute", top: "13cqw", left: "3%", width: "18cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "0cqw", right: "1.7%", width: "16cqw", zIndex: 15 }}>
+                    <div style={{ position: "absolute", top: "30cqw", right: "2%", width: "16cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
 
@@ -56,22 +56,21 @@ export default function HeroSectionHomepage() {
                     <div style={{ position: "absolute", top: "4cqw", left: "11%", width: "15cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    {/* bottom: 5% dari 100vh ≈ top: 95% */}
-                    <div style={{ position: "absolute", top: "calc(100% - 16cqw)", left: "8.7%", width: "15cqw", zIndex: 40 }}>
+                    <div style={{ position: "absolute", top: "40cqw", left: "8.7%", width: "15cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl2.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", top: "2%", right: "8.3%", width: "15cqw", zIndex: 40 }}>
+                    <div style={{ position: "absolute", top: "1.1cqw", right: "8.3%", width: "15cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl3.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "7%", right: "7%", width: "17cqw", zIndex: 40 }}>
+                    <div style={{ position: "absolute", top: "37cqw", right: "8%", width: "17cqw", zIndex: 40 }}>
                         <Image src="/images/homepage/hero/Swirl4.png" alt="" width={295} height={197} style={{ width: "100%", height: "auto" }} />
                     </div>
 
                     {/* Glow */}
-                    <div style={{ position: "absolute", top: "15%", left: "18%", width: "18cqw", zIndex: 15 }}>
+                    <div style={{ position: "absolute", top: "10cqw", left: "18%", width: "18cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Glow.png" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "17%", right: "18%", width: "18cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "27cqw", right: "18%", width: "18cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Glow.png" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
                     </div>
 
@@ -79,25 +78,25 @@ export default function HeroSectionHomepage() {
                     <div style={{ position: "absolute", top: "10cqw", left: "12%", width: "19cqw", zIndex: 10 }}>
                         <Image src="/images/homepage/hero/Picture 1.png" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "10%", right: "13%", width: "20cqw", zIndex: 15 }}>
+                    <div style={{ position: "absolute", top: "28cqw", right: "13%", width: "20cqw", zIndex: 15 }}>
                         <Image src="/images/homepage/hero/Picture 2.png" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "-15%", left: "22%", width: "21cqw", zIndex: 10 }}>
+                    <div style={{ position: "absolute", top: "45cqw", left: "22%", width: "21cqw", zIndex: 10 }}>
                         <Image src="/images/homepage/hero/Picture 3.png" alt="" width={386} height={311} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "-3cqw", left: "0%", width: "14cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 4.png" alt="" width={240} height={206} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", top: "-10%", right: "0%", width: "18cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "-5cqw", right: "0%", width: "18cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 5.png" alt="" width={263} height={165} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "32cqw", left: "0%", transform: "translateY(-50%)", width: "16cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 6.png" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", bottom: "-12%", right: "5.2%", width: "15cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "49.5cqw", right: "5.2%", width: "17cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 7.png" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
                     </div>
-                    <div style={{ position: "absolute", top: "27%", right: "0%", width: "21cqw", zIndex: 20 }}>
+                    <div style={{ position: "absolute", top: "15cqw", right: "0%", width: "21cqw", zIndex: 20 }}>
                         <Image src="/images/homepage/hero/Picture 8.png" alt="" width={385} height={298} style={{ width: "100%", height: "auto" }} />
                     </div>
                 </div>

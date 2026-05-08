@@ -45,8 +45,8 @@ export default function EnvelopeEmpower({ isStatic = false, isMobile = false }: 
             type="button"
             className="absolute flex flex-col items-center bg-transparent border-none cursor-pointer p-0"
             style={{
-                top: isMobile ? "clamp(20px, 38vw, 110px)" : "clamp(-170px, -15vw, -100px)",
-                left: isMobile ? "1%" : "clamp(20px, 5vw, 120px)"
+                top: isMobile ? "clamp(20px, 38vw, 110px)" : "-13%",
+                left: isMobile ? "1%" : "7%"
             }}
             onMouseEnter={isStatic ? undefined : handleMouseEnter}
             onMouseLeave={isStatic ? undefined : handleMouseLeave}

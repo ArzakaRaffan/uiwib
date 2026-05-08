@@ -8,7 +8,7 @@ export default function TaglineSection() {
         <section id="tagline" className="relative" style={{ backgroundColor: "#f0d060" }}>
 
             {/* Flower Border */}
-            <div className="absolute top-0 left-0 right-0 z-[40]" style={{ transform: "translateY(-50%)" }}>
+            <div className="hidden md:block absolute top-0 left-0 right-0 z-[40]" style={{ transform: "translateY(-50%)" }}>
                 <Image
                     src="/images/homepage/hero/Flower Border.png"
                     alt=""
@@ -21,24 +21,35 @@ export default function TaglineSection() {
             {/* ═══════════════════════════════════════
                 DESKTOP (md ke atas)
             ═══════════════════════════════════════ */}
-            <div className="hidden md:block">
+            <div className="hidden md:block" style={{ containerType: "inline-size" }}>
 
                 {/* 1. Blue Background + Tagline */}
-                <div className="relative w-full pt-4">
+                <div className="relative w-full" style={{
+                    containerType: "inline-size",
+                    aspectRatio: "1440/500"  // sesuai dimensi asli gambar
+                }}>
                     <Image
                         src="/images/homepage/tagline/Blue-Background.png"
                         alt=""
-                        width={1440}
-                        height={400}
-                        style={{ width: "100%", height: "auto" }}
+                        fill
+                        style={{ objectFit: "cover" }}
                         className="block"
                     />
-                    <div className="absolute top-[30%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                    <div style={{
+                        position: "absolute",
+                        top: "10cqw",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        zIndex: 25,
+                        width: "100%",
+                        padding: "0 1rem",
+                        textAlign: "center",
+                    }}>
                         <p style={{
                             fontFamily: "TimesNewRoman, serif",
                             fontStyle: "italic",
                             fontWeight: 300,
-                            fontSize: "clamp(1.2rem, 2.3cqw, 3.5rem)",
+                            fontSize: "clamp(1.2rem, 2.5cqw, 5rem)",
                             color: "white",
                             lineHeight: 1.4,
                             textShadow: "0 2px 8px rgba(0,0,0,0.15)",
@@ -55,13 +66,15 @@ export default function TaglineSection() {
                 </div>
 
                 {/* 2. Pink Background + Envelopes + WCE */}
-                <div className="relative w-full">
+                <div className="relative w-full" style={{
+                    containerType: "inline-size",
+                    aspectRatio: "1440/1563"
+                }}>
                     <Image
                         src="/images/homepage/tagline/Pink-Background.png"
                         alt=""
-                        width={1440}
-                        height={500}
-                        style={{ width: "100%", height: "auto" }}
+                        fill
+                        style={{ objectFit: "cover" }}
                         className="block"
                     />
                     <EnvelopeEmpower />
@@ -69,18 +82,18 @@ export default function TaglineSection() {
                     <EnvelopeGrow />
 
                     {/* WCE Logo */}
-                    <div className="absolute top-[20%] left-1/2 -translate-x-1/2 z-[25]">
+                    <div style={{ position: "absolute", top: "20cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25 }}>
                         <Image
                             src="/images/homepage/tagline/WCE Logo.png"
                             alt="WCE Logo"
                             width={188}
                             height={198}
-                            style={{ width: "clamp(60px, 15vw, 188px)", height: "auto" }}
+                            style={{ width: "clamp(60px, 13cqw, 188px)", height: "auto" }}
                         />
                     </div>
 
                     {/* WCE Explanation */}
-                    <div className="absolute top-[37%] left-1/2 -translate-x-1/2 z-[25] w-full px-4 text-center">
+                    <div style={{ position: "absolute", top: "37cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25, width: "100%", padding: "0 1rem", textAlign: "center" }}>
                         <p style={{
                             fontFamily: "TimesNewRoman, serif",
                             fontStyle: "italic",
@@ -92,23 +105,16 @@ export default function TaglineSection() {
                             textAlign: "center",
                             letterSpacing: "-0.07em",
                         }}>
-                            <span style={{
-                                fontFamily: "Amoresa, serif",
-                                fontStyle: "normal",
-                                marginBottom: "1%",
-                                position: "relative",
-                                top: "-0.1em"  // naik dikit, sesuaikan nilainya
-                            }}>W</span>
+                            <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal", position: "relative", top: "-0.1em" }}>W</span>
                             {"eekend Career Expo"}
                         </p>
                     </div>
 
-                    <div className="absolute top-[47%] left-1/2 -translate-x-1/2 z-[25] w-full flex flex-col items-center px-4 text-center">
+                    <div style={{ position: "absolute", top: "50cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25, width: "100%", display: "flex", flexDirection: "column", alignItems: "center", padding: "0 1rem", textAlign: "center" }}>
                         <p style={{
                             fontFamily: "TTCommons, sans-serif",
-                            fontStyle: "normal",
                             fontWeight: 500,
-                            fontSize: "clamp(1.5rem,1.5cqw, 4rem)",
+                            fontSize: "clamp(1.5rem, 1.5cqw, 4rem)",
                             color: "#2555B7",
                             lineHeight: 1.4,
                             textShadow: "0 2px 8px rgba(0,0,0,0.15)",
@@ -117,30 +123,27 @@ export default function TaglineSection() {
                             <br />
                             {"graduates and students to the professional fields through various informational sessions."}
                         </p>
-                        <a
-                            href="/wce/"
-                            style={{
-                                fontFamily: "TTCommons, sans-serif",
-                                fontSize: "clamp(1rem, 2cqw, 5rem)",
-                                fontWeight: 600,
-                                color: "#CF388E",
-                                textDecoration: "underline",
-                                textAlign: "center",
-                                marginTop: "2rem",
-                            }}
-                        >
+                        <a href="/wce/" style={{
+                            fontFamily: "TTCommons, sans-serif",
+                            fontSize: "clamp(1rem, 2cqw, 5rem)",
+                            fontWeight: 600,
+                            color: "#CF388E",
+                            textDecoration: "underline",
+                            textAlign: "center",
+                            marginTop: "2rem",
+                        }}>
                             Learn More
                         </a>
                     </div>
 
                     {/* Calendar */}
-                    <div className="absolute bottom-[3%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
+                    <div style={{ position: "absolute", bottom: "1.5cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25, width: "100%", display: "flex", justifyContent: "center", padding: "0 1rem" }}>
                         <Image
                             src="/images/homepage/tagline/Calendar WCE.png"
                             alt="WCE Calendar"
                             width={1360}
                             height={679}
-                            style={{ width: "clamp(280px, 85vw, 1360px)", height: "auto" }}
+                            style={{ width: "clamp(280px, 85cqw, 1360px)", height: "auto" }}
                         />
                     </div>
                 </div>
