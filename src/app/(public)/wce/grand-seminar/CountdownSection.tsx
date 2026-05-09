@@ -35,7 +35,7 @@ export default function CountDownGrandSeminar() {
     ];
 
     return (
-        <div style={{ position: "absolute", top: "-12%", left: "50%", transform: "translateX(-50%)", width: "70cqw", zIndex: 50 }}>
+        <div style={{ position: "absolute", top: "-12%", left: "50%", transform: "translateX(-50%)", width: "70cqw", zIndex: 40 }}>
             <div style={{ position: "relative" }}>
                 <Image src="/images/wce/grand-seminar/CountdownBackground.png" alt="" width={791} height={708}
                     style={{ width: "100%", height: "auto" }} className="drop-shadow-2xl" priority />

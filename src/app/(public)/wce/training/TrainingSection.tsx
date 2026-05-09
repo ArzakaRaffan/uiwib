@@ -111,7 +111,7 @@ export default function TrainingSection() {
                                 title="External Training"
                                 timeline="TBA"
                                 place="TBA"
-                                shortDesc="External Training is an exclusive event held under Weekend Career Expo 2025, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
+                                shortDesc="External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
                                 fullDesc={[
                                     "The upcoming External Training will be conducted in collaboration with various companies. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.",
                                     "Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.",
@@ -190,7 +190,7 @@ export default function TrainingSection() {
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 4px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
-                                External Training is an exclusive event held under Weekend Career Expo 2025, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.
+                                External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.
                             </p>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
                                 Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.
