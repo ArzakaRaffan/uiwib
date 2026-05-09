@@ -112,85 +112,50 @@ export default function VisionMissionSection() {
             </section>
 
             {/* ── MOBILE ── */}
-            <section className="block md:hidden relative w-full overflow-hidden min-h-svh">
-                {/* Background */}
+            <section className="block md:hidden relative w-full overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/about-us/visionmission/VisionMission.png"
-                        alt="" fill sizes="100vw"
-                        className="object-cover object-center"
-                        priority
-                    />
+                    <Image src="/images/about-us/mobile/BG-Blue-VisMis-mb.png"
+                        alt="" fill sizes="100vw" className="object-cover object-top" priority />
                 </div>
-                <div className="absolute inset-0 z-0 bg-black/10" />
 
-                {/* Content */}
-                <div className="relative z-10 flex flex-col items-center justify-center min-h-svh px-5 py-16 gap-6">
+                <div className="relative z-10 flex flex-col items-center px-5 py-4 gap-8">
                     {/* Title */}
                     <Image
                         src="/images/about-us/visionmission/TitleVisionMission.png"
                         alt="Vision & Mission"
-                        width={600}
-                        height={100}
-                        style={{ width: "clamp(200px, 70vw, 400px)", height: "auto" }}
+                        width={600} height={100}
+                        style={{ width: "clamp(200px, 80vw, 400px)", height: "auto" }}
                     />
 
-                    {/* Accordion */}
-                    <div className="flex flex-col gap-3 w-full">
-                        {accordionItems.map((item, index) => {
-                            const isOpen = openIndex === index;
-                            return (
-                                <div
-                                    key={item.title}
-                                    className="rounded-2xl overflow-hidden transition-all duration-300"
-                                    style={{
-                                        background: isOpen ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.12)",
-                                        backdropFilter: "blur(12px)",
-                                        border: isOpen ? "1.5px solid rgba(255,255,255,0.6)" : "1.5px solid rgba(255,255,255,0.25)",
-                                        boxShadow: isOpen ? "0 8px 32px rgba(255,255,255,0.1)" : "none",
-                                    }}
-                                >
-                                    <button
-                                        type="button"
-                                        className="w-full flex items-center justify-between px-5 py-4 text-white font-bold cursor-pointer bg-transparent border-none gap-3"
-                                        style={{ fontSize: "clamp(1rem, 4.5vw, 1.3rem)" }}
-                                        onClick={() => setOpenIndex(isOpen ? null : index)}
-                                    >
-                                        <span className="tracking-wide">{item.title}</span>
-                                        <span
-                                            className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-300 flex-shrink-0"
-                                            style={{
-                                                background: isOpen ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.15)",
-                                                transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            ↓
-                                        </span>
-                                    </button>
-
-                                    <div style={{
-                                        height: isOpen ? "1px" : "0px",
-                                        background: "rgba(255,255,255,0.3)",
-                                        transition: "height 0.3s ease",
-                                        margin: "0 1.25rem",
-                                    }} />
-
-                                    <div style={{
-                                        maxHeight: isOpen ? "600px" : "0px",
-                                        overflow: "hidden",
-                                        transition: "max-height 0.4s ease",
-                                    }}>
-                                        <p
-                                            className="px-5 py-4 text-white/90 leading-relaxed text-center"
-                                            style={{ fontSize: "clamp(0.8rem, 3.5vw, 0.95rem)" }}
-                                        >
-                                            {item.content}
-                                        </p>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                    {/* Cards — langsung terbuka semua */}
+                    <div className="flex flex-col gap-4 w-full" style={{marginTop: "-2rem"}}>
+                        {accordionItems.map((item) => (
+                            <div key={item.title} className="overflow-hidden" style={{
+                                background: "rgba(255,255,255,0.2)",
+                                backdropFilter: "blur(12px)",
+                                border: "1.5px solid rgba(255,255,255,0.5)",
+                            }}>
+                                <p className="text-white font-bold text-center" style={{
+                                    fontSize: "clamp(1rem, 5vw, 1.3rem)",
+                                    padding: "2% 5% 2%",
+                                    fontFamily: "Times New Roman, serif",
+                                    fontWeight: 300,
+                                    letterSpacing: "-0.05em",
+                                }}>
+                                    {item.title}
+                                </p>
+                                <p className="text-white/90 leading-relaxed text-justify" style={{
+                                    fontSize: "clamp(0.5rem, 3vw, 0.95rem)",
+                                    padding: "1% 5% 4%",
+                                    fontFamily: "TTCommons, serif",
+                                    fontWeight: 300,
+                                    letterSpacing: "-0.05em",
+                                    lineHeight: "1.2"
+                                }}>
+                                    {item.content}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
