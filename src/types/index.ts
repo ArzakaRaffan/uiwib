@@ -43,6 +43,25 @@ export interface JobExpo {
   updatedAt: Date;
 }
 
+export interface MediaPartner {
+  id: string;
+  name: string;
+  logoUrl: string;
+  row: number;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CompanyPartner {
+  id: string;
+  name: string;
+  logoUrl: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export type ApiResponse<T> =
   | { success: true; data: T }
   | { success: false; error: string };

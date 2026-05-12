@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
     if (res?.error) {
       setError("Invalid email or password.");
     } else {
-      router.push("/admin/dashboard");
+      router.push("/qz7kx4m9/dashboard");
     }
   }
 
@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@uiwib.com"
+              placeholder="Email"
               className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
               onKeyDown={(e) => e.key === "Enter" && handleLogin()}
             />

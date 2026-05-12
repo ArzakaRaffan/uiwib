@@ -58,3 +58,22 @@ model Admin {
   name      String
   createdAt DateTime @default(now())
 }
+
+model MediaPartner {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String
+  row       Int      // 1 or 2
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CompanyPartner {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma *)",
+      "PowerShell(Rename-Item \"c:\\\\Users\\\\arzak\\\\Desktop\\\\Codes\\\\uiwib\\\\src\\\\app\\\\admin\" \"qz7kx4m9\")",
+      "Bash(npx tsx *)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\arzak\\\\Desktop\\\\Codes\\\\uiwib\\\\scripts\\\\update-admin-creds.ts\")"
+    ]
+  }
+}

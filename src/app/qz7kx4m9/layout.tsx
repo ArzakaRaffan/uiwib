@@ -7,10 +7,11 @@ import { signOut, useSession } from "next-auth/react";
 import { SessionProvider } from "next-auth/react";
 
 const navItems = [
-  { href: "/admin/dashboard", label: "Dashboard", icon: "🏠" },
-  { href: "/admin/competition", label: "Competition", icon: "🏆" },
-  { href: "/admin/training", label: "Training", icon: "📚" },
-  { href: "/admin/job-expo", label: "Job Expo", icon: "💼" },
+  { href: "/qz7kx4m9/dashboard", label: "Dashboard", icon: "🏠" },
+  { href: "/qz7kx4m9/competition", label: "Competition", icon: "🏆" },
+  { href: "/qz7kx4m9/training", label: "Training", icon: "📚" },
+  { href: "/qz7kx4m9/job-expo", label: "Job Expo", icon: "💼" },
+  { href: "/qz7kx4m9/partners", label: "Partners", icon: "🤝" },
 ];
 
 function AdminSidebar() {
@@ -18,7 +19,7 @@ function AdminSidebar() {
   const { data: session } = useSession();
 
   // Don't show sidebar on login page
-  if (pathname === "/admin") return null;
+  if (pathname === "/qz7kx4m9") return null;
 
   return (
     <aside className="fixed top-0 left-0 h-screen w-60 bg-white border-r border-neutral-100 flex flex-col z-40 shadow-sm">
@@ -61,7 +62,7 @@ function AdminSidebar() {
           </div>
         )}
         <button
-          onClick={() => signOut({ callbackUrl: "/admin" })}
+          onClick={() => signOut({ callbackUrl: "/qz7kx4m9" })}
           className="admin-nav-link w-full text-red-500 hover:bg-red-50 hover:text-red-600"
         >
           <span>🚪</span>

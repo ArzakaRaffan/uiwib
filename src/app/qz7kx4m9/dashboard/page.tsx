@@ -1,24 +1,29 @@
-// src/app/admin/dashboard/page.tsx
+// src/app/qz7kx4m9/dashboard/page.tsx
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export default async function AdminDashboard() {
-  const [competitions, trainings, jobs] = await Promise.all([
+  const [competitions, trainings, jobs, mediaPartners, companyPartners] = await Promise.all([
     prisma.competition.count({ where: { isActive: true } }),
     prisma.training.count({ where: { isActive: true } }),
     prisma.jobExpo.count({ where: { isActive: true } }),
+    prisma.mediaPartner.count({ where: { isActive: true } }),
+    prisma.companyPartner.count({ where: { isActive: true } }),
   ]);
 
   const stats = [
-    { label: "Active Competitions", value: competitions, icon: "🏆", href: "/admin/competition", color: "bg-amber-50 border-amber-200 text-amber-700" },
-    { label: "Active Trainings", value: trainings, icon: "📚", href: "/admin/training", color: "bg-purple-50 border-purple-200 text-purple-700" },
-    { label: "Active Job Listings", value: jobs, icon: "💼", href: "/admin/job-expo", color: "bg-blue-50 border-blue-200 text-blue-700" },
+    { label: "Active Competitions", value: competitions, icon: "🏆", href: "/qz7kx4m9/competition", color: "bg-amber-50 border-amber-200 text-amber-700" },
+    { label: "Active Trainings", value: trainings, icon: "📚", href: "/qz7kx4m9/training", color: "bg-purple-50 border-purple-200 text-purple-700" },
+    { label: "Active Job Listings", value: jobs, icon: "💼", href: "/qz7kx4m9/job-expo", color: "bg-blue-50 border-blue-200 text-blue-700" },
+    { label: "Media Partners", value: mediaPartners, icon: "📰", href: "/qz7kx4m9/partners", color: "bg-green-50 border-green-200 text-green-700" },
+    { label: "Company Partners", value: companyPartners, icon: "🏢", href: "/qz7kx4m9/partners", color: "bg-rose-50 border-rose-200 text-rose-700" },
   ];
 
   const quickLinks = [
-    { label: "Add Competition", href: "/admin/competition", icon: "➕" },
-    { label: "Add Training", href: "/admin/training", icon: "➕" },
-    { label: "Add Job Listing", href: "/admin/job-expo", icon: "➕" },
+    { label: "Add Competition", href: "/qz7kx4m9/competition", icon: "➕" },
+    { label: "Add Training", href: "/qz7kx4m9/training", icon: "➕" },
+    { label: "Add Job Listing", href: "/qz7kx4m9/job-expo", icon: "➕" },
+    { label: "Manage Partners", href: "/qz7kx4m9/partners", icon: "🤝" },
     { label: "View Website", href: "/", icon: "🌐", external: true },
   ];
 
@@ -36,7 +41,7 @@ export default async function AdminDashboard() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5 mb-8">
           {stats.map((stat) => (
             <Link
               key={stat.label}
@@ -58,7 +63,7 @@ export default async function AdminDashboard() {
           <h2 className="font-display font-bold text-lg mb-4" style={{ color: "var(--color-navy)" }}>
             Quick Actions
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {quickLinks.map((link) => (
               <Link
                 key={link.label}

@@ -1,28 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { MediaPartner } from "@/types";
 
 const GAP = 60;
 const ITEM_W_DESKTOP = 180;
 const ITEM_W_MOBILE = 80;
 const GAP_MOBILE = 20;
-
-export const mediaPartnersRow1 = [
-    "/images/media-partners/DWDG Binus.png",
-    "/images/media-partners/Impactional.png",
-    "/images/media-partners/Ristek.png",
-    "/images/media-partners/Senandika.png",
-    "/images/media-partners/Atma Jaya.png",
-];
-export const mediaPartnersRow2 = [
-    "/images/media-partners/Growth Skill.png",
-    "/images/media-partners/Overcome.png",
-    "/images/media-partners/Teknik Industri.png",
-    "/images/media-partners/GConsulting.png",
-    "/images/media-partners/YouthFounders.png",
-    "/images/media-partners/Hima Bisdig.png",
-    "/images/media-partners/Hellocation.png",
-];
 
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
@@ -69,11 +53,33 @@ function MarqueeRow({ logos, duration, isMobile }: { logos: string[]; duration: 
 
 export default function MediaPartnersSection() {
     const isMobile = useIsMobile();
+    const [row1, setRow1] = useState<string[]>([]);
+    const [row2, setRow2] = useState<string[]>([]);
+
+    useEffect(() => {
+        fetch("/api/media-partners")
+            .then((r) => r.json())
+            .then((d) => {
+                if (!d.success) return;
+                const partners: MediaPartner[] = d.data;
+                setRow1(partners.filter((p) => p.row === 1).map((p) => p.logoUrl));
+                setRow2(partners.filter((p) => p.row === 2).map((p) => p.logoUrl));
+            });
+    }, []);
+
+    if (row1.length === 0 && row2.length === 0) return null;
+
     return (
         <div style={{ width: "100%" }}>
-            <MarqueeRow logos={mediaPartnersRow1} duration={isMobile ? 13 : 5} isMobile={isMobile} />
-            <div style={{ marginTop: isMobile ? "-35px" : "16px" }} />
-            <MarqueeRow logos={mediaPartnersRow2} duration={isMobile ? 10 : 4} isMobile={isMobile} />
+            {row1.length > 0 && (
+                <MarqueeRow logos={row1} duration={isMobile ? 13 : 5} isMobile={isMobile} />
+            )}
+            {row1.length > 0 && row2.length > 0 && (
+                <div style={{ marginTop: isMobile ? "-35px" : "16px" }} />
+            )}
+            {row2.length > 0 && (
+                <MarqueeRow logos={row2} duration={isMobile ? 10 : 4} isMobile={isMobile} />
+            )}
         </div>
     );
 }

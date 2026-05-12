@@ -22,7 +22,7 @@ const BUCKET = process.env.NEXT_PUBLIC_STORAGE_BUCKET ?? "uiwib-assets";
  */
 export async function uploadImage(
   file: File | Blob,
-  folder: "competition" | "training" | "job-expo" | "misc",
+  folder: "competition" | "training" | "job-expo" | "partners" | "misc",
   fileName: string
 ): Promise<string> {
   const path = `${folder}/${Date.now()}-${fileName}`;
