@@ -2,13 +2,13 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
 });
-
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
@@ -32,7 +32,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-sans antialiased bg-white text-neutral-900">{children}</body>
+      <body className="font-sans antialiased bg-white text-neutral-900">
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
