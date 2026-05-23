@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Job Expo | WCE | UIWIB",
+};
 
 export default function HeroSectionHome() {
   return (

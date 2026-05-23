@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import GetToKnowSection from "./GetToKnowSection";
+
+export const metadata: Metadata = {
+  title: "About Us | UIWIB",
+};
 import VisionMissionSection from "./VisionMissionSection";
 import CyclingPhotoMobile from "@/components/about-us/CyclingPhotoMobile";
 

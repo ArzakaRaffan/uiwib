@@ -9,7 +9,7 @@ const BG_H_FULL = 8092
 const BG_H_CLOSED = 4000
 const BG_H_OPEN_CARD1_ONLY = 4500
 const BG_H_OPEN_CARD2_ONLY = 4500  // adjust ini
-const BG_H_OPEN_BOTH = 5600
+const BG_H_OPEN_BOTH = 5225
 
 function getClipRatio(openStates: boolean[]) {
     const [open1, open2] = openStates
