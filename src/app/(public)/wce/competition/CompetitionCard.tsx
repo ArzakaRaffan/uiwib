@@ -51,13 +51,15 @@ export default function CompetitionCard({
                         width: "100%",
                         borderRadius: "clamp(1px, 2vw, 12px)",
                         overflow: "hidden",
+                        aspectRatio: "16/9",
+                        position: "relative",
+                        marginTop: "clamp(8px, 2vw, 28px)",
                     }}>
                         <Image
                             src={photoSrc}
                             alt={title}
-                            width={598}
-                            height={338}
-                            style={{ width: "100%", height: "auto", display: "block" }}
+                            fill
+                            style={{ objectFit: "cover" }}
                         />
                     </div>
 

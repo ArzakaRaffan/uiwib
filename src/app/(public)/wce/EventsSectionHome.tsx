@@ -153,7 +153,7 @@ export default function EventsSectionHome() {
                                     <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, display: "flex", justifyContent: "center" }}>
                                         <Link href={card.href} style={{
                                             background: card.btnColor, color: "#fff",
-                                            padding: "5px clamp(10px, 3vw, 14px)", borderRadius: "20px",
+                                            padding: "5px clamp(10px, 4vw, 14px)", borderRadius: "20px",
                                             fontSize: "clamp(1px, 1.5vw, 14px)", fontWeight: 600,
                                             textDecoration: "none", whiteSpace: "nowrap",
                                         }}>Learn More</Link>

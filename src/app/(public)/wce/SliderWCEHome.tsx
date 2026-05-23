@@ -96,14 +96,14 @@ export default function SliderWCEHome({ height = "clamp(300px, 35vw, 500px)" }: 
                                 draggable={false}
                             />
                             {/* Button overlay */}
-                            <div className="absolute bottom-[10%] left-0 right-0 flex justify-center">
+                            <div className="absolute bottom-[13%] left-0 right-0 flex justify-center">
                                 <Link
                                     href={slide.href}
                                     onClick={(e) => isDragging.current && e.preventDefault()}
                                     style={{
                                         background: slide.btnColor,
                                         color: "#fff",
-                                        padding: "clamp(4px, 0.5vw, 8px) clamp(12px, 1.5vw, 24px)",
+                                        padding: "clamp(4px, 0.7vw, 10px) clamp(12px, 1.5vw, 24px)",
                                         borderRadius: "20px",
                                         fontSize: "clamp(10px, 1vw, 14px)",
                                         fontWeight: 600,

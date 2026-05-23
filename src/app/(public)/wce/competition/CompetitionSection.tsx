@@ -6,9 +6,9 @@ import CompetitionCard from "./CompetitionCard"
 const BG_W = 5750
 const BG_H_FULL = 8092
 
-const BG_H_CLOSED = 4300
-const BG_H_OPEN_CARD1_ONLY = 4700
-const BG_H_OPEN_CARD2_ONLY = 4700  // adjust ini
+const BG_H_CLOSED = 4000
+const BG_H_OPEN_CARD1_ONLY = 4500
+const BG_H_OPEN_CARD2_ONLY = 4500  // adjust ini
 const BG_H_OPEN_BOTH = 5600
 
 function getClipRatio(openStates: boolean[]) {
@@ -109,20 +109,20 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/competition/Photo1.png"
                                 title="Business Case Competition"
-                                timeline="25 May - 25 June"
+                                timeline="Monday, 1 June–Saturday, 25 July 2026"
                                 place="TBA"
-                                shortDesc={`The Business Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme "The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing.`}
-                                fullDesc="Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
+                                shortDesc={`The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to`}
+                                fullDesc="solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality."
                             />
                             <CompetitionCard
                                 open={openStates[1]}
                                 onToggle={() => toggle(1)}
                                 photoSrc="/images/wce/competition/Photo2.png"
                                 title="Essay Competition"
-                                timeline="25 May - 25 June"
+                                timeline="Monday, 1 June–Saturday, 25 July 2026"
                                 place="TBA"
-                                shortDesc={`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme "The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing.`}
-                                fullDesc="Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
+                                shortDesc={`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme`}
+                                fullDesc="“The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
                             />
                         </div>
                     </div>
@@ -164,17 +164,16 @@ export default function CompetitionSection() {
                         <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
                             {/* Foto kiri + Info kanan */}
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden" }}>
-                                    <Image src="/images/wce/competition/mobile/Photo1-mb.png" alt="Mini Case Competition"
-                                        width={598} height={338}
-                                        style={{ width: "100%", height: "auto", display: "block" }} />
+                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
+                                    <Image src="/images/wce/competition/mobile/Photo1-mb.png" alt="Business Case Competition"
+                                        fill style={{ objectFit: "cover", objectPosition: "center center 50%" }} />
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
                                         Business Case Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> 25 May - 25 June
+                                        <strong>Timeline:</strong> Monday, 1 June–Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
                                         <strong>Place:</strong> TBA
@@ -195,17 +194,16 @@ export default function CompetitionSection() {
                         {/* Card 2 */}
                         <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden" }}>
+                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
                                     <Image src="/images/wce/competition/mobile/Photo2-mb.png" alt="Essay Competition"
-                                        width={598} height={338}
-                                        style={{ width: "100%", height: "auto", display: "block" }} />
+                                        fill style={{ objectFit: "cover" }} />
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
                                         Essay Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> 25 May - 25 June
+                                        <strong>Timeline:</strong> Monday, 1 June–Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
                                         <strong>Place:</strong> TBA
@@ -213,7 +211,8 @@ export default function CompetitionSection() {
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
-                                {`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme “The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`} </p>
+                                {`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme “The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`}
+                            </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
                                     Register Here
