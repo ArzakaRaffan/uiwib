@@ -7,8 +7,8 @@ const BG_W = 5750
 const BG_H_FULL = 8092
 
 const BG_H_CLOSED = 4300
-const BG_H_OPEN_CARD1_ONLY = 5150
-const BG_H_OPEN_CARD2_ONLY = 4800  // adjust ini
+const BG_H_OPEN_CARD1_ONLY = 4700
+const BG_H_OPEN_CARD2_ONLY = 4700  // adjust ini
 const BG_H_OPEN_BOTH = 5600
 
 function getClipRatio(openStates: boolean[]) {
@@ -108,22 +108,21 @@ export default function CompetitionSection() {
                                 open={openStates[0]}
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/competition/Photo1.png"
-                                title="Mini Case Competition"
-                                timeline="TBA"
+                                title="Business Case Competition"
+                                timeline="25 May - 25 June"
                                 place="TBA"
-                                shortDesc="The Mini Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to analyze and solve real-world business problems provided by our case collaborator."
-                                fullDesc="The solutions made will be presented to a panel of esteemed judges and the top five teams will advance to the final round, pitching their solutions in a professional setting. This competition aims to strengthen participants' problem-solving, creativity and innovation, as well as their critical thinking skills. The Mini Case Competition is an ideal place for you to expand your networks and enhance your business acumen. This competition is a great stepping stone for those of you who are keen in business and appreciate challenges."
+                                shortDesc={`The Business Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme "The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing.`}
+                                fullDesc="Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
                             />
                             <CompetitionCard
                                 open={openStates[1]}
                                 onToggle={() => toggle(1)}
                                 photoSrc="/images/wce/competition/Photo2.png"
                                 title="Essay Competition"
-                                timelineScale={0.7}
-                                timeline="TBA"
+                                timeline="25 May - 25 June"
                                 place="TBA"
-                                shortDesc="The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to write essays on themes related to real-world issues."
-                                fullDesc="Through this competition, participants are also able to hone their research, writing, and analytical skills. The Essay Competition is a perfect opportunity for you to showcase your opinions, views, and interpretations of specific topics. Through this competition, you are able to expand your network and advance ideas that can shape the world."
+                                shortDesc={`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme "The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing.`}
+                                fullDesc="Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
                             />
                         </div>
                     </div>
@@ -172,10 +171,10 @@ export default function CompetitionSection() {
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
-                                        Mini Case Competition
+                                        Business Case Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> TBA
+                                        <strong>Timeline:</strong> 25 May - 25 June
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
                                         <strong>Place:</strong> TBA
@@ -184,14 +183,11 @@ export default function CompetitionSection() {
                             </div>
                             {/* Desc */}
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
-                                {"The Mini Case Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to analyze and solve real-world business problems provided by our case collaborator. The solutions made will be presented to a panel of esteemed judges and the top five teams will advance to the final round, pitching their solutions in a professional setting. This competition aims to strengthen participants' problem-solving, creativity and innovation, as well as their critical thinking skills."}
-                                <br/>
-                                <br/>
-                                {"The Mini Case Competition is an ideal place for you to expand your networks and enhance your business acumen."}
+                                {`The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality.`}
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Coming Soon!
+                                    Register Here
                                 </a>
                             </div>
                         </div>
@@ -209,7 +205,7 @@ export default function CompetitionSection() {
                                         Essay Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> TBA
+                                        <strong>Timeline:</strong> 25 May - 25 June
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
                                         <strong>Place:</strong> TBA
@@ -217,14 +213,10 @@ export default function CompetitionSection() {
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
-                                {"The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. This competition allows participants to write essays on themes related to real-world issues. Through this competition, participants are also able to hone their research, writing, and analytical skills."}
-                                <br/>
-                                <br/>
-                                {"The Essay Competition is a perfect opportunity for you to showcase your opinions, views, and interpretations of specific topics. Through this competition, you are able to expand your network and advance ideas that can shape the world."}
-                            </p>
+                                {`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme “The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`} </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Coming Soon!
+                                    Register Here
                                 </a>
                             </div>
                         </div>

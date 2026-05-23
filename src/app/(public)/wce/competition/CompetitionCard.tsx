@@ -161,7 +161,7 @@ export default function CompetitionCard({
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                 }}>
-                    Coming Soon!
+                    Register Here
                 </a>
             </div>
 

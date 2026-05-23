@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-sans antialiased bg-white text-neutral-900">
+      <body className="font-sans antialiased bg-white text-neutral-900" suppressHydrationWarning>
         <GoogleAnalytics />
         {children}
       </body>
