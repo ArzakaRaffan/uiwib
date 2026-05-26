@@ -10,6 +10,7 @@ interface CompetitionCardProps {
     shortDesc: string
     fullDesc: string
     joinHref?: string
+    buttonLabel?: string
     // Controlled dari parent
     open: boolean,
     timelineScale?: number
@@ -25,6 +26,7 @@ export default function CompetitionCard({
     shortDesc,
     fullDesc,
     joinHref = "#",
+    buttonLabel = "Register Here",
     open,
     timelineScale = 1,
     onToggle,
@@ -163,7 +165,7 @@ export default function CompetitionCard({
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                 }}>
-                    Register Here
+                    {buttonLabel}
                 </a>
             </div>
 

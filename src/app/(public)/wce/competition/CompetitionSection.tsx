@@ -109,8 +109,9 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/competition/Photo1.png"
                                 title="Business Case Competition"
-                                timeline="Monday, 1 June–Saturday, 25 July 2026"
+                                timeline="TBA"
                                 place="TBA"
+                                buttonLabel="Coming Soon"
                                 shortDesc={`The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to`}
                                 fullDesc="solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality."
                             />
@@ -173,7 +174,7 @@ export default function CompetitionSection() {
                                         Business Case Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> Monday, 1 June–Saturday, 25 July 2026
+                                        <strong>Timeline:</strong> TBA
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
                                         <strong>Place:</strong> TBA
@@ -186,7 +187,7 @@ export default function CompetitionSection() {
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Register Here
+                                    Coming Soon
                                 </a>
                             </div>
                         </div>
