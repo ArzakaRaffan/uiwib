@@ -122,6 +122,7 @@ export default function CompetitionSection() {
                                 title="Essay Competition"
                                 timeline="Monday, 1 June–Saturday, 25 July 2026"
                                 place="TBA"
+                                buttonLabel="Register Here"
                                 joinHref="https://forms.gle/U3HU53r2xyUjbfFj6"
                                 shortDesc={`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme`}
                                 fullDesc="“The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
@@ -188,7 +189,7 @@ export default function CompetitionSection() {
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Coming Soon
+                                    Register Here
                                 </a>
                             </div>
                         </div>
@@ -216,7 +217,7 @@ export default function CompetitionSection() {
                                 {`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme “The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`}
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
+                                <a href="https://forms.gle/U3HU53r2xyUjbfFj6" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
                                     Register Here
                                 </a>
                             </div>
