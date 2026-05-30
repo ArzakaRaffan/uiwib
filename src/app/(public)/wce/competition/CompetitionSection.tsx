@@ -189,7 +189,7 @@ export default function CompetitionSection() {
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Register Here
+                                    Coming Soon
                                 </a>
                             </div>
                         </div>
