@@ -122,6 +122,7 @@ export default function CompetitionSection() {
                                 title="Essay Competition"
                                 timeline="Monday, 1 June–Saturday, 25 July 2026"
                                 place="TBA"
+                                joinHref="https://forms.gle/U3HU53r2xyUjbfFj6"
                                 shortDesc={`The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme`}
                                 fullDesc="“The Spillover Effect: How Educating One Woman Can Change the Community,” this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change."
                             />
