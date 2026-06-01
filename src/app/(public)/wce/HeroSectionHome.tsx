@@ -67,7 +67,7 @@ export default function HeroSectionHome() {
                         textDecoration: "underline",
                         textUnderlineOffset: "4px",
                     }}>
-                        {"25 May 2026-31 August 2026"}
+                        {"9 May 2026-31 August 2026"}
                     </p>
                 </div>
 
@@ -134,7 +134,7 @@ export default function HeroSectionHome() {
                         textAlign: "center",
                         marginTop: "3%",
                     }}>
-                        {"25 May 2026–31 August 2026"}
+                        {"9 May 2026–31 August 2026"}
                     </p>
 
                     {/* Description */}
