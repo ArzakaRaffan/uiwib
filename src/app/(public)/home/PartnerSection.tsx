@@ -48,7 +48,7 @@ export default function PartnerSection() {
                     </p>
                 </div>
 
-                <div className="absolute z-[25] w-full" style={{ bottom: "10%" }}>
+                <div className="absolute z-[25] w-full" style={{ bottom: "2%" }}>
                     <CompanyPartnersSlider />
                 </div>
             </div>

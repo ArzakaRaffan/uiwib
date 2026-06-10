@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { CompanyPartner } from "@/types";
 
+const GAP = 60;
+const ITEM_W_DESKTOP = 200;
+const ITEM_W_MOBILE = 120;
+const GAP_MOBILE = 24;
+
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -16,38 +21,25 @@ function useIsMobile() {
     return isMobile;
 }
 
-const ITEM_W_MOBILE = 160;
-const ITEM_W_DESKTOP = 340;
-const GAP = 1;
-
-export default function CompanyPartnersSlider() {
-    const isMobile = useIsMobile();
-    const [companies, setCompanies] = useState<CompanyPartner[]>([]);
-
-    useEffect(() => {
-        fetch("/api/company-partners")
-            .then((r) => r.json())
-            .then((d) => { if (d.success) setCompanies(d.data); });
-    }, []);
-
-    if (companies.length === 0) return null;
-
-    const travel = companies.length * ((isMobile ? ITEM_W_MOBILE : ITEM_W_DESKTOP) + GAP);
+function MarqueeRow({ logos, duration, isMobile }: { logos: CompanyPartner[]; duration: number; isMobile: boolean }) {
+    const itemW = isMobile ? ITEM_W_MOBILE : ITEM_W_DESKTOP;
+    const gap = isMobile ? GAP_MOBILE : GAP;
+    const travel = logos.length * (itemW + gap);
 
     return (
         <div style={{ overflow: "hidden", width: "100%" }}>
             <motion.div
-                key={isMobile ? "mobile" : "desktop"}
+                key={`${duration}-${itemW}`}
                 animate={{ x: [0, -travel] }}
-                transition={{ duration: isMobile ? 14 : 5, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+                transition={{ duration, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 style={{ display: "flex", alignItems: "center", width: "max-content", padding: "12px 0" }}
             >
-                {[...companies, ...companies].map((company, i) => (
+                {[...logos, ...logos, ...logos].map((company, i) => (
                     <div key={i} style={{
-                        width: `${isMobile ? ITEM_W_MOBILE : ITEM_W_DESKTOP}px`,
-                        height: isMobile ? "80px" : "120px",
+                        width: `${itemW}px`,
+                        height: isMobile ? "60px" : "90px",
                         flexShrink: 0,
-                        marginRight: `${GAP}px`,
+                        marginRight: `${gap}px`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -57,16 +49,49 @@ export default function CompanyPartnersSlider() {
                             alt={company.name}
                             style={{
                                 maxHeight: isMobile ? "50px" : "70px",
-                                maxWidth: isMobile ? "120px" : "200px",
+                                maxWidth: "100%",
                                 width: "auto",
                                 height: "auto",
-                                objectFit: "contain"
+                                objectFit: "contain",
                             }}
                             draggable={false}
                         />
                     </div>
                 ))}
             </motion.div>
+        </div>
+    );
+}
+
+export default function CompanyPartnersSlider() {
+    const isMobile = useIsMobile();
+    const [row1, setRow1] = useState<CompanyPartner[]>([]);
+    const [row2, setRow2] = useState<CompanyPartner[]>([]);
+
+    useEffect(() => {
+        fetch("/api/company-partners")
+            .then((r) => r.json())
+            .then((d) => {
+                if (!d.success) return;
+                const companies: CompanyPartner[] = d.data;
+                setRow1(companies.filter((c) => c.row === 1));
+                setRow2(companies.filter((c) => c.row === 2));
+            });
+    }, []);
+
+    if (row1.length === 0 && row2.length === 0) return null;
+
+    return (
+        <div style={{ width: "100%" }}>
+            {row1.length > 0 && (
+                <MarqueeRow logos={row1} duration={isMobile ? 40 : 25} isMobile={isMobile} />
+            )}
+            {row1.length > 0 && row2.length > 0 && (
+                <div style={{ marginTop: isMobile ? "-8px" : "8px" }} />
+            )}
+            {row2.length > 0 && (
+                <MarqueeRow logos={row2} duration={isMobile ? 35 : 22} isMobile={isMobile} />
+            )}
         </div>
     );
 }

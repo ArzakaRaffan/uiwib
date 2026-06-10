@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
       data: {
         name: formData.get("name") as string,
         logoUrl,
+        row: parseInt(formData.get("row") as string) || 1,
       },
     });
 

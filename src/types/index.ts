@@ -57,6 +57,7 @@ export interface CompanyPartner {
   id: string;
   name: string;
   logoUrl: string;
+  row: number;
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;

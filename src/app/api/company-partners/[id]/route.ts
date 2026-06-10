@@ -28,6 +28,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       data: {
         name: formData.get("name") as string,
         logoUrl,
+        row: parseInt(formData.get("row") as string) || 1,
       },
     });
 

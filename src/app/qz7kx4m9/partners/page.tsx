@@ -237,31 +237,82 @@ export default function AdminPartnersPage() {
               <h1 className="font-display text-3xl font-bold flex items-center gap-2" style={{ color: "var(--color-navy)" }}>
                 🏢 Company Partners
               </h1>
-              <p className="text-neutral-500 text-sm mt-1">{companyPartners.length} partner total — satu row</p>
+              <p className="text-neutral-500 text-sm mt-1">{companyPartners.length} partner total — tersebar di 2 row</p>
             </div>
-            <button onClick={() => openAdd("company")} className="btn-primary">
-              + Tambah Company Partner
-            </button>
           </div>
 
-          {companyPartners.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-dashed border-neutral-200 p-12 text-center">
-              <div className="text-4xl mb-3">🏢</div>
-              <p className="text-neutral-500 text-sm">Belum ada company partner. Tambahkan yang pertama!</p>
+          {/* Row 1 */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-semibold text-sm text-neutral-600 flex items-center gap-1.5">
+                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold flex items-center justify-center">1</span>
+                Row 1
+                <span className="text-neutral-400 font-normal">({companyPartners.filter((p) => p.row === 1).length} partner)</span>
+              </h2>
+              <button onClick={() => openAdd("company")} className="btn-primary text-xs px-3 py-1.5">
+                + Tambah ke Row 1
+              </button>
             </div>
-          ) : (
-            <div className="flex flex-col gap-3">
-              {companyPartners.map((p) => (
-                <PartnerCard
-                  key={p.id}
-                  name={p.name}
-                  logoUrl={p.logoUrl}
-                  onEdit={() => openEdit("company", p)}
-                  onDelete={() => setDeleteTarget({ id: p.id, type: "company" })}
-                />
-              ))}
+            {companyPartners.filter((p) => p.row === 1).length === 0 ? (
+              <div className="bg-white rounded-2xl border border-dashed border-neutral-200 p-6 text-center text-neutral-400 text-sm">
+                Belum ada company partner di Row 1
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                {companyPartners.filter((p) => p.row === 1).map((p) => (
+                  <PartnerCard
+                    key={p.id}
+                    name={p.name}
+                    logoUrl={p.logoUrl}
+                    badge="Row 1"
+                    onEdit={() => openEdit("company", p)}
+                    onDelete={() => setDeleteTarget({ id: p.id, type: "company" })}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Row 2 */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-semibold text-sm text-neutral-600 flex items-center gap-1.5">
+                <span className="w-5 h-5 rounded-full bg-purple-100 text-purple-700 text-[10px] font-bold flex items-center justify-center">2</span>
+                Row 2
+                <span className="text-neutral-400 font-normal">({companyPartners.filter((p) => p.row === 2).length} partner)</span>
+              </h2>
+              <button
+                onClick={() => {
+                  openAdd("company");
+                  setTimeout(() => {
+                    const sel = formRef.current?.querySelector<HTMLSelectElement>('[name="row"]');
+                    if (sel) sel.value = "2";
+                  }, 50);
+                }}
+                className="btn-primary text-xs px-3 py-1.5"
+              >
+                + Tambah ke Row 2
+              </button>
             </div>
-          )}
+            {companyPartners.filter((p) => p.row === 2).length === 0 ? (
+              <div className="bg-white rounded-2xl border border-dashed border-neutral-200 p-6 text-center text-neutral-400 text-sm">
+                Belum ada company partner di Row 2
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                {companyPartners.filter((p) => p.row === 2).map((p) => (
+                  <PartnerCard
+                    key={p.id}
+                    name={p.name}
+                    logoUrl={p.logoUrl}
+                    badge="Row 2"
+                    onEdit={() => openEdit("company", p)}
+                    onDelete={() => setDeleteTarget({ id: p.id, type: "company" })}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </section>
       </div>
 
@@ -323,8 +374,8 @@ export default function AdminPartnersPage() {
                 )}
               </div>
 
-              {/* Row selector — hanya untuk media partner */}
-              {form.type === "media" && (
+              {/* Row selector — untuk media dan company partner */}
+              {(form.type === "media" || form.type === "company") && (
                 <div>
                   <label className="block text-xs font-semibold text-neutral-600 mb-1.5">
                     Tempatkan di Row <span className="text-red-400">*</span>
