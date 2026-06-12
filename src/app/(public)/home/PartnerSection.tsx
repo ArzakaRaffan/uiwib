@@ -17,7 +17,7 @@ export default function PartnerSection() {
                     className="block"
                 />
                 {/* Judul */}
-                <div className="absolute top-[20%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
                         fontWeight: 700,
@@ -31,10 +31,10 @@ export default function PartnerSection() {
                 </div>
 
                 {/* Marquee — di bawah judul */}
-                <div className="absolute z-[25] w-full" style={{ top: "28%" }}>
+                <div className="absolute z-[25] w-full" style={{ top: "20%" }}>
                     <MediaPartnersSection />
                 </div>
-                <div className="absolute bottom-[30%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                <div className="absolute bottom-[40%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
                         fontStyle: "normal",
@@ -48,7 +48,7 @@ export default function PartnerSection() {
                     </p>
                 </div>
 
-                <div className="absolute z-[25] w-full" style={{ bottom: "2%" }}>
+                <div className="absolute z-[25] w-full" style={{ bottom: "10%" }}>
                     <CompanyPartnersSlider />
                 </div>
             </div>
