@@ -72,13 +72,13 @@ export default function MediaPartnersSection() {
     return (
         <div style={{ width: "100%" }}>
             {row1.length > 0 && (
-                <MarqueeRow logos={row1} duration={isMobile ? 35 : 20} isMobile={isMobile} />
+                <MarqueeRow logos={row1} duration={isMobile ? 40 : 45} isMobile={isMobile} />
             )}
             {row1.length > 0 && row2.length > 0 && (
                 <div style={{ marginTop: isMobile ? "-35px" : "16px" }} />
             )}
             {row2.length > 0 && (
-                <MarqueeRow logos={row2} duration={isMobile ? 30 : 18} isMobile={isMobile} />
+                <MarqueeRow logos={row2} duration={isMobile ? 40 : 45} isMobile={isMobile} />
             )}
         </div>
     );

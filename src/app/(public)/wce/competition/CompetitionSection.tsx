@@ -7,7 +7,7 @@ const BG_W = 5750
 const BG_H_FULL = 8092
 
 const BG_H_CLOSED = 4000
-const BG_H_OPEN_CARD1_ONLY = 4500
+const BG_H_OPEN_CARD1_ONLY = 5700
 const BG_H_OPEN_CARD2_ONLY = 4500  // adjust ini
 const BG_H_OPEN_BOTH = 5225
 
@@ -124,6 +124,10 @@ export default function CompetitionSection() {
                                 timeline="Saturday, 13 June–Saturday, 25 July 2026"
                                 place="TBA"
                                 buttonLabel="Register Here"
+                                timelines={[
+                                    "/images/wce/competition/Undergraduate BCC.png",
+                                    "/images/wce/competition/Freshgraduate BCC.png",
+                                ]}
                                 dropdownOptions={[
                                     { label: "Undergraduate", href: "#" },
                                     { label: "Fresh Graduate", href: "#" },
@@ -203,6 +207,27 @@ export default function CompetitionSection() {
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
                                 {`The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality.`}
                             </p>
+                            {/* Timeline images side by side */}
+                            <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <Image
+                                        src="/images/wce/competition/Undergraduate BCC.png"
+                                        alt="Undergraduate Timeline"
+                                        width={400}
+                                        height={200}
+                                        style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }}
+                                    />
+                                </div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <Image
+                                        src="/images/wce/competition/Freshgraduate BCC.png"
+                                        alt="Fresh Graduate Timeline"
+                                        width={400}
+                                        height={200}
+                                        style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }}
+                                    />
+                                </div>
+                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <div ref={bccDropdownRef} style={{ position: "relative" }}>
                                     <button

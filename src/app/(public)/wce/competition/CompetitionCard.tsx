@@ -10,6 +10,7 @@ interface DropdownOption {
 interface CompetitionCardProps {
     photoSrc: string
     timelineSrc?: string
+    timelines?: string[]
     title: string
     timeline: string
     place: string
@@ -18,7 +19,6 @@ interface CompetitionCardProps {
     joinHref?: string
     buttonLabel?: string
     dropdownOptions?: DropdownOption[]
-    // Controlled dari parent
     open: boolean
     timelineScale?: number
     onToggle: () => void
@@ -27,6 +27,7 @@ interface CompetitionCardProps {
 export default function CompetitionCard({
     photoSrc,
     timelineSrc,
+    timelines,
     title,
     timeline,
     place,
@@ -52,14 +53,14 @@ export default function CompetitionCard({
         return () => document.removeEventListener("mousedown", handleClickOutside)
     }, [dropdownOpen])
 
-    const buttonStyles: React.CSSProperties = {
+    const btnStyle: React.CSSProperties = {
         background: "#E91E8C",
         color: "#fff",
         padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
         borderRadius: "20px",
         fontSize: "clamp(11px, 1.2vw, 20px)",
         fontWeight: 500,
-        whiteSpace: "nowrap" as const,
+        whiteSpace: "nowrap",
         textDecoration: "none",
         border: "none",
         cursor: "pointer",
@@ -77,6 +78,7 @@ export default function CompetitionCard({
             padding: "clamp(10px, 1.5vw, 16px)",
             width: "100%",
         }}>
+            {/* ── Main grid: photo left, info right ── */}
             <div style={{
                 display: "grid",
                 gridTemplateColumns: "clamp(180px, 40%, 640px) 1fr",
@@ -84,7 +86,7 @@ export default function CompetitionCard({
                 alignItems: "start",
                 overflow: "visible",
             }}>
-                {/* Kolom kiri: foto + timeline (hanya saat open) */}
+                {/* Left col: photo + single-image timeline */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "clamp(8px, 1vw, 12px)" }}>
                     <div style={{
                         width: "100%",
@@ -94,14 +96,10 @@ export default function CompetitionCard({
                         position: "relative",
                         marginTop: "clamp(8px, 2vw, 28px)",
                     }}>
-                        <Image
-                            src={photoSrc}
-                            alt={title}
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
+                        <Image src={photoSrc} alt={title} fill style={{ objectFit: "cover" }} />
                     </div>
 
+                    {/* Single timeline image (legacy prop) */}
                     {timelineSrc && (
                         <div style={{
                             overflow: "hidden",
@@ -110,20 +108,18 @@ export default function CompetitionCard({
                             transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
                             marginTop: "1vw",
                         }}>
-                            <div style={{ width: "100%" }}>
-                                <Image
-                                    src={timelineSrc}
-                                    alt="Timeline"
-                                    width={612 * timelineScale}
-                                    height={192}
-                                    style={{ width: "100%", height: "auto", display: "block" }}
-                                />
-                            </div>
+                            <Image
+                                src={timelineSrc}
+                                alt="Timeline"
+                                width={612 * timelineScale}
+                                height={192}
+                                style={{ width: "100%", height: "auto", display: "block" }}
+                            />
                         </div>
                     )}
                 </div>
 
-                {/* Kolom kanan */}
+                {/* Right col: title, meta, description, toggle */}
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
@@ -182,7 +178,41 @@ export default function CompetitionCard({
                 </div>
             </div>
 
-            {/* Register button row — animates in when card is open */}
+            {/* ── Multi-timeline row ── */}
+            {timelines && timelines.length > 0 && (
+                <div style={{
+                    overflow: "hidden",
+                    maxHeight: open ? "600px" : "0px",
+                    opacity: open ? 1 : 0,
+                    transition: "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
+                    marginTop: open ? "clamp(10px, 1.2vw, 20px)" : 0,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    gap: "clamp(8px, 1.5vw, 20px)",
+                }}>
+                    {timelines.map((src, i) => (
+                        <div key={src} style={{
+                            // ── Edit width here (applies to both images equally) ──
+                            width: "45%",
+                            // ── Edit margins here ──
+                            marginLeft:  i === 0 ? "2%"  : undefined,   // Undergraduate ← left margin
+                            marginRight: i === 1 ? "2%"  : undefined,   // Fresh Graduate → right margin
+                            flexShrink: 0,
+                        }}>
+                            <Image
+                                src={src}
+                                alt={`Timeline ${i + 1}`}
+                                width={700}
+                                height={350}
+                                style={{ width: "100%", height: "auto", display: "block", borderRadius: "clamp(6px, 1vw, 12px)" }}
+                            />
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* ── Register button row ── */}
             <div style={{
                 overflow: "visible",
                 maxHeight: open ? "80px" : "0px",
@@ -197,10 +227,7 @@ export default function CompetitionCard({
             }}>
                 {dropdownOptions && dropdownOptions.length > 0 ? (
                     <div ref={dropdownRef} style={{ position: "relative" }}>
-                        <button
-                            onClick={() => setDropdownOpen((v) => !v)}
-                            style={buttonStyles}
-                        >
+                        <button onClick={() => setDropdownOpen((v) => !v)} style={btnStyle}>
                             {buttonLabel}
                             <span style={{
                                 display: "inline-block",
