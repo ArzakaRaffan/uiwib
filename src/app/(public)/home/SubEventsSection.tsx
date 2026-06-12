@@ -28,7 +28,7 @@ export default function SubEventsSection() {
                         lineHeight: 1.4,
                         textShadow: "0 2px 8px rgba(0,0,0,0.15)",
                     }}>
-                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal" }}>S</span>
+                        <span style={{ fontFamily: "Amoresa, serif", fontStyle: "normal", fontWeight: "normal" }}>S</span>
                         {"ub Events"}
                     </p>
                 </div>

@@ -39,7 +39,7 @@ export default function PartnerSection() {
                         fontFamily: "TimesNewRoman, serif",
                         fontStyle: "normal",
                         fontWeight: 700,
-                        fontSize: "clamp(1.5rem, 2.5cqw, 4rem)",
+                        fontSize: "clamp(1.5rem, 2.75cqw, 4rem)",
                         color: "#2555B7",
                         lineHeight: 1.4,
                         letterSpacing: "0.05em",

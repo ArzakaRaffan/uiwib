@@ -1,5 +1,11 @@
 "use client"
 import Image from "next/image"
+import { useState, useEffect, useRef } from "react"
+
+interface DropdownOption {
+    label: string
+    href: string
+}
 
 interface CompetitionCardProps {
     photoSrc: string
@@ -11,8 +17,9 @@ interface CompetitionCardProps {
     fullDesc: string
     joinHref?: string
     buttonLabel?: string
+    dropdownOptions?: DropdownOption[]
     // Controlled dari parent
-    open: boolean,
+    open: boolean
     timelineScale?: number
     onToggle: () => void
 }
@@ -27,10 +34,40 @@ export default function CompetitionCard({
     fullDesc,
     joinHref = "#",
     buttonLabel = "Register Here",
+    dropdownOptions,
     open,
     timelineScale = 1,
     onToggle,
 }: CompetitionCardProps) {
+    const [dropdownOpen, setDropdownOpen] = useState(false)
+    const dropdownRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        function handleClickOutside(e: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setDropdownOpen(false)
+            }
+        }
+        if (dropdownOpen) document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [dropdownOpen])
+
+    const buttonStyles: React.CSSProperties = {
+        background: "#E91E8C",
+        color: "#fff",
+        padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
+        borderRadius: "20px",
+        fontSize: "clamp(11px, 1.2vw, 20px)",
+        fontWeight: 500,
+        whiteSpace: "nowrap" as const,
+        textDecoration: "none",
+        border: "none",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+    }
+
     return (
         <div style={{
             opacity: "0.85",
@@ -65,7 +102,6 @@ export default function CompetitionCard({
                         />
                     </div>
 
-                    {/* Timeline — animasi muncul saat open */}
                     {timelineSrc && (
                         <div style={{
                             overflow: "hidden",
@@ -145,30 +181,85 @@ export default function CompetitionCard({
                     </button>
                 </div>
             </div>
+
+            {/* Register button row — animates in when card is open */}
             <div style={{
-                overflow: "hidden",
+                overflow: "visible",
                 maxHeight: open ? "80px" : "0px",
                 opacity: open ? 1 : 0,
+                pointerEvents: open ? "auto" : "none",
                 transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
                 display: "flex",
                 justifyContent: "flex-end",
                 paddingTop: "clamp(4px, 0.8vw, 8px)",
                 marginTop: "clamp(8px, 1vw, 12px)",
+                position: "relative",
             }}>
-                <a href={joinHref} style={{
-                    background: "#E91E8C",
-                    color: "#fff",
-                    padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
-                    borderRadius: "20px",
-                    fontSize: "clamp(11px, 1.2vw, 20px)",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    whiteSpace: "nowrap",
-                }}>
-                    {buttonLabel}
-                </a>
+                {dropdownOptions && dropdownOptions.length > 0 ? (
+                    <div ref={dropdownRef} style={{ position: "relative" }}>
+                        <button
+                            onClick={() => setDropdownOpen((v) => !v)}
+                            style={buttonStyles}
+                        >
+                            {buttonLabel}
+                            <span style={{
+                                display: "inline-block",
+                                transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                transition: "transform 0.2s ease",
+                                fontSize: "0.75em",
+                                lineHeight: 1,
+                            }}>▾</span>
+                        </button>
+                        {dropdownOpen && (
+                            <div style={{
+                                position: "absolute",
+                                bottom: "110%",
+                                right: 0,
+                                background: "#fff",
+                                border: "1.5px solid #E91E8C",
+                                borderRadius: "12px",
+                                overflow: "hidden",
+                                zIndex: 50,
+                                minWidth: "160px",
+                                boxShadow: "0 4px 16px rgba(233,30,140,0.15)",
+                            }}>
+                                {dropdownOptions.map((opt, i) => (
+                                    <a
+                                        key={i}
+                                        href={opt.href}
+                                        style={{
+                                            display: "block",
+                                            padding: "clamp(8px, 0.8vw, 10px) clamp(16px, 1.5vw, 20px)",
+                                            color: "#E91E8C",
+                                            fontWeight: 500,
+                                            fontSize: "clamp(11px, 1.2vw, 18px)",
+                                            textDecoration: "none",
+                                            borderBottom: i < dropdownOptions.length - 1 ? "1px solid #FFDBEE" : "none",
+                                            whiteSpace: "nowrap",
+                                        }}
+                                        onClick={() => setDropdownOpen(false)}
+                                    >
+                                        {opt.label}
+                                    </a>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <a href={joinHref} style={{
+                        background: "#E91E8C",
+                        color: "#fff",
+                        padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
+                        borderRadius: "20px",
+                        fontSize: "clamp(11px, 1.2vw, 20px)",
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        whiteSpace: "nowrap",
+                    }}>
+                        {buttonLabel}
+                    </a>
+                )}
             </div>
-
         </div>
     )
 }
