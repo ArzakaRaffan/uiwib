@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import CompetitionCard from "./CompetitionCard"
 
 const BG_W = 5750
@@ -24,6 +24,18 @@ export default function CompetitionSection() {
     const [containerHeight, setContainerHeight] = useState<string>(
         `calc(100vw * ${BG_H_CLOSED / BG_W})`
     )
+    const [bccDropdownOpen, setBccDropdownOpen] = useState(false)
+    const bccDropdownRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        function handleClickOutside(e: MouseEvent) {
+            if (bccDropdownRef.current && !bccDropdownRef.current.contains(e.target as Node)) {
+                setBccDropdownOpen(false)
+            }
+        }
+        if (bccDropdownOpen) document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [bccDropdownOpen])
 
     const toggle = (i: number) => {
         setOpenStates(prev => {
@@ -113,8 +125,11 @@ export default function CompetitionSection() {
                                 timeline="Saturday, 13 June-Saturday, 25 July 2026"
                                 place="TBA"
                                 buttonLabel="Register Here"
-                                joinHref="#"
                                 timelines={[]}
+                                dropdownOptions={[
+                                    { label: "Undergraduate", href: "#" },
+                                    { label: "Fresh Graduate", href: "https://www.surveymonkey.com/r/cimbniagabuscomp2026" },
+                                ]}
                                 shortDesc="The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to"
                                 fullDesc="solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality."
                             />
@@ -189,18 +204,25 @@ export default function CompetitionSection() {
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
                                 The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality.
                             </p>
-                            <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <Image src="/images/wce/competition/Undergraduate BCC.png" alt="Undergraduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
-                                </div>
-                                <div style={{ flex: 1, minWidth: 0 }}>
-                                    <Image src="/images/wce/competition/Freshgraduate BCC.png" alt="Fresh Graduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
-                                </div>
-                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Register Here
-                                </a>
+                                <div ref={bccDropdownRef} style={{ position: "relative" }}>
+                                    <button
+                                        onClick={() => setBccDropdownOpen((v) => !v)}
+                                        style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}
+                                    >
+                                        Register Here
+                                        <span style={{ display: "inline-block", transform: bccDropdownOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s ease", fontSize: "0.75em" }}>&#9660;</span>
+                                    </button>
+                                    {bccDropdownOpen && (
+                                        <div style={{ position: "absolute", bottom: "110%", right: 0, background: "#fff", border: "1.5px solid #E91E8C", borderRadius: "10px", overflow: "hidden", zIndex: 50, minWidth: "130px", boxShadow: "0 4px 16px rgba(233,30,140,0.15)" }}>
+                                            {([{ label: "Undergraduate", href: "#" }, { label: "Fresh Graduate", href: "https://www.surveymonkey.com/r/cimbniagabuscomp2026" }] as { label: string; href: string }[]).map((opt, i) => (
+                                                <a key={opt.label} href={opt.href} onClick={() => setBccDropdownOpen(false)} style={{ display: "block", padding: "8px 16px", color: "#E91E8C", fontWeight: 500, fontSize: "clamp(5px, 2vw, 13px)", textDecoration: "none", borderBottom: i === 0 ? "1px solid #FFDBEE" : "none", whiteSpace: "nowrap" }}>
+                                                    {opt.label}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
 
@@ -229,9 +251,9 @@ export default function CompetitionSection() {
                                 <Image
                                     src="/images/wce/competition/Timeline Essay.png"
                                     alt="Essay Competition Timeline"
-                                    width={800}
-                                    height={300}
-                                    style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }}
+                                    width={600}
+                                    height={200}
+                                    style={{ width: "70%", height: "auto", display: "block", borderRadius: "6px" }}
                                 />
                             </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
