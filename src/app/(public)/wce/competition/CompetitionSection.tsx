@@ -123,7 +123,7 @@ export default function CompetitionSection() {
                                 photoSrc="/images/wce/competition/Photo1.png"
                                 title="Business Case Competition"
                                 timeline="Saturday, 13 June-Saturday, 25 July 2026"
-                                place="TBA"
+                                place="Hybrid"
                                 buttonLabel="Register Here"
                                 timelines={[]}
                                 dropdownOptions={[
@@ -139,7 +139,7 @@ export default function CompetitionSection() {
                                 photoSrc="/images/wce/competition/Photo2.png"
                                 title="Essay Competition"
                                 timeline="Monday, 1 June-Saturday, 25 July 2026"
-                                place="TBA"
+                                place="Online"
                                 buttonLabel="Register Here"
                                 joinHref="https://forms.gle/U3HU53r2xyUjbfFj6"
                                 timelineSrc="/images/wce/competition/Timeline Essay.png"
@@ -197,7 +197,7 @@ export default function CompetitionSection() {
                                         <strong>Timeline:</strong> Saturday, 13 June&ndash;Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place:</strong> TBA
+                                        <strong>Place:</strong> Hybrid
                                     </p>
                                 </div>
                             </div>
@@ -240,7 +240,7 @@ export default function CompetitionSection() {
                                         <strong>Timeline:</strong> Monday, 1 June&ndash;Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place:</strong> TBA
+                                        <strong>Place:</strong> Online
                                     </p>
                                 </div>
                             </div>
