@@ -196,7 +196,7 @@ export default function CompetitionCard({
                             // ── Edit width here (applies to both images equally) ──
                             width: "45%",
                             // ── Edit margins here ──
-                            marginLeft:  i === 0 ? "2%"  : undefined,   // Undergraduate ← left margin
+                            marginLeft:  i === 0 ? "5%"  : undefined,   // Undergraduate ← left margin
                             marginRight: i === 1 ? "2%"  : undefined,   // Fresh Graduate → right margin
                             flexShrink: 0,
                         }}>
@@ -205,7 +205,7 @@ export default function CompetitionCard({
                                 alt={`Timeline ${i + 1}`}
                                 width={700}
                                 height={350}
-                                style={{ width: "100%", height: "auto", display: "block", borderRadius: "clamp(6px, 1vw, 12px)" }}
+                                style={{ width: "90%", height: "auto", display: "block", borderRadius: "clamp(6px, 1vw, 12px)" }}
                             />
                         </div>
                     ))}

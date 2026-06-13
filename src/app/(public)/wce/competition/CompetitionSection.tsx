@@ -7,7 +7,7 @@ const BG_W = 5750
 const BG_H_FULL = 8092
 
 const BG_H_CLOSED = 4200
-const BG_H_OPEN_CARD1_ONLY = 4750
+const BG_H_OPEN_CARD1_ONLY = 5750
 const BG_H_OPEN_CARD2_ONLY = 5000
 const BG_H_OPEN_BOTH = 5700
 
@@ -125,9 +125,12 @@ export default function CompetitionSection() {
                                 timeline=" Saturday, 13 June-Saturday, 25 July 2026"
                                 place="Hybrid"
                                 buttonLabel="Register Here"
-                                timelines={[]}
+                                timelines={[
+                                    "/images/wce/competition/Undergraduate BCC.png",
+                                    "/images/wce/competition/Freshgraduate BCC.png",
+                                ]}
                                 dropdownOptions={[
-                                    { label: "Undergraduate", href: "#" },
+                                    { label: "Undergraduate", href: "https://forms.gle/XfDrzF96KLq8gfC3A" },
                                     { label: "Fresh Graduate", href: "https://www.surveymonkey.com/r/cimbniagabuscomp2026" },
                                 ]}
                                 shortDesc="The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to"
@@ -204,6 +207,14 @@ export default function CompetitionSection() {
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
                                 The Business Case Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition challenges participants to solve real-world business problems through strategic analysis, innovation, and critical thinking. Through mentoring and networking sessions, participants will gain valuable insights while developing impactful business solutions. Finalists will present their ideas before a panel of judges and compete based on relevance, feasibility, and presentation quality.
                             </p>
+                            <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <Image src="/images/wce/competition/Undergraduate BCC.png" alt="Undergraduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
+                                </div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <Image src="/images/wce/competition/Freshgraduate BCC.png" alt="Fresh Graduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
+                                </div>
+                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <div ref={bccDropdownRef} style={{ position: "relative" }}>
                                     <button
@@ -215,7 +226,7 @@ export default function CompetitionSection() {
                                     </button>
                                     {bccDropdownOpen && (
                                         <div style={{ position: "absolute", bottom: "110%", right: 0, background: "#fff", border: "1.5px solid #E91E8C", borderRadius: "10px", overflow: "hidden", zIndex: 50, minWidth: "130px", boxShadow: "0 4px 16px rgba(233,30,140,0.15)" }}>
-                                            {([{ label: "Undergraduate", href: "#" }, { label: "Fresh Graduate", href: "https://www.surveymonkey.com/r/cimbniagabuscomp2026" }] as { label: string; href: string }[]).map((opt, i) => (
+                                            {([{ label: "Undergraduate", href: "https://forms.gle/XfDrzF96KLq8gfC3A" }, { label: "Fresh Graduate", href: "https://www.surveymonkey.com/r/cimbniagabuscomp2026" }] as { label: string; href: string }[]).map((opt, i) => (
                                                 <a key={opt.label} href={opt.href} onClick={() => setBccDropdownOpen(false)} style={{ display: "block", padding: "8px 16px", color: "#E91E8C", fontWeight: 500, fontSize: "clamp(5px, 2vw, 13px)", textDecoration: "none", borderBottom: i === 0 ? "1px solid #FFDBEE" : "none", whiteSpace: "nowrap" }}>
                                                     {opt.label}
                                                 </a>
