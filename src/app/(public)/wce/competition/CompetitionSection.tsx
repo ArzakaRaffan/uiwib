@@ -122,7 +122,7 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/competition/Photo1.png"
                                 title="Business Case Competition"
-                                timeline="Saturday, 13 June-Saturday, 25 July 2026"
+                                timeline=" Saturday, 13 June-Saturday, 25 July 2026"
                                 place="Hybrid"
                                 buttonLabel="Register Here"
                                 timelines={[]}
@@ -138,7 +138,7 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(1)}
                                 photoSrc="/images/wce/competition/Photo2.png"
                                 title="Essay Competition"
-                                timeline="Monday, 1 June-Saturday, 25 July 2026"
+                                timeline=" Monday, 1 June-Saturday, 25 July 2026"
                                 place="Online"
                                 buttonLabel="Register Here"
                                 joinHref="https://forms.gle/U3HU53r2xyUjbfFj6"
