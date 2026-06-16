@@ -11,7 +11,10 @@ export async function GET() {
       where: { isActive: true },
       orderBy: [{ row: "asc" }, { createdAt: "asc" }],
     });
-    return NextResponse.json({ success: true, data: partners });
+    return NextResponse.json(
+      { success: true, data: partners },
+      { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } }
+    );
   } catch {
     return NextResponse.json({ success: false, error: "Failed to fetch media partners" }, { status: 500 });
   }
