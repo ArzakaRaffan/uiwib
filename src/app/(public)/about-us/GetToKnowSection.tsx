@@ -11,17 +11,17 @@ export default function GetToKnowSection() {
 
                     {/* Background */}
                     <div className="absolute inset-0 z-0">
-                        <Image src="/images/about-us/get-to-know/Background-GTK.png"
+                        <Image src="/images/about-us/get-to-know/Background-GTK.webp"
                             alt="" fill sizes="100vw" className="object-cover object-center" priority />
                     </div>
                     {/* Texture */}
                     <div className="absolute inset-0 z-10">
-                        <Image src="/images/about-us/get-to-know/Texture-GTK.png"
+                        <Image src="/images/about-us/get-to-know/Texture-GTK.webp"
                             alt="" fill sizes="100vw" className="object-cover object-center" priority />
                     </div>
                     {/* Elements */}
                     <div className="absolute top-0 left-0 z-20 w-full overflow-hidden">
-                        <Image src="/images/about-us/get-to-know/Elements-GTK.png"
+                        <Image src="/images/about-us/get-to-know/Elements-GTK.webp"
                             alt="" width={1440} height={800}
                             style={{ width: "103%", height: "auto", transform: "translateX(-5%) translateY(-5%)" }}
                             priority />
@@ -100,7 +100,7 @@ export default function GetToKnowSection() {
 
             {/* ── MOBILE GET TO KNOW ── */}
             <section className="block md:hidden relative w-full" style={{
-                backgroundImage: "url('/images/about-us/mobile/BG-Pink-GTK-mb.png')",
+                backgroundImage: "url('/images/about-us/mobile/BG-Pink-GTK-mb.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "top center",
                 backgroundColor: "#f9d0d8",

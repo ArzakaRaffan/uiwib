@@ -24,14 +24,14 @@ export default function PreEventsSection() {
                     transition: "height 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: `calc(100vw * ${BG_RATIO})` }}>
-                        <Image src="/images/wce/pre-event/BG-Yellow.png" alt="" fill
+                        <Image src="/images/wce/pre-event/BG-Yellow.webp" alt="" fill
                             style={{ objectFit: "fill", objectPosition: "top" }} priority />
                     </div>
-                    <Image src="/images/wce/pre-event/Flower.png" alt="" width={80} height={80}
+                    <Image src="/images/wce/pre-event/Flower.webp" alt="" width={80} height={80}
                         style={{ position: "absolute", top: "5%", left: "3%", width: "clamp(40px, 5vw, 90px)", height: "auto", opacity: 0.85, zIndex: 1, pointerEvents: "none" }} />
-                    <Image src="/images/wce/pre-event/Flower.png" alt="" width={80} height={80}
+                    <Image src="/images/wce/pre-event/Flower.webp" alt="" width={80} height={80}
                         style={{ position: "absolute", top: "8%", right: "4%", width: "clamp(50px, 6vw, 110px)", height: "auto", opacity: 0.85, zIndex: 1, pointerEvents: "none" }} />
-                    <Image src="/images/wce/pre-event/Flower.png" alt="" width={80} height={80}
+                    <Image src="/images/wce/pre-event/Flower.webp" alt="" width={80} height={80}
                         style={{ position: "absolute", bottom: "10%", left: "6%", width: "clamp(35px, 4vw, 70px)", height: "auto", opacity: 0.7, zIndex: 1, pointerEvents: "none" }} />
                     <div className="absolute w-full flex flex-col items-center"
                         style={{ top: 0, left: 0, right: 0, zIndex: 2, paddingTop: "clamp(40px, 6vw, 120px)", paddingBottom: "clamp(32px, 4vw, 64px)" }}>
@@ -48,7 +48,7 @@ export default function PreEventsSection() {
             {/* MOBILE */}
             <div className="block md:hidden relative w-full overflow-hidden" style={{ minHeight: "70svh", marginTop:"-3vw" }}>
                 <div className="absolute inset-0">
-                    <Image src="/images/wce/pre-event/mobile/BG-Yellow-Pre-mb.png" alt="" fill
+                    <Image src="/images/wce/pre-event/mobile/BG-Yellow-Pre-mb.webp" alt="" fill
                         style={{ objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div className="relative z-10 flex flex-col items-center px-4 py-8">
@@ -66,7 +66,7 @@ export default function PreEventsSection() {
                     }}>
                         <div style={{ display: "flex", gap: "12px", marginBottom: "12px" }}>
                             <div style={{ borderRadius: "10px", overflow: "hidden", flexShrink: 0, width: "52%" }}>
-                                <Image src="/images/wce/pre-event/Photo1.png" alt="Pre Event"
+                                <Image src="/images/wce/pre-event/Photo1.webp" alt="Pre Event"
                                     width={598} height={338} style={{ width: "100%", height: "auto", display: "block" }} />
                             </div>
                             <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -94,11 +94,11 @@ export default function PreEventsSection() {
                             </div>
                             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                                 <div style={{ position: "relative", width: "clamp(32px, 12vw, 48px)", height: "clamp(32px, 12vw, 48px)", borderRadius: "50%", overflow: "hidden" }}>
-                                    <Image src="/images/wce/pre-event/UIWIB.png" alt="UIWIB" fill className="object-cover" />
+                                    <Image src="/images/wce/pre-event/UIWIB.webp" alt="UIWIB" fill className="object-cover" />
                                 </div>
                                 <span style={{ fontSize: "12px", color: "#666" }}>x</span>
                                 <div style={{ position: "relative", width: "clamp(32px, 12vw, 48px)", height: "clamp(32px, 12vw, 48px)", borderRadius: "50%", overflow: "hidden" }}>
-                                    <Image src="/images/wce/pre-event/Unilever.png" alt="Unilever" fill className="object-cover" />
+                                    <Image src="/images/wce/pre-event/Unilever.webp" alt="Unilever" fill className="object-cover" />
                                 </div>
                             </div>
                         </div>

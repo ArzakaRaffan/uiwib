@@ -8,7 +8,7 @@ export default function EventsSectionGS() {
                 style={{ containerType: "inline-size", zIndex: 10, marginTop: "-0.5vw" }}
             >
                 <Image
-                    src="/images/wce/grand-seminar/BG-Yellow.png"
+                    src="/images/wce/grand-seminar/BG-Yellow.webp"
                     alt=""
                     width={1428}
                     height={1577}
@@ -54,7 +54,7 @@ export default function EventsSectionGS() {
                     <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
                         {/* Pink Rect Background */}
                         <Image
-                            src="/images/wce/grand-seminar/Pink Rect.png"
+                            src="/images/wce/grand-seminar/Pink Rect.webp"
                             alt=""
                             width={1503}
                             height={436}
@@ -75,7 +75,7 @@ export default function EventsSectionGS() {
                             {["Photo1", "Photo2", "Photo3"].map((photo) => (
                                 <div key={photo} style={{ flex: 1, aspectRatio: "4/3" }}>
                                     <Image
-                                        src={`/images/wce/grand-seminar/${photo}.png`}
+                                        src={`/images/wce/grand-seminar/${photo}.webp`}
                                         alt={photo}
                                         width={400}
                                         height={300}
@@ -126,7 +126,7 @@ export default function EventsSectionGS() {
                         ].map(({ bg, title, content }) => (
                             <div key={bg} style={{ flex: 1, position: "relative" }}>
                                 <Image
-                                    src={`/images/wce/grand-seminar/${bg}.png`}
+                                    src={`/images/wce/grand-seminar/${bg}.webp`}
                                     alt={title}
                                     width={400}
                                     height={400}
@@ -171,7 +171,7 @@ export default function EventsSectionGS() {
             {/* MOBILE */}
             <section className="block md:hidden relative w-full" style={{ marginTop: "-1.5rem" }}>
                 <div className="relative w-full" style={{
-                    backgroundImage: "url('/images/wce/grand-seminar/mobile/BG-Yellow-GS-mb.png')",
+                    backgroundImage: "url('/images/wce/grand-seminar/mobile/BG-Yellow-GS-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top center",
                     paddingBottom: "8%",
@@ -213,7 +213,7 @@ export default function EventsSectionGS() {
 
                     {/* Photo Strip */}
                     <div style={{ position: "relative", margin: "0 0 4%" }}>
-                        <Image src="/images/wce/grand-seminar/mobile/PinkRect-mb.png" alt=""
+                        <Image src="/images/wce/grand-seminar/mobile/PinkRect-mb.webp" alt=""
                             width={393} height={150}
                             style={{ width: "100%", height: "auto", display: "block" }} />
                         <div style={{
@@ -224,7 +224,7 @@ export default function EventsSectionGS() {
                         }}>
                             {["Photo1-mb", "Photo2-mb", "Photo3-mb"].map((photo) => (
                                 <div key={photo} style={{ flex: 1 }}>
-                                    <Image src={`/images/wce/grand-seminar/mobile/${photo}.png`} alt={photo}
+                                    <Image src={`/images/wce/grand-seminar/mobile/${photo}.webp`} alt={photo}
                                         width={120} height={90}
                                         style={{ width: "90%", height: "auto", borderRadius: "8px", objectFit: "cover" }} />
                                 </div>
@@ -264,7 +264,7 @@ export default function EventsSectionGS() {
                             },
                         ].map(({ bg, title, content }) => (
                             <div key={bg} style={{ position: "relative", flex: 1, minWidth: 0 }}>
-                                <Image src={`/images/wce/grand-seminar/mobile/${bg}.png`} alt={title}
+                                <Image src={`/images/wce/grand-seminar/mobile/${bg}.webp`} alt={title}
                                     width={126} height={179}
                                     style={{ width: "100%", height: "auto", display: "block" }} />
                                 <div style={{

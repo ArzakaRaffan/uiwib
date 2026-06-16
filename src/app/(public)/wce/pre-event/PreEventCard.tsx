@@ -46,7 +46,7 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                         overflow: "hidden",
                     }}>
                         <Image
-                            src="/images/wce/pre-event/Photo1.png"
+                            src="/images/wce/pre-event/Photo1.webp"
                             alt="Pre Event Speaker"
                             width={598}
                             height={338}
@@ -95,7 +95,7 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                                     height: "clamp(40px, 8vw, 192px)",
                                     borderRadius: "50%", overflow: "hidden",
                                 }}>
-                                    <Image src="/images/wce/pre-event/UIWIB.png" alt="UIWIB" fill className="object-cover" />
+                                    <Image src="/images/wce/pre-event/UIWIB.webp" alt="UIWIB" fill className="object-cover" />
                                 </div>
                                 <span style={{ fontSize: "clamp(10px, 1.2vw, 14px)", color: "#666" }}>x</span>
                                 <div style={{
@@ -104,7 +104,7 @@ export default function PreEventCard({ onOpenChange }: PreEventCardProps) {
                                     height: "clamp(40px, 8vw, 192px)",
                                     borderRadius: "50%", overflow: "hidden",
                                 }}>
-                                    <Image src="/images/wce/pre-event/Unilever.png" alt="Unilever" fill className="object-cover" />
+                                    <Image src="/images/wce/pre-event/Unilever.webp" alt="Unilever" fill className="object-cover" />
                                 </div>
                             </div>
                         </div>

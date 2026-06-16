@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const photos = [
-    "/images/wce/home/Photo1.png",
-    "/images/wce/home/Photo2.png",
-    "/images/wce/home/Photo3.png",
-    "/images/wce/home/Photo4.png",
+    "/images/wce/home/Photo1.webp",
+    "/images/wce/home/Photo2.webp",
+    "/images/wce/home/Photo3.webp",
+    "/images/wce/home/Photo4.webp",
 ];
 
 export default function PhotoCollage({ isMobile = false }: { isMobile?: boolean }) {

@@ -6,14 +6,14 @@ export default function HeroSectionHomepage() {
             {/* DESKTOP */}
             <section className="hidden md:block relative w-full overflow-hidden" style={{ height: "100vh" }}>
                 <div className="absolute inset-0">
-                    <Image src="/images/homepage/hero/Background.png" alt="" fill sizes="100vw"
+                    <Image src="/images/homepage/hero/Background.webp" alt="" fill sizes="100vw"
                         className="object-cover object-center" priority />
                 </div>
                 <div style={{ position: "absolute", inset: 0, containerType: "inline-size" }}>
 
                     {/* Lanyard */}
                     <div style={{ position: "absolute", top: "-3.5cqw", left: "50%", transform: "translateX(-50%)", width: "51cqw", zIndex: 25 }}>
-                        <Image src="/images/homepage/hero/Lanyard UIWIB.png" alt="" width={791} height={708}
+                        <Image src="/images/homepage/hero/Lanyard UIWIB.webp" alt="" width={791} height={708}
                             style={{ width: "100%", height: "auto" }} className="drop-shadow-2xl" priority />
                     </div>
 
@@ -46,58 +46,58 @@ export default function HeroSectionHomepage() {
 
                     {/* Dots */}
                     <div style={{ position: "absolute", top: "13cqw", left: "3%", width: "18cqw", zIndex: 15 }}>
-                        <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Dots.webp" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "30cqw", right: "2%", width: "16cqw", zIndex: 15 }}>
-                        <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Dots.webp" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
 
                     {/* Swirls */}
                     <div style={{ position: "absolute", top: "4cqw", left: "11%", width: "15cqw", zIndex: 40 }}>
-                        <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Swirl.webp" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "40cqw", left: "8.7%", width: "15cqw", zIndex: 40 }}>
-                        <Image src="/images/homepage/hero/Swirl2.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Swirl2.webp" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "1.1cqw", right: "8.3%", width: "15cqw", zIndex: 40 }}>
-                        <Image src="/images/homepage/hero/Swirl3.png" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Swirl3.webp" alt="" width={276} height={282} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "37cqw", right: "8%", width: "17cqw", zIndex: 40 }}>
-                        <Image src="/images/homepage/hero/Swirl4.png" alt="" width={295} height={197} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Swirl4.webp" alt="" width={295} height={197} style={{ width: "100%", height: "auto" }} />
                     </div>
 
                     {/* Glow */}
                     <div style={{ position: "absolute", top: "10cqw", left: "18%", width: "18cqw", zIndex: 15 }}>
-                        <Image src="/images/homepage/hero/Glow.png" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Glow.webp" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "27cqw", right: "18%", width: "18cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Glow.png" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Glow.webp" alt="" width={378} height={378} style={{ width: "100%", height: "auto" }} />
                     </div>
 
                     {/* Pictures */}
                     <div style={{ position: "absolute", top: "10cqw", left: "12%", width: "19cqw", zIndex: 10 }}>
-                        <Image src="/images/homepage/hero/Picture 1.png" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 1.webp" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "28cqw", right: "13%", width: "20cqw", zIndex: 15 }}>
-                        <Image src="/images/homepage/hero/Picture 2.png" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 2.webp" alt="" width={296} height={293} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "45cqw", left: "22%", width: "21cqw", zIndex: 10 }}>
-                        <Image src="/images/homepage/hero/Picture 3.png" alt="" width={386} height={311} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 3.webp" alt="" width={386} height={311} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "-3cqw", left: "0%", width: "14cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Picture 4.png" alt="" width={240} height={206} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 4.webp" alt="" width={240} height={206} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "-5cqw", right: "0%", width: "18cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Picture 5.png" alt="" width={263} height={165} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 5.webp" alt="" width={263} height={165} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "32cqw", left: "0%", transform: "translateY(-50%)", width: "16cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Picture 6.png" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 6.webp" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "49.5cqw", right: "5.2%", width: "17cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Picture 7.png" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 7.webp" alt="" width={250} height={514} style={{ width: "100%", height: "auto" }} />
                     </div>
                     <div style={{ position: "absolute", top: "15cqw", right: "0%", width: "21cqw", zIndex: 20 }}>
-                        <Image src="/images/homepage/hero/Picture 8.png" alt="" width={385} height={298} style={{ width: "100%", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Picture 8.webp" alt="" width={385} height={298} style={{ width: "100%", height: "auto" }} />
                     </div>
                 </div>
             </section >
@@ -107,7 +107,7 @@ export default function HeroSectionHomepage() {
                 style={{ height: "60svh", marginTop: "-7%" }}>
                 {/* Background */}
                 <div className="absolute inset-0" style={{
-                    backgroundImage: "url('/images/homepage/hero/mobile/BG-Yellow-mb.png')",
+                    backgroundImage: "url('/images/homepage/hero/mobile/BG-Yellow-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "center top",
                     backgroundRepeat: "no-repeat",
@@ -115,21 +115,21 @@ export default function HeroSectionHomepage() {
 
                 {/* Swirls */}
                 <div className="absolute top-[7%] left-[3%] z-[40]">
-                    <Image src="/images/homepage/hero/Swirl.png" alt="" width={276} height={282} style={{ width: "32vw", height: "auto" }} />
+                    <Image src="/images/homepage/hero/Swirl.webp" alt="" width={276} height={282} style={{ width: "32vw", height: "auto" }} />
                 </div>
                 <div className="absolute top-[5%] right-[3%] z-[40] -rotate-[15deg]">
-                    <Image src="/images/homepage/hero/Swirl3.png" alt="" width={276} height={282} style={{ width: "37vw", height: "auto" }} />
+                    <Image src="/images/homepage/hero/Swirl3.webp" alt="" width={276} height={282} style={{ width: "37vw", height: "auto" }} />
                 </div>
                 <div className="absolute bottom-[15%] left-[2%] z-[40] -rotate-[15deg]">
-                    <Image src="/images/homepage/hero/Swirl2.png" alt="" width={276} height={282} style={{ width: "32vw", height: "auto" }} />
+                    <Image src="/images/homepage/hero/Swirl2.webp" alt="" width={276} height={282} style={{ width: "32vw", height: "auto" }} />
                 </div>
                 <div className="absolute bottom-[12%] right-[2%] z-[40] rotate-[15deg]">
-                    <Image src="/images/homepage/hero/Swirl4.png" alt="" width={295} height={197} style={{ width: "32vw", height: "auto" }} />
+                    <Image src="/images/homepage/hero/Swirl4.webp" alt="" width={295} height={197} style={{ width: "32vw", height: "auto" }} />
                 </div>
 
                 {/* Dots */}
                 <div className="absolute top-[28%] left-[0%] z-[30]">
-                    <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "12vw", height: "auto" }} />
+                    <Image src="/images/homepage/hero/Dots.webp" alt="" width={276} height={282} style={{ width: "12vw", height: "auto" }} />
                 </div>
 
                 {/* Layout utama — pakai absolute positioning biar ga push section */}
@@ -137,47 +137,47 @@ export default function HeroSectionHomepage() {
 
                     {/* Photo1 kiri atas */}
                     <div className="absolute z-[20]" style={{ top: "-3%", left: "5%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo1-mb.png" alt="" width={296} height={293}
+                        <Image src="/images/homepage/hero/mobile/Photo1-mb.webp" alt="" width={296} height={293}
                             style={{ width: "30vw", height: "auto" }} />
                     </div>
 
                     {/* Photo2 kanan atas */}
                     <div className="absolute z-[10]" style={{ top: "-10%", right: "0%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo2-mb.png" alt="" width={296} height={293}
+                        <Image src="/images/homepage/hero/mobile/Photo2-mb.webp" alt="" width={296} height={293}
                             style={{ width: "30vw", height: "auto" }} />
                     </div>
 
                     <div className="absolute" style={{ top: "-13%", right: "-5%" }}>
-                        <Image src="/images/homepage/hero/Dots.png" alt="" width={276} height={282} style={{ width: "40vw", height: "auto" }} />
+                        <Image src="/images/homepage/hero/Dots.webp" alt="" width={276} height={282} style={{ width: "40vw", height: "auto" }} />
                     </div>
 
                     {/* Photo3 kiri tengah */}
                     <div className="absolute z-[20]" style={{ top: "38%", left: "0%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo3-mb.png" alt="" width={296} height={293}
+                        <Image src="/images/homepage/hero/mobile/Photo3-mb.webp" alt="" width={296} height={293}
                             style={{ width: "25vw", height: "auto" }} />
                     </div>
 
                     {/* Photo4 kanan tengah */}
                     <div className="absolute z-[20]" style={{ top: "35%", right: "0%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo4-mb.png" alt="" width={296} height={293}
+                        <Image src="/images/homepage/hero/mobile/Photo4-mb.webp" alt="" width={296} height={293}
                             style={{ width: "27vw", height: "auto" }} />
                     </div>
 
                     {/* Photo5 kiri bawah */}
                     <div className="absolute z-[20]" style={{ bottom: "-2%", left: "10%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo5-mb.png" alt="" width={250} height={514}
+                        <Image src="/images/homepage/hero/mobile/Photo5-mb.webp" alt="" width={250} height={514}
                             style={{ width: "35vw", height: "auto" }} />
                     </div>
 
                     {/* Photo6 kanan bawah */}
                     <div className="absolute z-[20]" style={{ bottom: "2%", right: "0%" }}>
-                        <Image src="/images/homepage/hero/mobile/Photo6-mb.png" alt="" width={250} height={514}
+                        <Image src="/images/homepage/hero/mobile/Photo6-mb.webp" alt="" width={250} height={514}
                             style={{ width: "25vw", height: "auto" }} />
                     </div>
 
                     {/* Lanyard — center */}
                     <div className="absolute z-[25]" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-                        <Image src="/images/homepage/hero/mobile/Lanyard-mb.png" alt="Welcome to UI Women in Business"
+                        <Image src="/images/homepage/hero/mobile/Lanyard-mb.webp" alt="Welcome to UI Women in Business"
                             width={1020} height={1000}
                             style={{ width: "75vw", height: "auto", maxWidth: "none" }}
                             className="drop-shadow-2xl" priority />

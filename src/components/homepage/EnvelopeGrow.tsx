@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 
 const FRAMES_OPEN = [
-    "/images/homepage/tagline/Envelope-Closed-Grow.png",
-    "/images/homepage/tagline/Envelope-Closed1-Grow.png",
-    "/images/homepage/tagline/Grow1.png",
-    "/images/homepage/tagline/Grow2.png",
+    "/images/homepage/tagline/Envelope-Closed-Grow.webp",
+    "/images/homepage/tagline/Envelope-Closed1-Grow.webp",
+    "/images/homepage/tagline/Grow1.webp",
+    "/images/homepage/tagline/Grow2.webp",
 ];
 
 export default function EnvelopeGrow({ isStatic = false, isMobile = false }: { isStatic?: boolean; isMobile?: boolean }) {

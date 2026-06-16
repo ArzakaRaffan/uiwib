@@ -58,7 +58,7 @@ export default function Navbar() {
         <Link href="/" className="absolute left-1/2 -translate-x-1/2">
           <div className="w-8 h-8 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-white flex items-center justify-center bg-[#1a1a2e]">
             <Image
-              src="/images/UIWIB-LOGO.png"
+              src="/images/UIWIB-LOGO.webp"
               alt="UIWIB Logo"
               width={48}
               height={48}

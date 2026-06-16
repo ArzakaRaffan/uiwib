@@ -8,7 +8,7 @@ export default function SubEventsSection() {
             {/* ── DESKTOP ── */}
             <div className="hidden md:block relative w-full -mt-4    z-10">
                 <Image
-                    src="/images/homepage/tagline/Background-Sub-Events.png"
+                    src="/images/homepage/tagline/Background-Sub-Events.webp"
                     alt=""
                     width={1458}
                     height={1130}
@@ -39,7 +39,7 @@ export default function SubEventsSection() {
                 className="md:hidden w-full z-20 flex flex-col items-center py-6 px-0 gap-4"
                 style={{
                     position: "relative",
-                    backgroundImage: "url('/images/homepage/tagline/mobile/BG-Pink2-mb.png')",
+                    backgroundImage: "url('/images/homepage/tagline/mobile/BG-Pink2-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "center top",
                     backgroundRepeat: "no-repeat",

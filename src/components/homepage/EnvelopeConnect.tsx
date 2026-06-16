@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 
 const FRAMES_OPEN = [
-    "/images/homepage/tagline/Envelope-Closed-Connect.png",
-    "/images/homepage/tagline/Envelope-Closed1-Connect.png",
-    "/images/homepage/tagline/Connect1.png",
-    "/images/homepage/tagline/Connect2.png",
+    "/images/homepage/tagline/Envelope-Closed-Connect.webp",
+    "/images/homepage/tagline/Envelope-Closed1-Connect.webp",
+    "/images/homepage/tagline/Connect1.webp",
+    "/images/homepage/tagline/Connect2.webp",
 ];
 
 export default function EnvelopeConnect({ isStatic = false, isMobile = false }: { isStatic?: boolean; isMobile?: boolean }) {

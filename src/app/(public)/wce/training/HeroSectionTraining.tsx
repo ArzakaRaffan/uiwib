@@ -5,7 +5,7 @@ export default function HeroSectionTraining() {
             <section className="hidden md:block relative w-full overflow-visible z-10">
                 <div className="relative w-full" style={{ aspectRatio: "1442/461", containerType: "inline-size" }}>
                     <div className="absolute inset-0">
-                        <Image src="/images/wce/training/BG-Pink-Training.png" alt="" fill sizes="100vw"
+                        <Image src="/images/wce/training/BG-Pink-Training.webp" alt="" fill sizes="100vw"
                             className="object-cover object-center" priority />
                     </div>
 
@@ -45,7 +45,7 @@ export default function HeroSectionTraining() {
             {/* MOBILE */}
             <section className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-1.5rem" }}>
                 <div className="relative w-full" style={{ aspectRatio: "393/190" }}>
-                    <Image src="/images/wce/training/mobile/BG-Pink-Train-mb.png" alt="" fill
+                    <Image src="/images/wce/training/mobile/BG-Pink-Train-mb.webp" alt="" fill
                         className="object-cover object-center" priority />
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center px-4" style={{ paddingBottom: "5%" }}>

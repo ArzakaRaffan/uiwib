@@ -52,7 +52,7 @@ export default function TrainingSection() {
                         height: `calc(100vw * ${BG_RATIO})`,
                     }}>
                         <Image
-                            src="/images/wce/training/BG-Yellow-Training.png"
+                            src="/images/wce/training/BG-Yellow-Training.webp"
                             alt="" fill
                             style={{ objectFit: "fill", objectPosition: "top" }}
                             priority
@@ -105,9 +105,9 @@ export default function TrainingSection() {
                             <TrainingCard
                                 open={openStates[0]}
                                 onToggle={() => toggle(0)}
-                                photoSrc="/images/wce/training/Photo1.png"
-                                logoSrc="/images/wce/training/Logo WCE.png"
-                                companySrc="/images/wce/training/TBA.png"
+                                photoSrc="/images/wce/training/Photo1.webp"
+                                logoSrc="/images/wce/training/Logo WCE.webp"
+                                companySrc="/images/wce/training/TBA.webp"
                                 title="External Training"
                                 timeline="TBA"
                                 place="TBA"
@@ -120,9 +120,9 @@ export default function TrainingSection() {
                             <TrainingCard
                                 open={openStates[1]}
                                 onToggle={() => toggle(1)}
-                                photoSrc="/images/wce/training/Photo2.png"
-                                logoSrc="/images/wce/training/Logo WCE.png"
-                                companySrc="/images/wce/training/TBA.png"
+                                photoSrc="/images/wce/training/Photo2.webp"
+                                logoSrc="/images/wce/training/Logo WCE.webp"
+                                companySrc="/images/wce/training/TBA.webp"
                                 title="Internal Training"
                                 timeline="TBA"
                                 place="TBA"
@@ -140,7 +140,7 @@ export default function TrainingSection() {
             {/* MOBILE */}
             <div className="block md:hidden relative w-full" style={{ marginTop: "-3vw" }}>
                 <div className="relative w-full" style={{
-                    backgroundImage: "url('/images/wce/training/mobile/BG-Yellow-Train-mb.png')",
+                    backgroundImage: "url('/images/wce/training/mobile/BG-Yellow-Train-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top center",
                     paddingBottom: "8%",
@@ -173,7 +173,7 @@ export default function TrainingSection() {
                         <div style={{ background: "#FFEFF8", border: "2px solid #ED84C6", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
                                 <div style={{ width: "45%", flexShrink: 0, borderRadius: "8px", overflow: "hidden" }}>
-                                    <Image src="/images/wce/training/mobile/Photo1-mb.png" alt="External Training"
+                                    <Image src="/images/wce/training/mobile/Photo1-mb.webp" alt="External Training"
                                         width={162} height={124}
                                         style={{ width: "100%", height: "auto", display: "block" }} />
                                 </div>
@@ -206,7 +206,7 @@ export default function TrainingSection() {
                         <div style={{ background: "#FFEFF8", border: "2px solid #ED84C6", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
                                 <div style={{ width: "45%", flexShrink: 0, borderRadius: "8px", overflow: "hidden" }}>
-                                    <Image src="/images/wce/training/mobile/Photo2-mb.png" alt="Internal Training"
+                                    <Image src="/images/wce/training/mobile/Photo2-mb.webp" alt="Internal Training"
                                         width={162} height={124}
                                         style={{ width: "100%", height: "auto", display: "block" }} />
                                 </div>

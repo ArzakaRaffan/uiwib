@@ -14,7 +14,7 @@ export default function HeroSectionPE() {
                 >
                     <div className="absolute inset-0">
                         <Image
-                            src="/images/wce/pre-event/BG-Blue.png"
+                            src="/images/wce/pre-event/BG-Blue.webp"
                             alt=""
                             fill
                             sizes="100vw"
@@ -60,7 +60,7 @@ export default function HeroSectionPE() {
             <section className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-1.5rem" }}>
                 <div className="relative w-full">
                     <Image
-                        src="/images/wce/pre-event/mobile/BG-Blue-Pre-mb.png"
+                        src="/images/wce/pre-event/mobile/BG-Blue-Pre-mb.webp"
                         alt=""
                         width={393}
                         height={500}

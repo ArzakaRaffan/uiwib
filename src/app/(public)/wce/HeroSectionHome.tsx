@@ -7,27 +7,27 @@ export default function HeroSectionHome() {
             <section className="hidden md:block relative w-full overflow-hidden">
                 <div className="relative w-full" style={{ aspectRatio: "1443/970", containerType: "inline-size" }}>
                     <div className="absolute inset-0">
-                        <Image src="/images/wce/home/BG-Pink.png" alt="" fill sizes="100vw"
+                        <Image src="/images/wce/home/BG-Pink.webp" alt="" fill sizes="100vw"
                             className="object-cover object-center" priority />
                     </div>
                 </div>
 
                 {/* Bunga dekorasi */}
-                <Image src="/images/wce/home/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/home/Flower.webp" alt="" width={120} height={120}
                     style={{
                         position: "absolute", bottom: "10%", left: "10%",
                         width: "clamp(60px, 10vw, 200px)", height: "auto",
                         zIndex: 10, pointerEvents: "none",
                     }}
                 />
-                <Image src="/images/wce/home/Flower.png" alt="" width={80} height={80}
+                <Image src="/images/wce/home/Flower.webp" alt="" width={80} height={80}
                     style={{
                         position: "absolute", top: "22%", left: "4%",
                         width: "clamp(40px, 7vw, 90px)", height: "auto",
                         zIndex: 10, pointerEvents: "none",
                     }}
                 />
-                <Image src="/images/wce/home/Flower.png" alt="" width={60} height={60}
+                <Image src="/images/wce/home/Flower.webp" alt="" width={60} height={60}
                     style={{
                         position: "absolute", top: "5%", right: "10%",
                         width: "clamp(30px, 7vw, 70px)", height: "auto",
@@ -35,7 +35,7 @@ export default function HeroSectionHome() {
                     }}
                 />
 
-                <Image src="/images/wce/home/Flower.png" alt="" width={60} height={60}
+                <Image src="/images/wce/home/Flower.webp" alt="" width={60} height={60}
                     style={{
                         position: "absolute", bottom: "10%", right: "15%",
                         width: "clamp(30px, 7vw, 70px)", height: "auto",
@@ -96,7 +96,7 @@ export default function HeroSectionHome() {
             <section className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-8%" }}>
                 <div className="relative w-full">
                     <Image
-                        src="/images/wce/home/mobile/BG-Pink-WCE-mb.png"
+                        src="/images/wce/home/mobile/BG-Pink-WCE-mb.webp"
                         alt=""
                         width={393}
                         height={700}

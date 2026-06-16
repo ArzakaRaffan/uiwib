@@ -28,7 +28,7 @@ export default function VisionMissionSection() {
                     {/* Background */}
                     <div className="absolute inset-0 z-0">
                         <Image
-                            src="/images/about-us/visionmission/VisionMission.png"
+                            src="/images/about-us/visionmission/VisionMission.webp"
                             alt="" fill sizes="100vw"
                             className="object-cover object-center"
                             priority
@@ -40,7 +40,7 @@ export default function VisionMissionSection() {
                     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8">
                         {/* Title */}
                         <Image
-                            src="/images/about-us/visionmission/TitleVisionMission.png"
+                            src="/images/about-us/visionmission/TitleVisionMission.webp"
                             alt="Vision & Mission"
                             width={600}
                             height={100}
@@ -114,14 +114,14 @@ export default function VisionMissionSection() {
             {/* ── MOBILE ── */}
             <section className="block md:hidden relative w-full overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <Image src="/images/about-us/mobile/BG-Blue-VisMis-mb.png"
+                    <Image src="/images/about-us/mobile/BG-Blue-VisMis-mb.webp"
                         alt="" fill sizes="100vw" className="object-cover object-top" priority />
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center px-5 py-4 gap-8">
                     {/* Title */}
                     <Image
-                        src="/images/about-us/visionmission/TitleVisionMission.png"
+                        src="/images/about-us/visionmission/TitleVisionMission.webp"
                         alt="Vision & Mission"
                         width={600} height={100}
                         style={{ width: "clamp(200px, 80vw, 400px)", height: "auto" }}

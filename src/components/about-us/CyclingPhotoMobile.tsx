@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const photos = [
-    "/images/about-us/get-to-know/Photo1.png",
-    "/images/about-us/get-to-know/Photo2.png",
-    "/images/about-us/get-to-know/Photo3.png",
-    "/images/about-us/get-to-know/Photo4.png",
+    "/images/about-us/get-to-know/Photo1.webp",
+    "/images/about-us/get-to-know/Photo2.webp",
+    "/images/about-us/get-to-know/Photo3.webp",
+    "/images/about-us/get-to-know/Photo4.webp",
 ];
 
 export default function CyclingPhotoMobile() {
@@ -50,7 +50,7 @@ export default function CyclingPhotoMobile() {
                 ))}
             </div>
 
-            <Image src="/images/about-us/get-to-know/Camera.png" alt="Camera"
+            <Image src="/images/about-us/get-to-know/Camera.webp" alt="Camera"
                 width={1000} height={500} style={{ width: "100%", height: "auto", position: "relative", zIndex: 10, rotate: "84deg" }} />
         </div>
     );

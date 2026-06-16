@@ -5,7 +5,7 @@ export default function HeroSectionGS() {
         <section className="hidden md:block relative w-full overflow-hidden">
             <div className="relative w-full" style={{ aspectRatio: "1440/650", containerType: "inline-size" }}>
                 <div className="absolute inset-0">
-                    <Image src="/images/wce/grand-seminar/Background-Blue.png" alt="" fill sizes="100vw"
+                    <Image src="/images/wce/grand-seminar/Background-Blue.webp" alt="" fill sizes="100vw"
                         className="object-cover object-center" priority />
                 </div>
                 <div className="absolute top-[8%] w-full text-center">
@@ -65,7 +65,7 @@ export default function HeroSectionGS() {
         {/* MOBILE */}
         <section className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-1.5rem" }}>
             <div className="relative w-full" style={{ aspectRatio: "399/279" }}>
-                <Image src="/images/wce/grand-seminar/mobile/BG-Blue-GS-mb.png" alt="" fill
+                <Image src="/images/wce/grand-seminar/mobile/BG-Blue-GS-mb.webp" alt="" fill
                     className="object-cover object-center" priority />
             </div>
             <div className="absolute inset-0 flex flex-col items-center justify-start px-6" style={{ paddingTop: "6%" }}>

@@ -37,7 +37,7 @@ export default function CountDownGrandSeminar() {
     return (
         <div style={{ position: "absolute", top: "-12%", left: "50%", transform: "translateX(-50%)", width: "70cqw", zIndex: 40 }}>
             <div style={{ position: "relative" }}>
-                <Image src="/images/wce/grand-seminar/CountdownBackground.png" alt="" width={791} height={708}
+                <Image src="/images/wce/grand-seminar/CountdownBackground.webp" alt="" width={791} height={708}
                     style={{ width: "100%", height: "auto" }} className="drop-shadow-2xl" priority />
                 <div style={{
                     position: "absolute",
@@ -51,7 +51,7 @@ export default function CountDownGrandSeminar() {
                 }}>
                     {cards.map(({ value, label }) => (
                         <div key={label} style={{ position: "relative", flex: 1 }}>
-                            <Image src="/images/wce/grand-seminar/rect.png" alt=""
+                            <Image src="/images/wce/grand-seminar/rect.webp" alt=""
                                 width={200} height={200}
                                 style={{ width: "100%", height: "auto" }} />
                             <div style={{

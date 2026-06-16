@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRef } from "react";
 
 const slides = [
-    { src: "/images/wce/home/Slider1.png", label: "Pre-Event", href: "/wce/pre-event", btnColor: "#E8A020" },
-    { src: "/images/wce/home/Slider2.png", label: "Competition", href: "/wce/competition", btnColor: "#4A90D9" },
-    { src: "/images/wce/home/Slider3.png", label: "Training", href: "/wce/training", btnColor: "#E91E8C" },
-    { src: "/images/wce/home/Slider4.png", label: "Grand Seminar", href: "/wce/grand-seminar", btnColor: "#E8A020" },
-    { src: "/images/wce/home/Slider5.png", label: "Job Expo", href: "/wce/job-expo", btnColor: "#E91E8C" },
+    { src: "/images/wce/home/Slider1.webp", label: "Pre-Event", href: "/wce/pre-event", btnColor: "#E8A020" },
+    { src: "/images/wce/home/Slider2.webp", label: "Competition", href: "/wce/competition", btnColor: "#4A90D9" },
+    { src: "/images/wce/home/Slider3.webp", label: "Training", href: "/wce/training", btnColor: "#E91E8C" },
+    { src: "/images/wce/home/Slider4.webp", label: "Grand Seminar", href: "/wce/grand-seminar", btnColor: "#E8A020" },
+    { src: "/images/wce/home/Slider5.webp", label: "Job Expo", href: "/wce/job-expo", btnColor: "#E91E8C" },
 ];
 
 export default function SliderWCEHome({ height = "clamp(300px, 35vw, 500px)" }: { height?: string }) {

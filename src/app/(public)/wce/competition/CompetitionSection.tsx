@@ -68,7 +68,7 @@ export default function CompetitionSection() {
                         height: `calc(100vw * ${BG_H_FULL / BG_W})`,
                     }}>
                         <Image
-                            src="/images/wce/competition/BG-Pink-Competition.png"
+                            src="/images/wce/competition/BG-Pink-Competition.webp"
                             alt="" fill
                             style={{ objectFit: "fill", objectPosition: "top" }}
                             priority
@@ -120,14 +120,14 @@ export default function CompetitionSection() {
                             <CompetitionCard
                                 open={openStates[0]}
                                 onToggle={() => toggle(0)}
-                                photoSrc="/images/wce/competition/Photo1.png"
+                                photoSrc="/images/wce/competition/Photo1.webp"
                                 title="Business Case Competition"
                                 timeline=" Saturday, 13 June-Saturday, 25 July 2026"
                                 place="Hybrid"
                                 buttonLabel="Register Here"
                                 timelines={[
-                                    "/images/wce/competition/Undergraduate BCC.png",
-                                    "/images/wce/competition/Freshgraduate BCC.png",
+                                    "/images/wce/competition/Undergraduate BCC.webp",
+                                    "/images/wce/competition/Freshgraduate BCC.webp",
                                 ]}
                                 dropdownOptions={[
                                     { label: "Undergraduate", href: "https://forms.gle/XfDrzF96KLq8gfC3A" },
@@ -139,13 +139,13 @@ export default function CompetitionSection() {
                             <CompetitionCard
                                 open={openStates[1]}
                                 onToggle={() => toggle(1)}
-                                photoSrc="/images/wce/competition/Photo2.png"
+                                photoSrc="/images/wce/competition/Photo2.webp"
                                 title="Essay Competition"
                                 timeline=" Monday, 1 June-Saturday, 25 July 2026"
                                 place="Online"
                                 buttonLabel="Register Here"
                                 joinHref="https://forms.gle/U3HU53r2xyUjbfFj6"
-                                timelineSrc="/images/wce/competition/Timeline Essay.png"
+                                timelineSrc="/images/wce/competition/Timeline Essay.webp"
                                 shortDesc="The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme"
                                 fullDesc={`"The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`}
                             />
@@ -157,7 +157,7 @@ export default function CompetitionSection() {
             {/* MOBILE */}
             <div className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-3vw" }}>
                 <div className="relative w-full" style={{
-                    backgroundImage: "url('/images/wce/competition/mobile/BG-Pink-Comp-mb.png')",
+                    backgroundImage: "url('/images/wce/competition/mobile/BG-Pink-Comp-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top center",
                     paddingBottom: "5%",
@@ -190,7 +190,7 @@ export default function CompetitionSection() {
                         <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
                                 <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
-                                    <Image src="/images/wce/competition/mobile/Photo1-mb.png" alt="Business Case Competition" fill style={{ objectFit: "cover", objectPosition: "center" }} />
+                                    <Image src="/images/wce/competition/mobile/Photo1-mb.webp" alt="Business Case Competition" fill style={{ objectFit: "cover", objectPosition: "center" }} />
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
@@ -209,10 +209,10 @@ export default function CompetitionSection() {
                             </p>
                             <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
                                 <div style={{ flex: 1, minWidth: 0 }}>
-                                    <Image src="/images/wce/competition/Undergraduate BCC.png" alt="Undergraduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
+                                    <Image src="/images/wce/competition/Undergraduate BCC.webp" alt="Undergraduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
                                 </div>
                                 <div style={{ flex: 1, minWidth: 0 }}>
-                                    <Image src="/images/wce/competition/Freshgraduate BCC.png" alt="Fresh Graduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
+                                    <Image src="/images/wce/competition/Freshgraduate BCC.webp" alt="Fresh Graduate Timeline" width={400} height={200} style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }} />
                                 </div>
                             </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -241,7 +241,7 @@ export default function CompetitionSection() {
                         <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
                                 <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
-                                    <Image src="/images/wce/competition/mobile/Photo2-mb.png" alt="Essay Competition" fill style={{ objectFit: "cover" }} />
+                                    <Image src="/images/wce/competition/mobile/Photo2-mb.webp" alt="Essay Competition" fill style={{ objectFit: "cover" }} />
                                 </div>
                                 <div style={{ flex: 1 }}>
                                     <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
@@ -260,7 +260,7 @@ export default function CompetitionSection() {
                             </p>
                             <div style={{ marginBottom: "10px" }}>
                                 <Image
-                                    src="/images/wce/competition/Timeline Essay.png"
+                                    src="/images/wce/competition/Timeline Essay.webp"
                                     alt="Essay Competition Timeline"
                                     width={600}
                                     height={200}

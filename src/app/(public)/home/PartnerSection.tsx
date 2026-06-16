@@ -9,7 +9,7 @@ export default function PartnerSection() {
             {/* ── DESKTOP ── */}
             <div className="hidden md:block relative w-full z-0" style={{ marginTop: "-4vw" }}>
                 <Image
-                    src="/images/homepage/partner/Background-Medpar.png"
+                    src="/images/homepage/partner/Background-Medpar.webp"
                     alt=""
                     width={1458}
                     height={1130}
@@ -57,7 +57,7 @@ export default function PartnerSection() {
             <div
                 className="md:hidden w-full z-0 flex flex-col items-center py-8 px-0"
                 style={{
-                    backgroundImage: "url('/images/media-partners/mobile/BG-Medpar-mb.png')",
+                    backgroundImage: "url('/images/media-partners/mobile/BG-Medpar-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "center top",
                     backgroundRepeat: "no-repeat",

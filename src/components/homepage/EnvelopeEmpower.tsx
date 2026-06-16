@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 
 const FRAMES_OPEN = [
-    "/images/homepage/tagline/Envelope-Closed-Empower.png",
-    "/images/homepage/tagline/Envelope-Closed1-Empower.png",
-    "/images/homepage/tagline/Empower1.png",
-    "/images/homepage/tagline/Empower2.png",
+    "/images/homepage/tagline/Envelope-Closed-Empower.webp",
+    "/images/homepage/tagline/Envelope-Closed1-Empower.webp",
+    "/images/homepage/tagline/Empower1.webp",
+    "/images/homepage/tagline/Empower2.webp",
 ];
 
 export default function EnvelopeEmpower({ isStatic = false, isMobile = false }: { isStatic?: boolean; isMobile?: boolean }) {

@@ -10,7 +10,7 @@ export default function TaglineSection() {
             {/* Flower Border */}
             <div className="hidden md:block absolute top-0 left-0 right-0 z-[40]" style={{ transform: "translateY(-50%)" }}>
                 <Image
-                    src="/images/homepage/hero/Flower Border.png"
+                    src="/images/homepage/hero/Flower Border.webp"
                     alt=""
                     width={1440}
                     height={50}
@@ -29,7 +29,7 @@ export default function TaglineSection() {
                     aspectRatio: "1440/500"  // sesuai dimensi asli gambar
                 }}>
                     <Image
-                        src="/images/homepage/tagline/Blue-Background.png"
+                        src="/images/homepage/tagline/Blue-Background.webp"
                         alt=""
                         fill
                         style={{ objectFit: "cover" }}
@@ -71,7 +71,7 @@ export default function TaglineSection() {
                     aspectRatio: "1440/1563"
                 }}>
                     <Image
-                        src="/images/homepage/tagline/Pink-Background.png"
+                        src="/images/homepage/tagline/Pink-Background.webp"
                         alt=""
                         fill
                         style={{ objectFit: "cover" }}
@@ -84,7 +84,7 @@ export default function TaglineSection() {
                     {/* WCE Logo */}
                     <div style={{ position: "absolute", top: "20cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25 }}>
                         <Image
-                            src="/images/homepage/tagline/WCE Logo.png"
+                            src="/images/homepage/tagline/WCE Logo.webp"
                             alt="WCE Logo"
                             width={188}
                             height={198}
@@ -139,7 +139,7 @@ export default function TaglineSection() {
                     {/* Calendar */}
                     <div style={{ position: "absolute", bottom: "1.5cqw", left: "50%", transform: "translateX(-50%)", zIndex: 25, width: "100%", display: "flex", justifyContent: "center", padding: "0 1rem" }}>
                         <Image
-                            src="/images/homepage/tagline/Calendar WCE.png"
+                            src="/images/homepage/tagline/Calendar WCE.webp"
                             alt="WCE Calendar"
                             width={1360}
                             height={679}
@@ -154,7 +154,7 @@ export default function TaglineSection() {
 ═══════════════════════════════════════ */}
             <div className="block md:hidden relative w-full">
                 <Image
-                    src="/images/homepage/tagline/mobile/BG-Blue-mb.png"
+                    src="/images/homepage/tagline/mobile/BG-Blue-mb.webp"
                     alt=""
                     width={393}
                     height={600}
@@ -187,7 +187,7 @@ export default function TaglineSection() {
                 {/* Background */}
                 <div className="absolute inset-0">
                     <Image
-                        src="/images/homepage/tagline/mobile/BG-Pink-mb.png"
+                        src="/images/homepage/tagline/mobile/BG-Pink-mb.webp"
                         alt=""
                         fill
                         style={{ objectFit: "cover", objectPosition: "top" }}
@@ -198,7 +198,7 @@ export default function TaglineSection() {
                 <div className="relative z-10 flex flex-col items-center px-4 py-8">
                     {/* WCE Logo */}
                     <Image
-                        src="/images/homepage/tagline/WCE Logo.png"
+                        src="/images/homepage/tagline/WCE Logo.webp"
                         alt="WCE Logo"
                         width={188}
                         height={198}
@@ -248,7 +248,7 @@ export default function TaglineSection() {
 
                     {/* Calendar */}
                     <Image
-                        src="/images/homepage/tagline/Calendar WCE.png"
+                        src="/images/homepage/tagline/Calendar WCE.webp"
                         alt="WCE Calendar"
                         width={1360}
                         height={679}

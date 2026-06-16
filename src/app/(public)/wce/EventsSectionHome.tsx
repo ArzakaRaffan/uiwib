@@ -6,10 +6,10 @@ import SliderWCEHome from "./SliderWCEHome";
 
 
 const eventCards = [
-    { src: "/images/wce/home/Slider1.png", label: "Pre-Event", href: "/wce/pre-event", btnColor: "#E8A020" },
-    { src: "/images/wce/home/Slider2.png", label: "Competition", href: "/wce/competition", btnColor: "#4A90D9" },
-    { src: "/images/wce/home/Slider3.png", label: "Training", href: "/wce/training", btnColor: "#E91E8C" },
-    { src: "/images/wce/home/Slider4.png", label: "Grand Seminar", href: "/wce/grand-seminar", btnColor: "#E8A020" },
+    { src: "/images/wce/home/Slider1.webp", label: "Pre-Event", href: "/wce/pre-event", btnColor: "#E8A020" },
+    { src: "/images/wce/home/Slider2.webp", label: "Competition", href: "/wce/competition", btnColor: "#4A90D9" },
+    { src: "/images/wce/home/Slider3.webp", label: "Training", href: "/wce/training", btnColor: "#E91E8C" },
+    { src: "/images/wce/home/Slider4.webp", label: "Grand Seminar", href: "/wce/grand-seminar", btnColor: "#E8A020" },
 ];
 
 export default function EventsSectionHome() {
@@ -21,7 +21,7 @@ export default function EventsSectionHome() {
             >
                 <div className="relative w-full" style={{ aspectRatio: "1443/1202", containerType: "inline-size" }}>
                     <div className="absolute inset-0">
-                        <Image src="/images/wce/home/BG-Yellow.png" alt="" fill sizes="100vw"
+                        <Image src="/images/wce/home/BG-Yellow.webp" alt="" fill sizes="100vw"
                             className="object-cover object-center" priority />
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function EventsSectionHome() {
 
                 <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4">
                     <Image
-                        src="/images/wce/home/Grid.png"
+                        src="/images/wce/home/Grid.webp"
                         alt="Grid"
                         width={1338}
                         height={859}
@@ -56,35 +56,35 @@ export default function EventsSectionHome() {
                 </div>
 
                 {/* Bunga dekorasi */}
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={100} height={100}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={100} height={100}
                     style={{
                         position: "absolute", top: "5%", left: "2%",
                         width: "clamp(50px, 6vw, 100px)", height: "auto",
                         zIndex: 1, pointerEvents: "none", opacity: 0.9,
                     }}
                 />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={70} height={70}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={70} height={70}
                     style={{
                         position: "absolute", top: "12%", right: "3%",
                         width: "clamp(35px, 4.5vw, 75px)", height: "auto",
                         zIndex: 1, pointerEvents: "none", opacity: 0.85,
                     }}
                 />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={120} height={120}
                     style={{
                         position: "absolute", bottom: "15%", left: "1.5%",
                         width: "clamp(60px, 7vw, 120px)", height: "auto",
                         zIndex: 1, pointerEvents: "none", opacity: 0.9,
                     }}
                 />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={55} height={55}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={55} height={55}
                     style={{
                         position: "absolute", bottom: "50%", right: "2%",
                         width: "clamp(30px, 5vw, 150px)", height: "auto",
                         zIndex: 1, pointerEvents: "none", opacity: 0.8,
                     }}
                 />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={55} height={55}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={55} height={55}
                     style={{
                         position: "absolute", bottom: "25%", right: "2%",
                         width: "clamp(30px, 5vw, 150px)", height: "auto",
@@ -97,19 +97,19 @@ export default function EventsSectionHome() {
             <section className="block md:hidden relative w-full" style={{
                 zIndex: 10,
                 marginTop: "-2.5vw",
-                backgroundImage: "url('/images/wce/home/mobile/BG-Events-mb.png')",
+                backgroundImage: "url('/images/wce/home/mobile/BG-Events-mb.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "top center",
                 backgroundRepeat: "no-repeat",
             }}>
 
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={120} height={120}
                     style={{ position: "absolute", top: "8%", left: "2%", width: "12vw", height: "auto", zIndex: 0, opacity: 0.9 }} />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={120} height={120}
                     style={{ position: "absolute", top: "2%", right: "2%", width: "10vw", height: "auto", zIndex: 0, opacity: 0.85 }} />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={120} height={120}
                     style={{ position: "absolute", bottom: "10%", left: "2%", width: "12vw", height: "auto", zIndex: 0, opacity: 0.9 }} />
-                <Image src="/images/wce/pre-event/Flower.png" alt="" width={120} height={120}
+                <Image src="/images/wce/pre-event/Flower.webp" alt="" width={120} height={120}
                     style={{ position: "absolute", bottom: "3%", right: "2%", width: "15vw", height: "auto", zIndex: 0, opacity: 0.8 }} />
 
                 <div className="relative flex flex-col items-center px-4" style={{ paddingTop: "6%", paddingBottom: "6%", zIndex: 10 }}>
