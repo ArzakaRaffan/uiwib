@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
 import { uploadImage } from "@/lib/r2";
 
 export async function GET() {
@@ -12,10 +11,7 @@ export async function GET() {
       where: { isActive: true },
       orderBy: { createdAt: "asc" },
     });
-    return NextResponse.json(
-      { success: true, data: partners },
-      { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } }
-    );
+    return NextResponse.json({ success: true, data: partners });
   } catch {
     return NextResponse.json({ success: false, error: "Failed to fetch company partners" }, { status: 500 });
   }
@@ -42,7 +38,6 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    revalidatePath("/api/company-partners");
     return NextResponse.json({ success: true, data: partner }, { status: 201 });
   } catch (e) {
     console.error(e);
