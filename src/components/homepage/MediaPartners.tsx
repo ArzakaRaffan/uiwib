@@ -57,14 +57,20 @@ export default function MediaPartnersSection() {
     const [row2, setRow2] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch("/api/media-partners")
-            .then((r) => r.json())
-            .then((d) => {
-                if (!d.success) return;
-                const partners: MediaPartner[] = d.data;
-                setRow1(partners.filter((p) => p.row === 1).map((p) => p.logoUrl));
-                setRow2(partners.filter((p) => p.row === 2).map((p) => p.logoUrl));
-            });
+        const fetchData = () => {
+            fetch("/api/media-partners")
+                .then((r) => r.json())
+                .then((d) => {
+                    if (!d.success) return;
+                    const partners: MediaPartner[] = d.data;
+                    setRow1(partners.filter((p) => p.row === 1).map((p) => p.logoUrl));
+                    setRow2(partners.filter((p) => p.row === 2).map((p) => p.logoUrl));
+                });
+        };
+
+        fetchData();
+        window.addEventListener("partners-updated", fetchData);
+        return () => window.removeEventListener("partners-updated", fetchData);
     }, []);
 
     if (row1.length === 0 && row2.length === 0) return null;

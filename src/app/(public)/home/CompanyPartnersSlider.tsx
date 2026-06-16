@@ -69,14 +69,20 @@ export default function CompanyPartnersSlider() {
     const [row2, setRow2] = useState<CompanyPartner[]>([]);
 
     useEffect(() => {
-        fetch("/api/company-partners")
-            .then((r) => r.json())
-            .then((d) => {
-                if (!d.success) return;
-                const companies: CompanyPartner[] = d.data;
-                setRow1(companies.filter((c) => c.row === 1));
-                setRow2(companies.filter((c) => c.row === 2));
-            });
+        const fetchData = () => {
+            fetch("/api/company-partners")
+                .then((r) => r.json())
+                .then((d) => {
+                    if (!d.success) return;
+                    const companies: CompanyPartner[] = d.data;
+                    setRow1(companies.filter((c) => c.row === 1));
+                    setRow2(companies.filter((c) => c.row === 2));
+                });
+        };
+
+        fetchData();
+        window.addEventListener("partners-updated", fetchData);
+        return () => window.removeEventListener("partners-updated", fetchData);
     }, []);
 
     if (row1.length === 0 && row2.length === 0) return null;

@@ -117,6 +117,7 @@ export default function AdminPartnersPage() {
       setForm({ open: false, type: "media", editing: null });
       fetchAll();
       router.refresh();
+      window.dispatchEvent(new Event("partners-updated"));
     } catch (e: any) {
       setError(e.message ?? "Something went wrong");
     } finally {
@@ -134,6 +135,7 @@ export default function AdminPartnersPage() {
       setDeleteTarget(null);
       fetchAll();
       router.refresh();
+      window.dispatchEvent(new Event("partners-updated"));
     } catch (e: any) {
       alert(e.message ?? "Delete failed");
     }
