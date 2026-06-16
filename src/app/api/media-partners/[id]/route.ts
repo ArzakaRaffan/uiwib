@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 import { uploadImage, deleteImage } from "@/lib/r2";
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -32,6 +33,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       },
     });
 
+    revalidatePath("/api/media-partners");
     return NextResponse.json({ success: true, data: updated });
   } catch (e) {
     console.error(e);
@@ -51,6 +53,7 @@ export async function DELETE(_: NextRequest, { params }: { params: Promise<{ id:
     if (existing.logoUrl) await deleteImage(existing.logoUrl);
     await prisma.mediaPartner.delete({ where: { id } });
 
+    revalidatePath("/api/media-partners");
     return NextResponse.json({ success: true, data: null });
   } catch (e) {
     console.error(e);
