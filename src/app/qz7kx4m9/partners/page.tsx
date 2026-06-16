@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { MediaPartner, CompanyPartner } from "@/types";
 
 // ─── Shared types ─────────────────────────────────────────────────────────────
@@ -70,6 +71,7 @@ export default function AdminPartnersPage() {
   const [mediaPartners, setMediaPartners] = useState<MediaPartner[]>([]);
   const [companyPartners, setCompanyPartners] = useState<CompanyPartner[]>([]);
   const [form, setForm] = useState<FormState>({ open: false, type: "media", editing: null });
+  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [deleteTarget, setDeleteTarget] = useState<{ id: string; type: PartnerType } | null>(null);
@@ -114,6 +116,7 @@ export default function AdminPartnersPage() {
       if (!data.success) throw new Error(data.error);
       setForm({ open: false, type: "media", editing: null });
       fetchAll();
+      router.refresh();
     } catch (e: any) {
       setError(e.message ?? "Something went wrong");
     } finally {
@@ -130,6 +133,7 @@ export default function AdminPartnersPage() {
       if (!data.success) throw new Error(data.error);
       setDeleteTarget(null);
       fetchAll();
+      router.refresh();
     } catch (e: any) {
       alert(e.message ?? "Delete failed");
     }
