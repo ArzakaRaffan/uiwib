@@ -4,23 +4,31 @@ import { useState, useEffect, useRef } from "react"
 import CompetitionCard from "./CompetitionCard"
 
 const BG_W = 5750
-const BG_H_FULL = 8092
+const BG_H_FULL = 9100
 
-const BG_H_CLOSED = 4200
-const BG_H_OPEN_CARD1_ONLY = 5750
-const BG_H_OPEN_CARD2_ONLY = 5000
-const BG_H_OPEN_BOTH = 6600
+const BG_H_CLOSED           = 5800
+const BG_H_OPEN_1           = 7400
+const BG_H_OPEN_2           = 6750
+const BG_H_OPEN_3           = 6750
+const BG_H_OPEN_12          = 8250
+const BG_H_OPEN_13          = 8250
+const BG_H_OPEN_23          = 7600
+const BG_H_OPEN_ALL         = 9100
 
 function getClipRatio(openStates: boolean[]) {
-    const [open1, open2] = openStates
-    if (open1 && open2) return BG_H_OPEN_BOTH / BG_W
-    if (open1) return BG_H_OPEN_CARD1_ONLY / BG_W
-    if (open2) return BG_H_OPEN_CARD2_ONLY / BG_W
+    const [o1, o2, o3] = openStates
+    if (o1 && o2 && o3) return BG_H_OPEN_ALL / BG_W
+    if (o1 && o2)       return BG_H_OPEN_12  / BG_W
+    if (o1 && o3)       return BG_H_OPEN_13  / BG_W
+    if (o2 && o3)       return BG_H_OPEN_23  / BG_W
+    if (o1)             return BG_H_OPEN_1   / BG_W
+    if (o2)             return BG_H_OPEN_2   / BG_W
+    if (o3)             return BG_H_OPEN_3   / BG_W
     return BG_H_CLOSED / BG_W
 }
 
 export default function CompetitionSection() {
-    const [openStates, setOpenStates] = useState([false, false])
+    const [openStates, setOpenStates] = useState([false, false, false])
     const [containerHeight, setContainerHeight] = useState<string>(
         `calc(100vw * ${BG_H_CLOSED / BG_W})`
     )
@@ -149,6 +157,19 @@ export default function CompetitionSection() {
                                 shortDesc="The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme"
                                 fullDesc={`"The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`}
                             />
+                            <CompetitionCard
+                                open={openStates[2]}
+                                onToggle={() => toggle(2)}
+                                photoSrc="/images/wce/competition/Photo3.webp"
+                                title="Photo Competition"
+                                timeline=" Monday, 22 June-Saturday, 25 July 2026"
+                                place="Sisternet (Application)"
+                                buttonLabel="Register Here"
+                                joinHref="#"
+                                timelineSrc="/images/wce/competition/Timeline Photo.webp"
+                                shortDesc={`The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme “She Leads, She Inspires,” this competition invites participants to capture moments that represent`}
+                                fullDesc="the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also for determining the direction of her own life."
+                            />
                         </div>
                     </div>
                 </div>
@@ -269,6 +290,43 @@ export default function CompetitionSection() {
                             </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="https://forms.gle/U3HU53r2xyUjbfFj6" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
+                                    Register Here
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Card 3 — Photo Competition */}
+                        <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
+                            <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
+                                    <Image src="/images/wce/competition/Photo3.webp" alt="Photo Competition" fill style={{ objectFit: "cover", objectPosition: "center" }} />
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
+                                        Photo Competition
+                                    </p>
+                                    <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
+                                        <strong>Timeline:</strong> Monday, 22 June&ndash;Saturday, 25 July 2026
+                                    </p>
+                                    <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
+                                        <strong>Place:</strong> Sisternet (Application)
+                                    </p>
+                                </div>
+                            </div>
+                            <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
+                                The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme &ldquo;She Leads, She Inspires,&rdquo; this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also for determining the direction of her own life.
+                            </p>
+                            <div style={{ marginBottom: "10px" }}>
+                                <Image
+                                    src="/images/wce/competition/Timeline Photo.webp"
+                                    alt="Photo Competition Timeline"
+                                    width={600}
+                                    height={200}
+                                    style={{ width: "70%", height: "auto", display: "block", borderRadius: "6px" }}
+                                />
+                            </div>
+                            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                                <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
                                     Register Here
                                 </a>
                             </div>

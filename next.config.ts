@@ -1,6 +1,5 @@
 // next.config.ts
 import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
@@ -16,10 +15,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "assets.uiwomeninbusiness.com",
+      },
+      {
+        protocol: "https",
         hostname: "placehold.co",
       },
     ],
   },
 };
-
 export default nextConfig;
