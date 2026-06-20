@@ -107,10 +107,10 @@ export default function TrainingSection() {
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/training/Photo1.webp"
                                 logoSrc="/images/wce/training/Logo WCE.webp"
-                                companySrc="/images/wce/training/TBA.webp"
+                                companySrc="/images/wce/training/Unilever.webp"
                                 title="External Training"
-                                timeline="TBA"
-                                place="TBA"
+                                timeline="Wednesday, 1 July–Thursday, 2 July 2026"
+                                place="Hybrid"
                                 shortDesc="External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
                                 fullDesc={[
                                     "The upcoming External Training will be conducted in collaboration with various companies. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.",
