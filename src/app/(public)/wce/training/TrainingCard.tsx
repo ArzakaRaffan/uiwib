@@ -100,12 +100,13 @@ export default function TrainingCard({
                             display: "flex",
                             alignItems: "center",
                             gap: "clamp(6px, 2vw, 20px)",
-                            paddingLeft: "6%",
+                            marginTop: "clamp(6px, 1vw, 14px)",
+                            marginLeft: "12%",
                         }}>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(10px, 8vw, 220px)",
-                                height: "clamp(36px, 8vw, 220px)",
+                                width: "clamp(36px, 9.5vw, 240px)",
+                                height: "clamp(36px, 9.5vw, 240px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -115,8 +116,8 @@ export default function TrainingCard({
                             <span style={{ fontSize: "clamp(10px, 2vw, 64px)", color: "#888", fontWeight: 500 }}>x</span>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(36px, 8vw, 200px)",
-                                height: "clamp(36px, 8vw, 200px)",
+                                width: "clamp(36px, 9.5vw, 220px)",
+                                height: "clamp(36px, 9.5vw, 220px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -232,18 +233,32 @@ export default function TrainingCard({
                 paddingTop: "clamp(4px, 0.8vw, 8px)",
                 marginTop: "clamp(6px, 0.8vw, 10px)",
             }}>
-                <a href={joinHref} style={{
-                    background: "#E91E8C",
-                    color: "#fff",
-                    padding: "clamp(6px, 0.8vw, 12px) clamp(16px, 2vw, 28px)",
-                    borderRadius: "20px",
-                    fontSize: "clamp(11px, 1vw, 15px)",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    whiteSpace: "nowrap",
-                }}>
-                    {buttonLabel}
-                </a>
+                {joinHref === "#" ? (
+                    <span style={{
+                        background: "#aaa",
+                        color: "#fff",
+                        padding: "clamp(6px, 0.8vw, 12px) clamp(16px, 2vw, 28px)",
+                        borderRadius: "20px",
+                        fontSize: "clamp(11px, 1vw, 15px)",
+                        fontWeight: 500,
+                        whiteSpace: "nowrap",
+                    }}>
+                        {buttonLabel}
+                    </span>
+                ) : (
+                    <a href={joinHref} style={{
+                        background: "#E91E8C",
+                        color: "#fff",
+                        padding: "clamp(6px, 0.8vw, 12px) clamp(16px, 2vw, 28px)",
+                        borderRadius: "20px",
+                        fontSize: "clamp(11px, 1vw, 15px)",
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        whiteSpace: "nowrap",
+                    }}>
+                        {buttonLabel}
+                    </a>
+                )}
             </div>
         </div>
     )

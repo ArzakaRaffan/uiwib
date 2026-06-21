@@ -5,8 +5,8 @@ import TrainingCard from "./TrainingCard"
 const BG_RATIO = 9000 / 5760
 
 const RATIO_CLOSED = BG_RATIO * 0.47   // ~0.629
-const RATIO_OPEN1 = BG_RATIO * 0.61   // ~0.776
-const RATIO_OPEN2 = BG_RATIO * 0.7   // ~0.950
+const RATIO_OPEN1 = BG_RATIO * 0.63   // ~0.776
+const RATIO_OPEN2 = BG_RATIO * 0.72   // ~0.950
 
 function getClipRatio(openCount: number) {
     if (openCount === 0) return RATIO_CLOSED
@@ -110,8 +110,8 @@ export default function TrainingSection() {
                                 companySrc="/images/wce/training/Unilever.webp"
                                 timelineSrc="/images/wce/training/Timeline External Training.webp"
                                 title="External Training"
-                                timeline="Wednesday, 1 July–Thursday, 2 July 2026"
-                                place="Hybrid"
+                                timeline=" Wednesday, 1 July–Thursday, 2 July 2026"
+                                place=" Hybrid"
                                 joinHref="https://forms.gle/gpJmqvL9iZuUU7kN8"
                                 buttonLabel="Join Training"
                                 shortDesc={`External Training is an exclusive event under Weekend Career Expo 2026 that offers participants the chance to gain direct exposure to professional environments and industry knowledge. The upcoming External Training is in collaboration with Unilever with the theme: “Understanding People, Driving Growth: Customer-Centric Lessons from Women in FMCG”.`}
@@ -123,11 +123,12 @@ export default function TrainingSection() {
                                 open={openStates[1]}
                                 onToggle={() => toggle(1)}
                                 photoSrc="/images/wce/training/Photo2.webp"
-                                logoSrc="/images/wce/training/Logo WCE.webp"
+                                logoSrc="/images/wce/training/UIWIB Logo.webp"
                                 companySrc="/images/wce/training/TBA.webp"
                                 title="Internal Training"
                                 timeline="TBA"
                                 place="TBA"
+                                buttonLabel="Coming Soon!"
                                 shortDesc="Internal Training is an exclusive program under Weekend Career Expo 2026, intended for the top five finalist teams of the Essay Competition and Mini Case Competition. The program features a series of interactive sessions guided by experienced mentors."
                                 fullDesc={[
                                     "Designed to enrich participants with deeper insights and professional perspectives relevant to their competition journey. The topics are designed to be flexible and adaptive to the needs of each team, ensuring a more tailored and meaningful learning experience for all participants.",
@@ -184,10 +185,10 @@ export default function TrainingSection() {
                                         External Training
                                     </p>
                                     <p style={{ fontSize: "clamp(5px, 2.6vw, 13px)", color: "#DF56A4", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> Wednesday, 1 July&ndash;Thursday, 2 July 2026
+                                        <strong>Timeline: </strong> Wednesday, 1 July&ndash;Thursday, 2 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(5px, 2.6vw, 13px)", color: "#DF56A4", margin: 0 }}>
-                                        <strong>Place:</strong> Hybrid
+                                        <strong>Place: </strong> Hybrid
                                     </p>
                                 </div>
                             </div>
@@ -197,14 +198,25 @@ export default function TrainingSection() {
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
                                 The event consists of two sessions: an online case study and an on-site sharing session with Unilever. Through the series of activities, participants are expected to develop stronger analytical and teamwork skills while gaining practical insights into how real business challenges are approached in a professional setting.
                             </p>
-                            <div style={{ marginBottom: "10px" }}>
-                                <Image
-                                    src="/images/wce/training/Timeline External Training.webp"
-                                    alt="External Training Timeline"
-                                    width={600}
-                                    height={220}
-                                    style={{ width: "85%", height: "auto", display: "block", borderRadius: "6px" }}
-                                />
+                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px, 3vw, 16px)", marginBottom: "10px" }}>
+                                <div style={{ width: "57%", flexShrink: 0 }}>
+                                    <Image
+                                        src="/images/wce/training/Timeline External Training.webp"
+                                        alt="External Training Timeline"
+                                        width={600}
+                                        height={220}
+                                        style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }}
+                                    />
+                                </div>
+                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "clamp(4px, 2vw, 10px)" }}>
+                                    <div style={{ position: "relative", width: "clamp(36px, 13vw, 60px)", height: "clamp(36px, 13vw, 60px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
+                                        <Image src="/images/wce/training/UIWIB Logo.webp" alt="UIWIB" fill style={{ objectFit: "cover" }} />
+                                    </div>
+                                    <span style={{ fontSize: "clamp(10px, 3.5vw, 18px)", color: "#888", fontWeight: 500 }}>x</span>
+                                    <div style={{ position: "relative", width: "clamp(36px, 13vw, 60px)", height: "clamp(36px, 13vw, 60px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
+                                        <Image src="/images/wce/training/Unilever.webp" alt="Unilever" fill style={{ objectFit: "cover" }} />
+                                    </div>
+                                </div>
                             </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                                 <a href="https://forms.gle/gpJmqvL9iZuUU7kN8" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
@@ -240,9 +252,9 @@ export default function TrainingSection() {
                                 Through Internal Training, each finalist team will receive focused guidance to strengthen their way of thinking, improve how they develop ideas, and communicate them more clearly.
                             </p>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
-                                    Join Training
-                                </a>
+                                <span style={{ background: "#aaa", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500 }}>
+                                    Coming Soon!
+                                </span>
                             </div>
                         </div>
                     </div>
