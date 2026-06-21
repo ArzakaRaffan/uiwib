@@ -5,12 +5,14 @@ interface TrainingCardProps {
     photoSrc: string
     logoSrc: string
     companySrc: string
+    timelineSrc?: string
     title: string
     timeline: string
     place: string
     shortDesc: string
     fullDesc: string[]
     joinHref?: string
+    buttonLabel?: string
     open: boolean
     onToggle: () => void
 }
@@ -19,12 +21,14 @@ export default function TrainingCard({
     photoSrc,
     logoSrc,
     companySrc,
+    timelineSrc,
     title,
     timeline,
     place,
     shortDesc,
     fullDesc,
     joinHref = "#",
+    buttonLabel = "Join Training",
     open,
     onToggle,
 }: TrainingCardProps) {
@@ -48,7 +52,7 @@ export default function TrainingCard({
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "clamp(8px, 1vw, 12px)",
+                    gap: 0,
                     minWidth: 0,
                 }}>
                     <div style={{
@@ -65,6 +69,26 @@ export default function TrainingCard({
                         />
                     </div>
 
+                    {/* Timeline image — muncul saat open */}
+                    {timelineSrc && (
+                        <div style={{
+                            overflow: "hidden",
+                            maxHeight: open ? "400px" : "0px",
+                            marginTop: open? "1.5vw" : 0,
+                            marginLeft: open? "1vw" : 0,
+                            opacity: open ? 1 : 0,
+                            transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
+                        }}>
+                            <Image
+                                src={timelineSrc}
+                                alt="Timeline"
+                                width={600}
+                                height={250}
+                                style={{ width: "100%", height: "auto", display: "block", borderRadius: "clamp(4px, 0.8vw, 10px)" }}
+                            />
+                        </div>
+                    )}
+
                     {/* Logo — muncul saat open */}
                     <div style={{
                         overflow: "hidden",
@@ -76,28 +100,23 @@ export default function TrainingCard({
                             display: "flex",
                             alignItems: "center",
                             gap: "clamp(6px, 2vw, 20px)",
-                            paddingLeft: "7%",
-                            paddingTop: "4%",
+                            paddingLeft: "6%",
                         }}>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(36px, 13vw, 220px)",
-                                height: "clamp(36px, 13vw, 220px)",
+                                width: "clamp(10px, 8vw, 220px)",
+                                height: "clamp(36px, 8vw, 220px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
                             }}>
                                 <Image src={logoSrc} alt="WCE" fill className="object-cover" />
                             </div>
-                            <span style={{
-                                fontSize: "clamp(10px, 2vw, 64px)",
-                                color: "#888",
-                                fontWeight: 500,
-                            }}>x</span>
+                            <span style={{ fontSize: "clamp(10px, 2vw, 64px)", color: "#888", fontWeight: 500 }}>x</span>
                             <div style={{
                                 position: "relative",
-                                width: "clamp(36px, 11vw, 200px)",
-                                height: "clamp(36px, 11vw, 200px)",
+                                width: "clamp(36px, 8vw, 200px)",
+                                height: "clamp(36px, 8vw, 200px)",
                                 borderRadius: "50%",
                                 overflow: "hidden",
                                 flexShrink: 0,
@@ -223,7 +242,7 @@ export default function TrainingCard({
                     textDecoration: "none",
                     whiteSpace: "nowrap",
                 }}>
-                    Coming Soon!
+                    {buttonLabel}
                 </a>
             </div>
         </div>

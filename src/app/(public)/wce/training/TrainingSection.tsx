@@ -5,8 +5,8 @@ import TrainingCard from "./TrainingCard"
 const BG_RATIO = 9000 / 5760
 
 const RATIO_CLOSED = BG_RATIO * 0.47   // ~0.629
-const RATIO_OPEN1 = BG_RATIO * 0.58   // ~0.776
-const RATIO_OPEN2 = BG_RATIO * 0.71   // ~0.950
+const RATIO_OPEN1 = BG_RATIO * 0.61   // ~0.776
+const RATIO_OPEN2 = BG_RATIO * 0.58   // ~0.950
 
 function getClipRatio(openCount: number) {
     if (openCount === 0) return RATIO_CLOSED
@@ -106,15 +106,17 @@ export default function TrainingSection() {
                                 open={openStates[0]}
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/training/Photo1.webp"
-                                logoSrc="/images/wce/training/Logo WCE.webp"
-                                companySrc="/images/wce/training/TBA.webp"
+                                logoSrc="/images/wce/training/UIWIB Logo.webp"
+                                companySrc="/images/wce/training/Unilever.webp"
+                                timelineSrc="/images/wce/training/Timeline External Training.webp"
                                 title="External Training"
-                                timeline="TBA"
-                                place="TBA"
-                                shortDesc="External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
+                                timeline="Wednesday, 1 July–Thursday, 2 July 2026"
+                                place="Hybrid"
+                                joinHref="https://forms.gle/gpJmqvL9iZuUU7kN8"
+                                buttonLabel="Join Training"
+                                shortDesc={`External Training is an exclusive event under Weekend Career Expo 2026 that offers participants the chance to gain direct exposure to professional environments and industry knowledge. The upcoming External Training is in collaboration with Unilever with the theme: “Understanding People, Driving Growth: Customer-Centric Lessons from Women in FMCG”.`}
                                 fullDesc={[
-                                    "The upcoming External Training will be conducted in collaboration with various companies. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.",
-                                    "Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.",
+                                    "The event consists of two sessions: an online case study and an on-site sharing session with Unilever. Through the series of activities, participants are expected to develop stronger analytical and teamwork skills while gaining practical insights into how real business challenges are approached in a professional setting.",
                                 ]}
                             />
                             <TrainingCard
@@ -169,7 +171,7 @@ export default function TrainingSection() {
                         gap: "12px",
                         marginBottom: "5%",
                     }}>
-                        {/* Card 1 */}
+                        {/* Card 1 — External Training */}
                         <div style={{ background: "#FFEFF8", border: "2px solid #ED84C6", borderRadius: "16px", padding: "12px" }}>
                             <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
                                 <div style={{ width: "45%", flexShrink: 0, borderRadius: "8px", overflow: "hidden" }}>
@@ -182,21 +184,30 @@ export default function TrainingSection() {
                                         External Training
                                     </p>
                                     <p style={{ fontSize: "clamp(5px, 2.6vw, 13px)", color: "#DF56A4", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> TBA
+                                        <strong>Timeline:</strong> Wednesday, 1 July&ndash;Thursday, 2 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(5px, 2.6vw, 13px)", color: "#DF56A4", margin: 0 }}>
-                                        <strong>Place:</strong> TBA
+                                        <strong>Place:</strong> Hybrid
                                     </p>
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 4px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
-                                External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.
+                                External Training is an exclusive event under Weekend Career Expo 2026 that offers participants the chance to gain direct exposure to professional environments and industry knowledge. The upcoming External Training is in collaboration with Unilever with the theme: &ldquo;Understanding People, Driving Growth: Customer-Centric Lessons from Women in FMCG&rdquo;.
                             </p>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
-                                Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.
+                                The event consists of two sessions: an online case study and an on-site sharing session with Unilever. Through the series of activities, participants are expected to develop stronger analytical and teamwork skills while gaining practical insights into how real business challenges are approached in a professional setting.
                             </p>
+                            <div style={{ marginBottom: "10px" }}>
+                                <Image
+                                    src="/images/wce/training/Timeline External Training.webp"
+                                    alt="External Training Timeline"
+                                    width={600}
+                                    height={220}
+                                    style={{ width: "85%", height: "auto", display: "block", borderRadius: "6px" }}
+                                />
+                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <a href="#" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
+                                <a href="https://forms.gle/gpJmqvL9iZuUU7kN8" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
                                     Join Training
                                 </a>
                             </div>
