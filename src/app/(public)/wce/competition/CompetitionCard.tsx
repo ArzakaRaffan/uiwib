@@ -139,10 +139,10 @@ export default function CompetitionCard({
                         {title}
                     </p>
                     <p style={{ fontSize: "clamp(12px, 2vw, 20px)", color: "#2555B7", margin: 0, letterSpacing: "-0.05em" }}>
-                        <strong style={{ fontWeight: 700 }}>Timeline:</strong> {timeline}
+                        <strong style={{ fontWeight: 700 }}>Timeline: </strong> {timeline}
                     </p>
                     <p style={{ fontSize: "clamp(12px, 2vw, 20px)", color: "#2555B7", margin: 0, letterSpacing: "-0.05em" }}>
-                        <strong style={{ fontWeight: 700 }}>Place:</strong> {place}
+                        <strong style={{ fontWeight: 700 }}>Place: </strong> {place}
                     </p>
                     <p style={{
                         fontSize: "clamp(11px, 1.2vw, 20px)",

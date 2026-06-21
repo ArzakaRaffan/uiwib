@@ -41,9 +41,9 @@ export default function HeroSectionGS() {
                         lineHeight: 1.4,
                         letterSpacing: "-0.02em",
                     }}>
-                        {'"Beyond The Hustle: Rewiring Women\'s Relationship With'}
+                        {'"She Shapes the Future: How Women Lead, Innovate, and Thrive'}
                         <br />
-                        {'Work Through Purpose Alignment In The Agentic Era."'}
+                        {'in a Rapidly Changing World."'}
                     </p>
                 </div>
                 <div className="absolute bottom-[25%] w-full text-center">
@@ -104,7 +104,7 @@ export default function HeroSectionGS() {
                     marginTop: "1%",
                     textAlign: "center",
                 }}>
-                    {'"Beyond The Hustle: Rewiring Women\'s Relationship With Work Through Purpose Alignment In The Agentic Era."'}
+                    {'"She Shapes the Future: How Women Lead, Innovate, and Thrive in a Rapidly Changing World."'}
                 </p>
                 <p style={{
                     fontFamily: "TTCommons, sans-serif",

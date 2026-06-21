@@ -197,10 +197,10 @@ export default function CompetitionSection() {
                                         Business Case Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> Saturday, 13 June&ndash;Saturday, 25 July 2026
+                                        <strong>Timeline: </strong> Saturday, 13 June&ndash;Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place:</strong> Hybrid
+                                        <strong>Place: </strong> Hybrid
                                     </p>
                                 </div>
                             </div>
@@ -248,10 +248,10 @@ export default function CompetitionSection() {
                                         Essay Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline:</strong> Monday, 1 June&ndash;Saturday, 25 July 2026
+                                        <strong>Timeline: </strong> Monday, 1 June&ndash;Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place:</strong> Online
+                                        <strong>Place: </strong> Online
                                     </p>
                                 </div>
                             </div>
