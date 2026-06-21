@@ -111,9 +111,10 @@ export default function TrainingSection() {
                                 title="External Training"
                                 timeline="TBA"
                                 place="TBA"
-                                shortDesc="External Training is an exclusive event under Weekend Career Expo 2026 that offers participants the chance to gain direct exposure to professional environments and industry knowledge. The upcoming External Training is in collaboration with Unilever with the theme: “Understanding People, Driving Growth: Customer-Centric Lessons from Women in FMCG”."
+                                shortDesc="External Training is an exclusive event held under Weekend Career Expo 2026, aimed to provide participants with direct exposure to professional work environments and valuable insights into the world of work."
                                 fullDesc={[
-                                    "The event consists of two session: an online case study and an on-site sharing session with Unilever. Through the series of activities, participants are expected to develop stronger analytical and teamwork skills while gaining practical insights into how real business challenges are approached in a professional setting.",
+                                    "The upcoming External Training will be conducted in collaboration with various companies. This event includes company presentations, interactive training sessions led by industry professionals, and hands-on problem-solving activities based on real workplace scenarios.",
+                                    "Participants will also gain insights from experienced professionals who will share their career journeys and practical perspectives. Through this experience, participants will develop a broader understanding of workplace practices, expand their professional network, and build essential skills to shape their future career paths.",
                                 ]}
                             />
                             <TrainingCard
