@@ -198,8 +198,8 @@ export default function TrainingSection() {
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#DF56A4", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify", letterSpacing: "-0.05em" }}>
                                 The event consists of two sessions: an online case study and an on-site sharing session with Unilever. Through the series of activities, participants are expected to develop stronger analytical and teamwork skills while gaining practical insights into how real business challenges are approached in a professional setting.
                             </p>
-                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px, 3vw, 16px)", marginBottom: "10px" }}>
-                                <div style={{ width: "57%", flexShrink: 0 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "clamp(6px, 2vw, 12px)", marginBottom: "10px" }}>
+                                <div style={{ width: "68%", flexShrink: 0 }}>
                                     <Image
                                         src="/images/wce/training/Timeline External Training.webp"
                                         alt="External Training Timeline"
@@ -208,12 +208,12 @@ export default function TrainingSection() {
                                         style={{ width: "100%", height: "auto", display: "block", borderRadius: "6px" }}
                                     />
                                 </div>
-                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "clamp(4px, 2vw, 10px)" }}>
-                                    <div style={{ position: "relative", width: "clamp(36px, 13vw, 60px)", height: "clamp(36px, 13vw, 60px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
+                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "clamp(3px, 1.5vw, 8px)" }}>
+                                    <div style={{ position: "relative", width: "clamp(26px, 9vw, 44px)", height: "clamp(26px, 9vw, 44px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
                                         <Image src="/images/wce/training/UIWIB Logo.webp" alt="UIWIB" fill style={{ objectFit: "cover" }} />
                                     </div>
-                                    <span style={{ fontSize: "clamp(10px, 3.5vw, 18px)", color: "#888", fontWeight: 500 }}>x</span>
-                                    <div style={{ position: "relative", width: "clamp(36px, 13vw, 60px)", height: "clamp(36px, 13vw, 60px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
+                                    <span style={{ fontSize: "clamp(8px, 2.5vw, 14px)", color: "#888", fontWeight: 500 }}>x</span>
+                                    <div style={{ position: "relative", width: "clamp(26px, 9vw, 44px)", height: "clamp(26px, 9vw, 44px)", borderRadius: "50%", overflow: "hidden", flexShrink: 0 }}>
                                         <Image src="/images/wce/training/Unilever.webp" alt="Unilever" fill style={{ objectFit: "cover" }} />
                                     </div>
                                 </div>
