@@ -107,7 +107,7 @@ export default function TrainingSection() {
                                 onToggle={() => toggle(0)}
                                 photoSrc="/images/wce/training/Photo1.webp"
                                 logoSrc="/images/wce/training/Logo WCE.webp"
-                                companySrc="/images/wce/training/Unilever.webp"
+                                companySrc="/images/wce/training/TBA.webp"
                                 title="External Training"
                                 timeline="Wednesday, 1 July–Thursday, 2 July 2026"
                                 place="Hybrid"
