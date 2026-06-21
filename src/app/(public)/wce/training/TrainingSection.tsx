@@ -6,7 +6,7 @@ const BG_RATIO = 9000 / 5760
 
 const RATIO_CLOSED = BG_RATIO * 0.47   // ~0.629
 const RATIO_OPEN1 = BG_RATIO * 0.61   // ~0.776
-const RATIO_OPEN2 = BG_RATIO * 0.58   // ~0.950
+const RATIO_OPEN2 = BG_RATIO * 0.7   // ~0.950
 
 function getClipRatio(openCount: number) {
     if (openCount === 0) return RATIO_CLOSED
