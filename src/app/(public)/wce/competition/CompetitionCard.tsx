@@ -272,6 +272,18 @@ export default function CompetitionCard({
                             </div>
                         )}
                     </div>
+                ) : joinHref === "#" ? (
+                    <span style={{
+                        background: "#aaa",
+                        color: "#fff",
+                        padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
+                        borderRadius: "20px",
+                        fontSize: "clamp(11px, 1.2vw, 20px)",
+                        fontWeight: 500,
+                        whiteSpace: "nowrap",
+                    }}>
+                        {buttonLabel}
+                    </span>
                 ) : (
                     <a href={joinHref} style={{
                         background: "#E91E8C",

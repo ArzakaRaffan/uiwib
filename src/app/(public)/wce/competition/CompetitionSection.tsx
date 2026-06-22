@@ -4,23 +4,31 @@ import { useState, useEffect, useRef } from "react"
 import CompetitionCard from "./CompetitionCard"
 
 const BG_W = 5750
-const BG_H_FULL = 8092
+const BG_H_FULL = 10000
 
-const BG_H_CLOSED = 4200
-const BG_H_OPEN_CARD1_ONLY = 5750
-const BG_H_OPEN_CARD2_ONLY = 5000
-const BG_H_OPEN_BOTH = 6600
+const BG_H_CLOSED  = 5800
+const BG_H_OPEN_1  = 7200   // hanya BCC
+const BG_H_OPEN_2  = 6550   // hanya Essay
+const BG_H_OPEN_3  = 6100   // hanya Photo
+const BG_H_OPEN_12 = 8092   // BCC + Essay
+const BG_H_OPEN_13 = 7600   // BCC + Photo
+const BG_H_OPEN_23 = 6850   // Essay + Photo
+const BG_H_OPEN_123 = 8500  // semua
 
 function getClipRatio(openStates: boolean[]) {
-    const [open1, open2] = openStates
-    if (open1 && open2) return BG_H_OPEN_BOTH / BG_W
-    if (open1) return BG_H_OPEN_CARD1_ONLY / BG_W
-    if (open2) return BG_H_OPEN_CARD2_ONLY / BG_W
+    const [o1, o2, o3] = openStates
+    if (o1 && o2 && o3) return BG_H_OPEN_123 / BG_W
+    if (o1 && o2)       return BG_H_OPEN_12  / BG_W
+    if (o1 && o3)       return BG_H_OPEN_13  / BG_W
+    if (o2 && o3)       return BG_H_OPEN_23  / BG_W
+    if (o1)             return BG_H_OPEN_1   / BG_W
+    if (o2)             return BG_H_OPEN_2   / BG_W
+    if (o3)             return BG_H_OPEN_3   / BG_W
     return BG_H_CLOSED / BG_W
 }
 
 export default function CompetitionSection() {
-    const [openStates, setOpenStates] = useState([false, false])
+    const [openStates, setOpenStates] = useState([false, false, false])
     const [containerHeight, setContainerHeight] = useState<string>(
         `calc(100vw * ${BG_H_CLOSED / BG_W})`
     )
@@ -149,6 +157,17 @@ export default function CompetitionSection() {
                                 shortDesc="The Essay Competition is an annual event organized by Universitas Indonesia Women in Business as one of the initiatives of Weekend Career Expo 2026. Carrying the grand theme"
                                 fullDesc={`"The Spillover Effect: How Educating One Woman Can Change the Community," this competition invites participants to explore real-world issues through critical and impactful writing. Through this competition, participants are able to hone their research, writing, and analytical skills while showcasing their perspectives and ideas that can inspire meaningful change.`}
                             />
+                            <CompetitionCard
+                                open={openStates[2]}
+                                onToggle={() => toggle(2)}
+                                photoSrc="/images/wce/competition/Photo3.webp"
+                                title="Photo Competition"
+                                timeline="TBA"
+                                place="TBA"
+                                buttonLabel="Coming Soon!"
+                                shortDesc="Photo Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition invites participants to"
+                                fullDesc="capture and convey meaningful stories through the lens of a camera. Participants are encouraged to explore themes related to women, empowerment, and social impact, expressing their unique perspectives and creativity through photography."
+                            />
                         </div>
                     </div>
                 </div>
@@ -271,6 +290,34 @@ export default function CompetitionSection() {
                                 <a href="https://forms.gle/U3HU53r2xyUjbfFj6" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
                                     Register Here
                                 </a>
+                            </div>
+                        </div>
+
+                        {/* Card 3 — Photo Competition */}
+                        <div style={{ background: "#CFE5FC", border: "2px solid #87C9FF", borderRadius: "16px", padding: "12px" }}>
+                            <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+                                <div style={{ width: "50%", flexShrink: 0, borderRadius: "8px", overflow: "hidden", aspectRatio: "4/3", position: "relative", marginTop: "clamp(4px, 2vw, 12px)" }}>
+                                    <Image src="/images/wce/competition/Photo3.webp" alt="Photo Competition" fill style={{ objectFit: "cover" }} />
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    <p style={{ fontFamily: "Times New Roman, serif", fontSize: "clamp(11px, 3.8vw, 20px)", fontWeight: 700, textDecoration: "underline", color: "#2555B7", margin: "0 0 4px", letterSpacing: "-0.05em" }}>
+                                        Photo Competition
+                                    </p>
+                                    <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
+                                        <strong>Timeline: </strong> TBA
+                                    </p>
+                                    <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
+                                        <strong>Place: </strong> Online
+                                    </p>
+                                </div>
+                            </div>
+                            <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
+                                Photo Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition invites participants to capture and convey meaningful stories through the lens of a camera. Participants are encouraged to explore themes related to women, empowerment, and social impact, expressing their unique perspectives and creativity through photography.
+                            </p>
+                            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                                <span style={{ background: "#aaa", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500 }}>
+                                    Coming Soon!
+                                </span>
                             </div>
                         </div>
 
