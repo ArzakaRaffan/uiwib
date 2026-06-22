@@ -7,13 +7,13 @@ const BG_W = 5750
 const BG_H_FULL = 10000
 
 const BG_H_CLOSED  = 5800
-const BG_H_OPEN_1  = 7200   // hanya BCC
-const BG_H_OPEN_2  = 6550   // hanya Essay
-const BG_H_OPEN_3  = 6100   // hanya Photo
-const BG_H_OPEN_12 = 8092   // BCC + Essay
-const BG_H_OPEN_13 = 7600   // BCC + Photo
-const BG_H_OPEN_23 = 6850   // Essay + Photo
-const BG_H_OPEN_123 = 8500  // semua
+const BG_H_OPEN_1  = 7350   // hanya BCC
+const BG_H_OPEN_2  = 6650   // hanya Essay
+const BG_H_OPEN_3  = 6700   // hanya Photo
+const BG_H_OPEN_12 = 8200   // BCC + Essay
+const BG_H_OPEN_13 = 8200   // BCC + Photo
+const BG_H_OPEN_23 = 7500   // Essay + Photo
+const BG_H_OPEN_123 = 9050  // semua
 
 function getClipRatio(openStates: boolean[]) {
     const [o1, o2, o3] = openStates
@@ -162,11 +162,14 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(2)}
                                 photoSrc="/images/wce/competition/Photo3.webp"
                                 title="Photo Competition"
-                                timeline="TBA"
-                                place="TBA"
-                                buttonLabel="Coming Soon!"
-                                shortDesc="Photo Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition invites participants to"
-                                fullDesc="capture and convey meaningful stories through the lens of a camera. Participants are encouraged to explore themes related to women, empowerment, and social impact, expressing their unique perspectives and creativity through photography."
+                                timeline=" Monday, 22 June 2026–Saturday, 25 July 2026"
+                                place=" Sisternet (Application)"
+                                buttonLabel="Register Here"
+                                joinHref="https://forms.gle/Vc7DgbNr69qtFKr59"
+                                timelineSrc="/images/wce/competition/Timeline Photo.webp"
+                                timelineMarginTop="2.5vw"
+                                shortDesc='The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme “She Leads, She Inspires,"'
+                                fullDesc="this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also in determining the direction of her own life."
                             />
                         </div>
                     </div>
@@ -304,20 +307,29 @@ export default function CompetitionSection() {
                                         Photo Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline: </strong> TBA
+                                        <strong>Timeline: </strong> Monday, 22 June 2026&ndash;Saturday, 25 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place: </strong> Online
+                                        <strong>Place: </strong> Sisternet (Application)
                                     </p>
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
-                                Photo Competition is one of the initiatives of Weekend Career Expo 2026 organized by Universitas Indonesia Women in Business. This competition invites participants to capture and convey meaningful stories through the lens of a camera. Participants are encouraged to explore themes related to women, empowerment, and social impact, expressing their unique perspectives and creativity through photography.
+                                The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme &ldquo;She Leads, She Inspires,&rdquo; this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also in determining the direction of her own life.
                             </p>
+                            <div style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                <Image
+                                    src="/images/wce/competition/Timeline Photo.webp"
+                                    alt="Photo Competition Timeline"
+                                    width={600}
+                                    height={200}
+                                    style={{ width: "70%", height: "auto", display: "block", borderRadius: "6px" }}
+                                />
+                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <span style={{ background: "#aaa", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500 }}>
-                                    Coming Soon!
-                                </span>
+                                <a href="https://forms.gle/Vc7DgbNr69qtFKr59" style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, textDecoration: "none" }}>
+                                    Register Here
+                                </a>
                             </div>
                         </div>
 

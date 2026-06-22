@@ -21,6 +21,7 @@ interface CompetitionCardProps {
     dropdownOptions?: DropdownOption[]
     open: boolean
     timelineScale?: number
+    timelineMarginTop?: string
     onToggle: () => void
 }
 
@@ -38,6 +39,7 @@ export default function CompetitionCard({
     dropdownOptions,
     open,
     timelineScale = 1,
+    timelineMarginTop = "1vw",
     onToggle,
 }: CompetitionCardProps) {
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -106,7 +108,7 @@ export default function CompetitionCard({
                             maxHeight: open ? "500px" : "0px",
                             opacity: open ? 1 : 0,
                             transition: "max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
-                            marginTop: "1vw",
+                            marginTop: timelineMarginTop,
                         }}>
                             <Image
                                 src={timelineSrc}
@@ -272,18 +274,6 @@ export default function CompetitionCard({
                             </div>
                         )}
                     </div>
-                ) : joinHref === "#" ? (
-                    <span style={{
-                        background: "#aaa",
-                        color: "#fff",
-                        padding: "clamp(6px, 0.8vw, 8px) clamp(16px, 2vw, 24px)",
-                        borderRadius: "20px",
-                        fontSize: "clamp(11px, 1.2vw, 20px)",
-                        fontWeight: 500,
-                        whiteSpace: "nowrap",
-                    }}>
-                        {buttonLabel}
-                    </span>
                 ) : (
                     <a href={joinHref} style={{
                         background: "#E91E8C",
