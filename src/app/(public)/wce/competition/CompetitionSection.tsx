@@ -174,12 +174,12 @@ export default function CompetitionSection() {
             </div>
 
             {/* MOBILE */}
-            <div className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-3vw" }}>
+            <div className="block md:hidden relative w-full overflow-hidden" style={{ marginTop: "-4vw" }}>
                 <div className="relative w-full" style={{
                     backgroundImage: "url('/images/wce/competition/mobile/BG-Pink-Comp-mb.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top center",
-                    paddingBottom: "5%",
+                    paddingBottom: "6%",
                 }}>
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
