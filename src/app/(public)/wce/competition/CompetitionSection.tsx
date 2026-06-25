@@ -162,8 +162,8 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(2)}
                                 photoSrc="/images/wce/competition/Photo3.webp"
                                 title="Photo Competition"
-                                timeline=" Monday, 22 June 2026–Saturday, 25 July 2026"
-                                place=" Sisternet (Application)"
+                                timeline=" TBA"
+                                place=" TBA"
                                 buttonLabel="Coming Soon!"
                                 shortDesc='The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme “She Leads, She Inspires,"'
                                 fullDesc="this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also in determining the direction of her own life."
@@ -304,10 +304,10 @@ export default function CompetitionSection() {
                                         Photo Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline: </strong> Monday, 22 June 2026&ndash;Saturday, 25 July 2026
+                                        <strong>Timeline: </strong> TBA
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place: </strong> Sisternet (Application)
+                                        <strong>Place: </strong> TBA
                                     </p>
                                 </div>
                             </div>
