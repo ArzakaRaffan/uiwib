@@ -22,6 +22,8 @@ interface CompetitionCardProps {
     open: boolean
     timelineScale?: number
     timelineMarginTop?: string
+    timelineMarginLeft?: string
+    timelineWidth?: string
     onToggle: () => void
 }
 
@@ -40,6 +42,8 @@ export default function CompetitionCard({
     open,
     timelineScale = 1,
     timelineMarginTop = "1vw",
+    timelineMarginLeft = "0",
+    timelineWidth = "100%",
     onToggle,
 }: CompetitionCardProps) {
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -115,7 +119,7 @@ export default function CompetitionCard({
                                 alt="Timeline"
                                 width={612 * timelineScale}
                                 height={192}
-                                style={{ width: "100%", height: "auto", display: "block" }}
+                                style={{ width: timelineWidth, height: "auto", display: "block", marginLeft: timelineMarginLeft }}
                             />
                         </div>
                     )}

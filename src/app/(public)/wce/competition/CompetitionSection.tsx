@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import CompetitionCard from "./CompetitionCard"
@@ -9,11 +9,11 @@ const BG_H_FULL = 10000
 const BG_H_CLOSED  = 5800
 const BG_H_OPEN_1  = 7350   // hanya BCC
 const BG_H_OPEN_2  = 6650   // hanya Essay
-const BG_H_OPEN_3  = 6100   // hanya Photo
+const BG_H_OPEN_3  = 6700   // hanya Photo
 const BG_H_OPEN_12 = 8200   // BCC + Essay
-const BG_H_OPEN_13 = 7750   // BCC + Photo
-const BG_H_OPEN_23 = 7000   // Essay + Photo
-const BG_H_OPEN_123 = 8600  // semua
+const BG_H_OPEN_13 = 8250   // BCC + Photo
+const BG_H_OPEN_23 = 7500   // Essay + Photo
+const BG_H_OPEN_123 = 9000  // semua
 
 function getClipRatio(openStates: boolean[]) {
     const [o1, o2, o3] = openStates
@@ -34,16 +34,21 @@ export default function CompetitionSection() {
     )
     const [bccDropdownOpen, setBccDropdownOpen] = useState(false)
     const bccDropdownRef = useRef<HTMLDivElement>(null)
+    const [photoDropdownOpen, setPhotoDropdownOpen] = useState(false)
+    const photoDropdownRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
             if (bccDropdownRef.current && !bccDropdownRef.current.contains(e.target as Node)) {
                 setBccDropdownOpen(false)
             }
+            if (photoDropdownRef.current && !photoDropdownRef.current.contains(e.target as Node)) {
+                setPhotoDropdownOpen(false)
+            }
         }
-        if (bccDropdownOpen) document.addEventListener("mousedown", handleClickOutside)
+        if (bccDropdownOpen || photoDropdownOpen) document.addEventListener("mousedown", handleClickOutside)
         return () => document.removeEventListener("mousedown", handleClickOutside)
-    }, [bccDropdownOpen])
+    }, [bccDropdownOpen, photoDropdownOpen])
 
     const toggle = (i: number) => {
         setOpenStates(prev => {
@@ -162,10 +167,18 @@ export default function CompetitionSection() {
                                 onToggle={() => toggle(2)}
                                 photoSrc="/images/wce/competition/Photo3.webp"
                                 title="Photo Competition"
-                                timeline=" TBA"
-                                place=" TBA"
-                                buttonLabel="Coming Soon!"
-                                shortDesc='The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme “She Leads, She Inspires,"'
+                                timeline=" Monday, 29 June 2026&ndash;Sunday, 12 July 2026"
+                                place=" Sisternet (Application)"
+                                buttonLabel="Register Here"
+                                timelineSrc="/images/wce/competition/Timeline Photo.webp"
+                                timelineMarginTop="2.5vw"
+                                timelineMarginLeft="17%"
+                                timelineWidth="70%"
+                                dropdownOptions={[
+                                    { label: "Play Store", href: "https://play.google.com/store/apps/details?id=id.co.xl.sisternet" },
+                                    { label: "App Store", href: "https://apps.apple.com/id/app/sisternet/id1502525395" },
+                                ]}
+                                shortDesc={`The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme "She Leads, She Inspires,"`}
                                 fullDesc="this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also in determining the direction of her own life."
                             />
                         </div>
@@ -304,20 +317,44 @@ export default function CompetitionSection() {
                                         Photo Competition
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: "0 0 2px" }}>
-                                        <strong>Timeline: </strong> TBA
+                                        <strong>Timeline: </strong> Monday, 29 June 2026&ndash;Sunday, 12 July 2026
                                     </p>
                                     <p style={{ fontSize: "clamp(10px, 2.9vw, 15px)", color: "#2555B7", margin: 0 }}>
-                                        <strong>Place: </strong> TBA
+                                        <strong>Place: </strong> Sisternet (Application)
                                     </p>
                                 </div>
                             </div>
                             <p style={{ fontSize: "clamp(5px, 2.3vw, 13px)", color: "#2555B7", lineHeight: 1.5, margin: "0 0 10px", fontWeight: 500, textAlign: "justify" }}>
                                 The Photo Competition is a special competition in collaboration with XLSmart. Carrying the grand theme &ldquo;She Leads, She Inspires,&rdquo; this competition invites participants to capture moments that represent the essence of a female leader: confident, visionary, resilient, and able to inspire those around them. Through visual images, this competition emphasizes that every woman has the potential to lead, not only for others, but also in determining the direction of her own life.
                             </p>
+                            <div style={{ marginTop: "5px", marginBottom: "10px", marginLeft: "0%" }}>
+                                <Image
+                                    src="/images/wce/competition/Timeline Photo.webp"
+                                    alt="Photo Competition Timeline"
+                                    width={600}
+                                    height={200}
+                                    style={{ width: "55%", height: "auto", display: "block", borderRadius: "6px" }}
+                                />
+                            </div>
                             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                                <span style={{ background: "#aaa", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500 }}>
-                                    Coming Soon!
-                                </span>
+                                <div ref={photoDropdownRef} style={{ position: "relative" }}>
+                                    <button
+                                        onClick={() => setPhotoDropdownOpen((v) => !v)}
+                                        style={{ background: "#E91E8C", color: "#fff", padding: "6px 16px", borderRadius: "20px", fontSize: "clamp(5px, 2vw, 13px)", fontWeight: 500, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "4px" }}
+                                    >
+                                        Register Here
+                                        <span style={{ display: "inline-block", transform: photoDropdownOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s ease", fontSize: "0.75em" }}>&#9660;</span>
+                                    </button>
+                                    {photoDropdownOpen && (
+                                        <div style={{ position: "absolute", bottom: "110%", right: 0, background: "#fff", border: "1.5px solid #E91E8C", borderRadius: "10px", overflow: "hidden", zIndex: 50, minWidth: "130px", boxShadow: "0 4px 16px rgba(233,30,140,0.15)" }}>
+                                            {([{ label: "Play Store", href: "#" }, { label: "App Store", href: "#" }] as { label: string; href: string }[]).map((opt, i) => (
+                                                <a key={opt.label} href={opt.href} onClick={() => setPhotoDropdownOpen(false)} style={{ display: "block", padding: "8px 16px", color: "#E91E8C", fontWeight: 500, fontSize: "clamp(5px, 2vw, 13px)", textDecoration: "none", borderBottom: i === 0 ? "1px solid #FFDBEE" : "none", whiteSpace: "nowrap" }}>
+                                                    {opt.label}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
 
