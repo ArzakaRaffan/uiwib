@@ -347,7 +347,7 @@ export default function CompetitionSection() {
                                     </button>
                                     {photoDropdownOpen && (
                                         <div style={{ position: "absolute", bottom: "110%", right: 0, background: "#fff", border: "1.5px solid #E91E8C", borderRadius: "10px", overflow: "hidden", zIndex: 50, minWidth: "130px", boxShadow: "0 4px 16px rgba(233,30,140,0.15)" }}>
-                                            {([{ label: "Play Store", href: "#" }, { label: "App Store", href: "#" }] as { label: string; href: string }[]).map((opt, i) => (
+                                            {([{ label: "Play Store", href: "https://play.google.com/store/apps/details?id=id.co.xl.sisternet" }, { label: "App Store", href: "https://apps.apple.com/id/app/sisternet/id1502525395" }] as { label: string; href: string }[]).map((opt, i) => (
                                                 <a key={opt.label} href={opt.href} onClick={() => setPhotoDropdownOpen(false)} style={{ display: "block", padding: "8px 16px", color: "#E91E8C", fontWeight: 500, fontSize: "clamp(5px, 2vw, 13px)", textDecoration: "none", borderBottom: i === 0 ? "1px solid #FFDBEE" : "none", whiteSpace: "nowrap" }}>
                                                     {opt.label}
                                                 </a>
