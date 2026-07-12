@@ -30,7 +30,7 @@ export default function EventsSectionGS() {
                         {" It will feature a talk show with inspiring women leaders, along with presentations from participating companies."}
                     </p>
                     <a
-                        href="#"
+                        href="https://forms.gle/DgTSc74yZmSKtp5U6"
                         style={{
                             display: "inline-block",
                             marginTop: "3%",
@@ -44,7 +44,7 @@ export default function EventsSectionGS() {
                             textDecoration: "none",
                         }}
                     >
-                        Coming Soon!
+                        Register Here
                     </a>
                 </div>
                 {/* Photo Strip */}
@@ -191,7 +191,7 @@ export default function EventsSectionGS() {
                             <span style={{ fontWeight: 700 }}>{"Saturday, 25 July, 2026."}</span>
                             {" It will feature a talk show with inspiring women leaders, along with presentations from participating companies."}
                         </p>
-                        <a href="#" style={{
+                        <a href="https://forms.gle/DgTSc74yZmSKtp5U6" style={{
                             display: "inline-block",
                             marginTop: "4%",
                             padding: "8px 24px",
@@ -203,7 +203,7 @@ export default function EventsSectionGS() {
                             borderRadius: "8px",
                             textDecoration: "none",
                         }}>
-                            Coming Soon!
+                            Register Here
                         </a>
                     </div>
 
