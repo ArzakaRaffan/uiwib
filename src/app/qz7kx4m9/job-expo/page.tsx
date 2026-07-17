@@ -1,55 +1,331 @@
-// src/app/admin/job-expo/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
-import AdminCrudPage from "@/components/admin/AdminCrudPage";
+import Image from "next/image";
 import { JobExpo } from "@/types";
 
-const fields = [
-  { name: "logo", label: "Company Logo", type: "file" as const },
-  { name: "companyName", label: "Company Name", type: "text" as const, required: true, placeholder: "Advance Intelligence Group" },
-  { name: "jobTitle", label: "Job Title", type: "text" as const, required: true, placeholder: "AI Scientist & Engineer" },
-  { name: "industry", label: "Industry", type: "text" as const, required: true, placeholder: "Financial Services" },
-  { name: "salary", label: "Salary (leave blank if not disclosed)", type: "text" as const, placeholder: "Rp 8.000.000 – 12.000.000" },
-  { name: "employmentType", label: "Employment Type", type: "select" as const, required: true, options: ["Full Time", "Part Time", "Internship"] },
-  { name: "qualification", label: "Qualification", type: "text" as const, required: true, placeholder: "Bachelor" },
-  { name: "city", label: "City", type: "text" as const, required: true, placeholder: "Jakarta" },
-  { name: "location", label: "Location Type", type: "select" as const, required: true, options: ["Jabodetabek", "Non-Jabodetabek", "Remote"] },
-  { name: "deadline", label: "Application Deadline", type: "date" as const, required: true },
-  { name: "applyUrl", label: "Apply URL", type: "url" as const, required: true, placeholder: "https://bosshire.com/..." },
-];
+const TYPE_COLOR: Record<string, string> = {
+  FULL_TIME:  "bg-blue-100 text-blue-700",
+  INTERNSHIP: "bg-purple-100 text-purple-700",
+  CONTRACT:   "bg-orange-100 text-orange-700",
+  PART_TIME:  "bg-green-100 text-green-700",
+};
+const TYPE_LABEL: Record<string, string> = {
+  FULL_TIME:  "Full Time",
+  INTERNSHIP: "Internship",
+  CONTRACT:   "Contract",
+  PART_TIME:  "Part Time",
+};
+
+type ImportResult = { added: number; updated: number; skipped: number; total: number };
 
 export default function AdminJobExpoPage() {
-  const [items, setItems] = useState<JobExpo[]>([]);
+  const [jobs, setJobs]               = useState<JobExpo[]>([]);
+  const [search, setSearch]           = useState("");
+  const [csvUrl, setCsvUrl]           = useState("");
+  const [importing, setImporting]     = useState(false);
+  const [importResult, setImportResult] = useState<ImportResult | null>(null);
+  const [importError, setImportError] = useState("");
+  const [deleteId, setDeleteId]       = useState<string | null>(null);
+  const [viewJob, setViewJob]         = useState<JobExpo | null>(null);
 
-  async function fetchData() {
-    const res = await fetch("/api/job-expo");
+  async function fetchJobs() {
+    const res  = await fetch("/api/job-expo");
     const data = await res.json();
-    if (data.success) setItems(data.data);
+    if (data.success) setJobs(data.data);
   }
 
-  useEffect(() => { fetchData(); }, []);
+  useEffect(() => { fetchJobs(); }, []);
+
+  async function handleImport() {
+    setImporting(true);
+    setImportResult(null);
+    setImportError("");
+    try {
+      const res  = await fetch("/api/job-expo/import", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ csvUrl: csvUrl.trim() || undefined }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
+      setImportResult(data);
+      fetchJobs();
+    } catch (e: unknown) {
+      setImportError(e instanceof Error ? e.message : "Import failed");
+    } finally {
+      setImporting(false);
+    }
+  }
+
+  async function handleDelete(id: string) {
+    const res  = await fetch(`/api/job-expo/${id}`, { method: "DELETE" });
+    const data = await res.json();
+    if (data.success) { setDeleteId(null); fetchJobs(); }
+    else alert(data.error ?? "Delete failed");
+  }
+
+  const filtered = jobs.filter((j) =>
+    !search ||
+    j.title.toLowerCase().includes(search.toLowerCase()) ||
+    j.companyName.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const stats = {
+    total:      jobs.length,
+    fullTime:   jobs.filter((j) => j.employmentType === "FULL_TIME").length,
+    internship: jobs.filter((j) => j.employmentType === "INTERNSHIP").length,
+    contract:   jobs.filter((j) => j.employmentType === "CONTRACT").length,
+  };
 
   return (
-    <AdminCrudPage
-      title="Job Expo"
-      icon="💼"
-      items={items}
-      fields={fields}
-      apiEndpoint="/api/job-expo"
-      imageField="logo"
-      onRefresh={fetchData}
-      renderRow={(item) => (
+    <div className="min-h-screen bg-neutral-50 p-8">
+      <div className="max-w-5xl mx-auto space-y-6">
+
+        {/* Header */}
         <div>
-          <p className="font-display font-bold text-base" style={{ color: "var(--color-navy)" }}>{item.jobTitle}</p>
-          <p className="text-xs text-rose-600 font-semibold">{item.companyName}</p>
-          <div className="flex flex-wrap gap-2 mt-1.5">
-            <span className="px-2 py-0.5 rounded-full text-[10px] bg-blue-100 text-blue-700 font-semibold">{item.employmentType}</span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] bg-neutral-100 text-neutral-600">{item.location}</span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] bg-neutral-100 text-neutral-600">📅 {new Date(item.deadline).toLocaleDateString("id-ID")}</span>
+          <h1 className="font-display text-3xl font-bold" style={{ color: "var(--color-navy)" }}>
+            💼 Job Expo
+          </h1>
+          <p className="text-neutral-500 text-sm mt-1">Manage job listings imported from Glints</p>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-4 gap-4">
+          {[
+            { label: "Total Jobs",  value: stats.total,      color: "text-neutral-800" },
+            { label: "Full Time",   value: stats.fullTime,   color: "text-blue-600"    },
+            { label: "Internship",  value: stats.internship, color: "text-purple-600"  },
+            { label: "Contract",    value: stats.contract,   color: "text-orange-600"  },
+          ].map((s) => (
+            <div key={s.label} className="bg-white rounded-2xl border border-neutral-100 p-4">
+              <p className="text-xs text-neutral-500 font-medium">{s.label}</p>
+              <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Import Section */}
+        <div className="bg-white rounded-2xl border border-neutral-100 p-6 space-y-4">
+          <div>
+            <h2 className="font-semibold text-base" style={{ color: "var(--color-navy)" }}>
+              Import from Google Sheets
+            </h2>
+            <p className="text-xs text-neutral-500 mt-0.5">
+              Paste the published CSV URL. Leave blank to use <code className="bg-neutral-100 px-1 rounded">GOOGLE_SHEETS_CSV_URL</code> from environment.
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            <input
+              type="url"
+              value={csvUrl}
+              onChange={(e) => setCsvUrl(e.target.value)}
+              placeholder="https://docs.google.com/spreadsheets/d/.../export?format=csv"
+              className="flex-1 px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
+            />
+            <button
+              onClick={handleImport}
+              disabled={importing}
+              className="btn-primary px-6 disabled:opacity-60 whitespace-nowrap"
+            >
+              {importing ? "Importing…" : "⬇ Import Now"}
+            </button>
+          </div>
+
+          {importResult && (
+            <div className="flex items-center gap-6 px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-sm">
+              <span className="text-green-600 font-semibold">✓ Import complete</span>
+              <span className="text-neutral-600">Added: <strong className="text-green-700">{importResult.added}</strong></span>
+              <span className="text-neutral-600">Updated: <strong className="text-blue-700">{importResult.updated}</strong></span>
+              <span className="text-neutral-600">Skipped: <strong className="text-neutral-500">{importResult.skipped}</strong></span>
+              <span className="text-neutral-400 text-xs">of {importResult.total} rows</span>
+            </div>
+          )}
+
+          {importError && (
+            <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">
+              ✕ {importError}
+            </div>
+          )}
+        </div>
+
+        {/* Job List */}
+        <div className="bg-white rounded-2xl border border-neutral-100">
+          <div className="p-4 border-b border-neutral-100 flex items-center gap-3">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by title or company…"
+              className="flex-1 px-4 py-2 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
+            />
+            <span className="text-xs text-neutral-400 whitespace-nowrap">{filtered.length} of {jobs.length}</span>
+          </div>
+
+          {filtered.length === 0 ? (
+            <div className="p-12 text-center">
+              <p className="text-4xl mb-3">💼</p>
+              <p className="text-neutral-500 text-sm">
+                {jobs.length === 0
+                  ? "No jobs yet. Import from Google Sheets to get started."
+                  : "No jobs match your search."}
+              </p>
+            </div>
+          ) : (
+            <div className="divide-y divide-neutral-50">
+              {filtered.map((job) => (
+                <div key={job.id} className="flex items-center gap-4 px-5 py-4 hover:bg-neutral-50 transition-colors">
+                  {/* Logo */}
+                  <div className="w-10 h-10 rounded-full border border-neutral-100 bg-neutral-50 flex-shrink-0 overflow-hidden relative">
+                    {job.companyLogoUrl ? (
+                      <Image src={job.companyLogoUrl} alt={job.companyName} fill className="object-cover" unoptimized />
+                    ) : (
+                      <span className="flex items-center justify-center h-full text-xs text-neutral-400 font-bold">
+                        {job.companyName.slice(0, 2).toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm truncate" style={{ color: "var(--color-navy)" }}>{job.title}</p>
+                    <p className="text-xs text-neutral-500 truncate">
+                      {job.companyName} · {job.city}{job.province ? `, ${job.province}` : ""}
+                    </p>
+                    {(job.broadExpertise || job.specificExpertise) && (
+                      <p className="text-xs text-neutral-400 truncate mt-0.5">
+                        {job.broadExpertise}{job.specificExpertise ? ` → ${job.specificExpertise}` : ""}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Type badge */}
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold flex-shrink-0 ${TYPE_COLOR[job.employmentType] ?? "bg-neutral-100 text-neutral-600"}`}>
+                    {TYPE_LABEL[job.employmentType] ?? job.employmentType}
+                  </span>
+
+                  {/* Actions */}
+                  <div className="flex gap-2 flex-shrink-0">
+                    <button
+                      onClick={() => setViewJob(job)}
+                      className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors"
+                    >
+                      Detail
+                    </button>
+                    <a
+                      href={job.jobLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                    >
+                      Glints ↗
+                    </a>
+                    <button
+                      onClick={() => setDeleteId(job.id)}
+                      className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-50 text-red-500 hover:bg-red-100 transition-colors"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Detail Modal */}
+      {viewJob && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto">
+            <div className="p-6 border-b border-neutral-100 flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full border border-neutral-100 bg-neutral-50 flex-shrink-0 overflow-hidden relative">
+                  {viewJob.companyLogoUrl
+                    ? <Image src={viewJob.companyLogoUrl} alt={viewJob.companyName} fill className="object-cover" unoptimized />
+                    : <span className="flex items-center justify-center h-full text-xs font-bold text-neutral-400">{viewJob.companyName.slice(0,2).toUpperCase()}</span>
+                  }
+                </div>
+                <div>
+                  <h2 className="font-display font-bold text-lg leading-tight" style={{ color: "var(--color-navy)" }}>{viewJob.title}</h2>
+                  <p className="text-sm text-neutral-500">{viewJob.companyName} · {viewJob.city}{viewJob.province ? `, ${viewJob.province}` : ""}</p>
+                </div>
+              </div>
+              <button onClick={() => setViewJob(null)} className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 flex-shrink-0">✕</button>
+            </div>
+
+            <div className="p-6 space-y-4 text-sm">
+              {/* Badges */}
+              <div className="flex flex-wrap gap-2">
+                <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${TYPE_COLOR[viewJob.employmentType] ?? "bg-neutral-100 text-neutral-600"}`}>
+                  {TYPE_LABEL[viewJob.employmentType] ?? viewJob.employmentType}
+                </span>
+                {viewJob.educationLevel && <span className="px-2.5 py-1 rounded-full text-xs bg-neutral-100 text-neutral-600">{viewJob.educationLevel}</span>}
+                {viewJob.minYearsOfExperience != null && <span className="px-2.5 py-1 rounded-full text-xs bg-neutral-100 text-neutral-600">{viewJob.minYearsOfExperience === 0 ? "Fresh Graduate" : `${viewJob.minYearsOfExperience}+ yrs exp`}</span>}
+                {viewJob.broadExpertise && <span className="px-2.5 py-1 rounded-full text-xs bg-rose-50 text-rose-600">{viewJob.broadExpertise}</span>}
+                {viewJob.specificExpertise && <span className="px-2.5 py-1 rounded-full text-xs bg-rose-50 text-rose-500">{viewJob.specificExpertise}</span>}
+              </div>
+
+              {/* Skills */}
+              {viewJob.skills && (
+                <div>
+                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wide mb-1.5">Skills</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {viewJob.skills.split(",").map((s) => (
+                      <span key={s} className="px-2 py-0.5 rounded-full text-xs bg-blue-50 text-blue-600">{s.trim()}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Description */}
+              {viewJob.jobDescriptionFull && (
+                <div>
+                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wide mb-1.5">Description</p>
+                  <p className="text-neutral-600 leading-relaxed whitespace-pre-line text-xs">{viewJob.jobDescriptionFull}</p>
+                </div>
+              )}
+
+              {/* Address */}
+              {viewJob.companyAddress && (
+                <div>
+                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wide mb-1">Address</p>
+                  <p className="text-neutral-500 text-xs">{viewJob.companyAddress}</p>
+                </div>
+              )}
+
+              <a
+                href={viewJob.jobLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block btn-primary text-xs px-5 py-2"
+              >
+                View on Glints ↗
+              </a>
+            </div>
           </div>
         </div>
       )}
-    />
+
+      {/* Delete Confirm Modal */}
+      {deleteId && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full text-center">
+            <div className="text-4xl mb-4">🗑️</div>
+            <h3 className="font-display font-bold text-lg mb-2" style={{ color: "var(--color-navy)" }}>Delete this job?</h3>
+            <p className="text-neutral-500 text-sm mb-6">This cannot be undone.</p>
+            <div className="flex gap-3">
+              <button onClick={() => setDeleteId(null)} className="flex-1 px-4 py-2.5 rounded-xl border border-neutral-200 text-sm font-semibold text-neutral-600 hover:bg-neutral-50">
+                Cancel
+              </button>
+              <button onClick={() => handleDelete(deleteId)} className="flex-1 px-4 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white text-sm font-semibold transition-colors">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

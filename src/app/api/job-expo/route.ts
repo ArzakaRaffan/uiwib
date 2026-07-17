@@ -1,28 +1,31 @@
-// src/app/api/job-expo/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { uploadImage } from "@/lib/supabase";
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const search = searchParams.get("search") ?? "";
-    const location = searchParams.get("location") ?? "";
     const employmentType = searchParams.get("employmentType") ?? "";
+    const broadExpertise = searchParams.get("broadExpertise") ?? "";
+    const companyName = searchParams.get("companyName") ?? "";
 
     const jobs = await prisma.jobExpo.findMany({
       where: {
         isActive: true,
         ...(search && {
           OR: [
-            { jobTitle: { contains: search, mode: "insensitive" } },
+            { title: { contains: search, mode: "insensitive" } },
             { companyName: { contains: search, mode: "insensitive" } },
+            { broadExpertise: { contains: search, mode: "insensitive" } },
+            { specificExpertise: { contains: search, mode: "insensitive" } },
+            { skills: { contains: search, mode: "insensitive" } },
           ],
         }),
-        ...(location && { location }),
         ...(employmentType && { employmentType }),
+        ...(broadExpertise && { broadExpertise }),
+        ...(companyName && { companyName: { contains: companyName, mode: "insensitive" } }),
       },
       orderBy: { createdAt: "desc" },
     });
@@ -38,27 +41,25 @@ export async function POST(req: NextRequest) {
   if (!session) return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
 
   try {
-    const formData = await req.formData();
-    const logoFile = formData.get("logo") as File | null;
-
-    let companyLogoUrl = "";
-    if (logoFile && logoFile.size > 0) {
-      companyLogoUrl = await uploadImage(logoFile, "job-expo", logoFile.name);
-    }
+    const body = await req.json();
 
     const job = await prisma.jobExpo.create({
       data: {
-        companyLogoUrl,
-        companyName: formData.get("companyName") as string,
-        jobTitle: formData.get("jobTitle") as string,
-        industry: formData.get("industry") as string,
-        salary: (formData.get("salary") as string) || null,
-        employmentType: formData.get("employmentType") as string,
-        qualification: formData.get("qualification") as string,
-        city: formData.get("city") as string,
-        location: formData.get("location") as string,
-        deadline: new Date(formData.get("deadline") as string),
-        applyUrl: formData.get("applyUrl") as string,
+        jobLink: body.jobLink,
+        title: body.title,
+        employmentType: body.employmentType,
+        jobDescriptionSummary: body.jobDescriptionSummary ?? null,
+        jobDescriptionFull: body.jobDescriptionFull ?? null,
+        skills: body.skills ?? null,
+        educationLevel: body.educationLevel ?? null,
+        minYearsOfExperience: body.minYearsOfExperience != null ? Number(body.minYearsOfExperience) : null,
+        broadExpertise: body.broadExpertise ?? null,
+        specificExpertise: body.specificExpertise ?? null,
+        city: body.city,
+        province: body.province ?? null,
+        companyName: body.companyName,
+        companyAddress: body.companyAddress ?? null,
+        companyLogoUrl: body.companyLogoUrl ?? "",
       },
     });
 

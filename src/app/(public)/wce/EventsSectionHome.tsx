@@ -9,6 +9,7 @@ const eventCards = [
     { src: "/images/wce/home/Slider1.webp", label: "Pre-Event", href: "/wce/pre-event", btnColor: "#E8A020" },
     { src: "/images/wce/home/Slider2.webp", label: "Competition", href: "/wce/competition", btnColor: "#4A90D9" },
     { src: "/images/wce/home/Slider3.webp", label: "Training", href: "/wce/training", btnColor: "#E91E8C" },
+    { src: "/images/wce/home/Slider5.webp", label: "Job Expo", href: "/wce/job-expo", btnColor: "#4A90D9" },
     { src: "/images/wce/home/Slider4.webp", label: "Grand Seminar", href: "/wce/grand-seminar", btnColor: "#E8A020" },
 ];
 
@@ -162,7 +163,7 @@ export default function EventsSectionHome() {
                             ))}
                         </div>
 
-                        {/* Row 2: Training + Grand Seminar */}
+                        {/* Row 2: Training + Job Expo */}
                         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
                             {eventCards.slice(2, 4).map((card, i) => (
                                 <div key={i} style={{ position: "relative" }}>
@@ -178,6 +179,22 @@ export default function EventsSectionHome() {
                                     </div>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* Row 3: Grand Seminar (centered) */}
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <div style={{ position: "relative", width: "50%" }}>
+                                <Image src={eventCards[4].src} alt={eventCards[4].label} width={1200} height={1200}
+                                    style={{ width: "100%", height: "auto", display: "block" }} />
+                                <div style={{ position: "absolute", bottom: "10%", left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+                                    <Link href={eventCards[4].href} style={{
+                                        background: eventCards[4].btnColor, color: "#fff",
+                                        padding: "5px clamp(10px, 3vw, 14px)", borderRadius: "20px",
+                                        fontSize: "clamp(1px, 1.5vw, 14px)", fontWeight: 600,
+                                        textDecoration: "none", whiteSpace: "nowrap",
+                                    }}>Learn More</Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

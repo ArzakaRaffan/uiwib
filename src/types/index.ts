@@ -27,17 +27,21 @@ export interface Training {
 
 export interface JobExpo {
   id: string;
-  companyLogoUrl: string;
-  companyName: string;
-  jobTitle: string;
-  industry: string;
-  salary: string | null;
-  employmentType: "Full Time" | "Part Time" | "Internship";
-  qualification: string;
+  jobLink: string;
+  title: string;
+  employmentType: string;
+  jobDescriptionSummary: string | null;
+  jobDescriptionFull: string | null;
+  skills: string | null;
+  educationLevel: string | null;
+  minYearsOfExperience: number | null;
+  broadExpertise: string | null;
+  specificExpertise: string | null;
   city: string;
-  location: "Jabodetabek" | "Non-Jabodetabek" | "Remote";
-  deadline: Date;
-  applyUrl: string;
+  province: string | null;
+  companyName: string;
+  companyAddress: string | null;
+  companyLogoUrl: string;
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
