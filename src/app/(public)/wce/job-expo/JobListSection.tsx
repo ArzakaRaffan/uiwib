@@ -826,7 +826,7 @@ export default function JobListSection({
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.4cqw" }}>
                       <Image src="/images/wce/job-expo/svg/person.png" alt="" width={16} height={16} style={{ width: "1.3cqw", height: "1.3cqw", objectFit: "contain", flexShrink: 0 }} unoptimized />
-                      <span style={{ fontFamily: "TTCommons, sans-serif", fontSize: "1.1cqw", color: "#2555B7" }}>{job.broadExpertise || "Open For All"}</span>
+                      <span style={{ fontFamily: "TTCommons, sans-serif", fontSize: "1.1cqw", color: "#2555B7" }}>{job.broadExpertise || job.l1Category || "Open For All"}</span>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.4cqw" }}>
                       <Image src="/images/wce/job-expo/svg/degree.png" alt="" width={16} height={16} style={{ width: "1.3cqw", height: "1.3cqw", objectFit: "contain", flexShrink: 0 }} unoptimized />
@@ -836,6 +836,21 @@ export default function JobListSection({
                       </span>
                     </div>
                   </div>
+                  {/* Tab-2 extra badges: salary & status */}
+                  {(job.salaryRangeIdr || job.glintStatus) && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5cqw" }}>
+                      {job.salaryRangeIdr && (
+                        <span style={{ background: "#D1FAE5", border: "1px solid #6EE7B7", borderRadius: "2cqw", padding: "0.2cqw 0.8cqw", fontFamily: "TTCommons, sans-serif", fontSize: "1cqw", color: "#065F46", fontWeight: 500 }}>
+                          💰 {job.salaryRangeIdr}
+                        </span>
+                      )}
+                      {job.glintStatus && (
+                        <span style={{ background: job.glintStatus.toUpperCase() === "OPEN" ? "#DCFCE7" : "#FEE2E2", border: `1px solid ${job.glintStatus.toUpperCase() === "OPEN" ? "#86EFAC" : "#FCA5A5"}`, borderRadius: "2cqw", padding: "0.2cqw 0.8cqw", fontFamily: "TTCommons, sans-serif", fontSize: "1cqw", color: job.glintStatus.toUpperCase() === "OPEN" ? "#166534" : "#991B1B", fontWeight: 600 }}>
+                          {job.glintStatus}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   {skills.length > 0 && (
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4cqw" }}>
                       {skills.map((skill, i) => (
@@ -939,7 +954,7 @@ export default function JobListSection({
                 {[
                   { icon: "/images/wce/job-expo/svg/location_on.png", text: `${selectedJob.city}${selectedJob.province ? `, ${selectedJob.province}` : ""}` },
                   { icon: "/images/wce/job-expo/svg/Clock.png", text: (TYPE_BADGE[selectedJob.employmentType] ?? { label: selectedJob.employmentType }).label },
-                  { icon: "/images/wce/job-expo/svg/person.png", text: selectedJob.broadExpertise || "Open For All" },
+                  { icon: "/images/wce/job-expo/svg/person.png", text: selectedJob.broadExpertise || selectedJob.l1Category || "Open For All" },
                   { icon: "/images/wce/job-expo/svg/degree.png", text: `${formatEducation(selectedJob.educationLevel)}${(selectedJob.minYearsOfExperience ?? 0) > 0 ? ` · Min. ${selectedJob.minYearsOfExperience} thn` : " · Fresh Graduate"}` },
                 ].map(({ icon, text }) => (
                   <div key={icon} style={{ display: "flex", alignItems: "flex-start", gap: "6px" }}>
@@ -948,6 +963,22 @@ export default function JobListSection({
                   </div>
                 ))}
               </div>
+
+              {/* Tab-2 extra badges: salary & status */}
+              {(selectedJob.salaryRangeIdr || selectedJob.glintStatus) && (
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {selectedJob.salaryRangeIdr && (
+                    <span style={{ background: "#D1FAE5", border: "1px solid #6EE7B7", borderRadius: "20px", padding: "4px 10px", fontFamily: "TTCommons, sans-serif", fontSize: "12px", color: "#065F46", fontWeight: 500 }}>
+                      💰 {selectedJob.salaryRangeIdr}
+                    </span>
+                  )}
+                  {selectedJob.glintStatus && (
+                    <span style={{ background: selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#DCFCE7" : "#FEE2E2", border: `1px solid ${selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#86EFAC" : "#FCA5A5"}`, borderRadius: "20px", padding: "4px 10px", fontFamily: "TTCommons, sans-serif", fontSize: "12px", color: selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#166534" : "#991B1B", fontWeight: 600 }}>
+                      {selectedJob.glintStatus}
+                    </span>
+                  )}
+                </div>
+              )}
 
               {/* Skills */}
               {parseSkills(selectedJob.skills).length > 0 && (

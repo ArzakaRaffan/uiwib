@@ -34,9 +34,18 @@ export interface JobExpo {
   jobDescriptionFull: string | null;
   skills: string | null;
   educationLevel: string | null;
+  // Tab 1
   minYearsOfExperience: number | null;
   broadExpertise: string | null;
   specificExpertise: string | null;
+  // Tab 2
+  glintStatus: string | null;
+  salaryRangeIdr: string | null;
+  locationGroup: string | null;
+  l1Category: string | null;
+  l2Category: string | null;
+  // Source
+  source: string;
   city: string;
   province: string | null;
   companyName: string;

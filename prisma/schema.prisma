@@ -42,9 +42,18 @@ model JobExpo {
   jobDescriptionFull    String?  @db.Text
   skills                String?
   educationLevel        String?
+  // Tab 1 fields
   minYearsOfExperience  Int?
   broadExpertise        String?
   specificExpertise     String?
+  // Tab 2 fields
+  glintStatus           String?
+  salaryRangeIdr        String?
+  locationGroup         String?
+  l1Category            String?
+  l2Category            String?
+  // Source tracking
+  source                String   @default("tab1")
   city                  String
   province              String?
   companyName           String
