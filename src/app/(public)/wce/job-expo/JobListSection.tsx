@@ -704,6 +704,7 @@ export default function JobListSection({
         j.title.toLowerCase().includes(q) ||
         j.companyName.toLowerCase().includes(q) ||
         j.broadExpertise?.toLowerCase().includes(q) ||
+        j.l1Category?.toLowerCase().includes(q) ||
         skills.some((s) => s.toLowerCase().includes(q));
       if (!match) return false;
     }
@@ -836,21 +837,6 @@ export default function JobListSection({
                       </span>
                     </div>
                   </div>
-                  {/* Tab-2 extra badges: salary & status */}
-                  {(job.salaryRangeIdr || job.glintStatus) && (
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5cqw" }}>
-                      {job.salaryRangeIdr && (
-                        <span style={{ background: "#D1FAE5", border: "1px solid #6EE7B7", borderRadius: "2cqw", padding: "0.2cqw 0.8cqw", fontFamily: "TTCommons, sans-serif", fontSize: "1cqw", color: "#065F46", fontWeight: 500 }}>
-                          💰 {job.salaryRangeIdr}
-                        </span>
-                      )}
-                      {job.glintStatus && (
-                        <span style={{ background: job.glintStatus.toUpperCase() === "OPEN" ? "#DCFCE7" : "#FEE2E2", border: `1px solid ${job.glintStatus.toUpperCase() === "OPEN" ? "#86EFAC" : "#FCA5A5"}`, borderRadius: "2cqw", padding: "0.2cqw 0.8cqw", fontFamily: "TTCommons, sans-serif", fontSize: "1cqw", color: job.glintStatus.toUpperCase() === "OPEN" ? "#166534" : "#991B1B", fontWeight: 600 }}>
-                          {job.glintStatus}
-                        </span>
-                      )}
-                    </div>
-                  )}
                   {skills.length > 0 && (
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4cqw" }}>
                       {skills.map((skill, i) => (
@@ -963,22 +949,6 @@ export default function JobListSection({
                   </div>
                 ))}
               </div>
-
-              {/* Tab-2 extra badges: salary & status */}
-              {(selectedJob.salaryRangeIdr || selectedJob.glintStatus) && (
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                  {selectedJob.salaryRangeIdr && (
-                    <span style={{ background: "#D1FAE5", border: "1px solid #6EE7B7", borderRadius: "20px", padding: "4px 10px", fontFamily: "TTCommons, sans-serif", fontSize: "12px", color: "#065F46", fontWeight: 500 }}>
-                      💰 {selectedJob.salaryRangeIdr}
-                    </span>
-                  )}
-                  {selectedJob.glintStatus && (
-                    <span style={{ background: selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#DCFCE7" : "#FEE2E2", border: `1px solid ${selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#86EFAC" : "#FCA5A5"}`, borderRadius: "20px", padding: "4px 10px", fontFamily: "TTCommons, sans-serif", fontSize: "12px", color: selectedJob.glintStatus.toUpperCase() === "OPEN" ? "#166534" : "#991B1B", fontWeight: 600 }}>
-                      {selectedJob.glintStatus}
-                    </span>
-                  )}
-                </div>
-              )}
 
               {/* Skills */}
               {parseSkills(selectedJob.skills).length > 0 && (

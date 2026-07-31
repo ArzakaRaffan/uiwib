@@ -17,33 +17,17 @@ const TYPE_LABEL: Record<string, string> = {
   PART_TIME:  "Part Time",
 };
 
-type ImportResult = { added: number; updated: number; skipped: number; expired: number; total: number; source: string };
-
-function ImportResultBanner({ result }: { result: ImportResult }) {
-  return (
-    <div className="flex flex-wrap items-center gap-4 px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-sm">
-      <span className="text-green-600 font-semibold">✓ Import complete</span>
-      <span className="text-neutral-600">Added: <strong className="text-green-700">{result.added}</strong></span>
-      <span className="text-neutral-600">Updated: <strong className="text-blue-700">{result.updated}</strong></span>
-      <span className="text-neutral-600">Skipped: <strong className="text-neutral-500">{result.skipped}</strong></span>
-      {result.expired > 0 && (
-        <span className="text-neutral-600">Expired: <strong className="text-orange-600">{result.expired}</strong></span>
-      )}
-      <span className="text-neutral-400 text-xs">of {result.total} rows</span>
-    </div>
-  );
-}
+type ImportResult = { added: number; updated: number; skipped: number; expired: number; total: number };
 
 export default function AdminJobExpoPage() {
-  const [jobs, setJobs]                   = useState<JobExpo[]>([]);
-  const [search, setSearch]               = useState("");
-  const [csvUrl, setCsvUrl]               = useState("");
-  const [csvUrl2, setCsvUrl2]             = useState("");
-  const [importing, setImporting]         = useState<"tab1" | "tab2" | null>(null);
-  const [importResult, setImportResult]   = useState<ImportResult | null>(null);
-  const [importError, setImportError]     = useState("");
-  const [deleteId, setDeleteId]           = useState<string | null>(null);
-  const [viewJob, setViewJob]             = useState<JobExpo | null>(null);
+  const [jobs, setJobs]               = useState<JobExpo[]>([]);
+  const [search, setSearch]           = useState("");
+  const [csvUrl, setCsvUrl]           = useState("");
+  const [importing, setImporting]     = useState(false);
+  const [importResult, setImportResult] = useState<ImportResult | null>(null);
+  const [importError, setImportError] = useState("");
+  const [deleteId, setDeleteId]       = useState<string | null>(null);
+  const [viewJob, setViewJob]         = useState<JobExpo | null>(null);
 
   async function fetchJobs() {
     const res  = await fetch("/api/job-expo");
@@ -53,16 +37,15 @@ export default function AdminJobExpoPage() {
 
   useEffect(() => { fetchJobs(); }, []);
 
-  async function handleImport(source: "tab1" | "tab2") {
-    setImporting(source);
+  async function handleImport() {
+    setImporting(true);
     setImportResult(null);
     setImportError("");
-    const url = source === "tab2" ? csvUrl2 : csvUrl;
     try {
       const res  = await fetch("/api/job-expo/import", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ csvUrl: url.trim() || undefined, source }),
+        body:    JSON.stringify({ csvUrl: csvUrl.trim() || undefined }),
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
@@ -71,7 +54,7 @@ export default function AdminJobExpoPage() {
     } catch (e: unknown) {
       setImportError(e instanceof Error ? e.message : "Import failed");
     } finally {
-      setImporting(null);
+      setImporting(false);
     }
   }
 
@@ -122,80 +105,53 @@ export default function AdminJobExpoPage() {
           ))}
         </div>
 
-        {/* Import Section — Tab 1 */}
+        {/* Import Section */}
         <div className="bg-white rounded-2xl border border-neutral-100 p-6 space-y-4">
           <div>
             <h2 className="font-semibold text-base" style={{ color: "var(--color-navy)" }}>
-              Import Tab 1 — Format Lama
+              Import from Google Sheets
             </h2>
             <p className="text-xs text-neutral-500 mt-0.5">
-              Kolom: job_link, title, employment_type, min_years_of_experience, Broad Expertise, Specific Expertise, …
-              Kosongkan untuk pakai <code className="bg-neutral-100 px-1 rounded">GOOGLE_SHEETS_CSV_URL</code>.
+              Paste the published CSV URL. Leave blank to use <code className="bg-neutral-100 px-1 rounded">GOOGLE_SHEETS_CSV_URL</code> from environment.
             </p>
           </div>
+
           <div className="flex gap-3">
             <input
               type="url"
               value={csvUrl}
               onChange={(e) => setCsvUrl(e.target.value)}
-              placeholder="https://docs.google.com/spreadsheets/d/.../export?format=csv&gid=0"
+              placeholder="https://docs.google.com/spreadsheets/d/.../export?format=csv"
               className="flex-1 px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
             />
             <button
-              onClick={() => handleImport("tab1")}
-              disabled={importing !== null}
+              onClick={handleImport}
+              disabled={importing}
               className="btn-primary px-6 disabled:opacity-60 whitespace-nowrap"
             >
-              {importing === "tab1" ? "Importing…" : "⬇ Import Tab 1"}
+              {importing ? "Importing…" : "⬇ Import Now"}
             </button>
           </div>
-          {importResult?.source === "tab1" && (
-            <ImportResultBanner result={importResult} />
+
+          {importResult && (
+            <div className="flex flex-wrap items-center gap-4 px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-sm">
+              <span className="text-green-600 font-semibold">✓ Import complete</span>
+              <span className="text-neutral-600">Added: <strong className="text-green-700">{importResult.added}</strong></span>
+              <span className="text-neutral-600">Updated: <strong className="text-blue-700">{importResult.updated}</strong></span>
+              <span className="text-neutral-600">Skipped: <strong className="text-neutral-500">{importResult.skipped}</strong></span>
+              {importResult.expired > 0 && (
+                <span className="text-neutral-600">Expired: <strong className="text-orange-600">{importResult.expired}</strong></span>
+              )}
+              <span className="text-neutral-400 text-xs">of {importResult.total} rows</span>
+            </div>
           )}
-          {importError && importing === null && importResult?.source === "tab1" && (
-            <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">✕ {importError}</div>
+
+          {importError && (
+            <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">
+              ✕ {importError}
+            </div>
           )}
         </div>
-
-        {/* Import Section — Tab 2 */}
-        <div className="bg-white rounded-2xl border border-neutral-100 p-6 space-y-4">
-          <div>
-            <h2 className="font-semibold text-base" style={{ color: "var(--color-navy)" }}>
-              Import Tab 2 — Format Baru
-            </h2>
-            <p className="text-xs text-neutral-500 mt-0.5">
-              Kolom: job_link, title, status, employment_type, salary_range_idr, L1_category, L2_category, location_group, …
-              Kosongkan untuk pakai <code className="bg-neutral-100 px-1 rounded">GOOGLE_SHEETS_CSV_URL_2</code>.
-            </p>
-          </div>
-          <div className="flex gap-3">
-            <input
-              type="url"
-              value={csvUrl2}
-              onChange={(e) => setCsvUrl2(e.target.value)}
-              placeholder="https://docs.google.com/spreadsheets/d/.../export?format=csv&gid=…"
-              className="flex-1 px-4 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
-            />
-            <button
-              onClick={() => handleImport("tab2")}
-              disabled={importing !== null}
-              className="px-6 disabled:opacity-60 whitespace-nowrap rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors"
-            >
-              {importing === "tab2" ? "Importing…" : "⬇ Import Tab 2"}
-            </button>
-          </div>
-          {importResult?.source === "tab2" && (
-            <ImportResultBanner result={importResult} />
-          )}
-          {importError && importing === null && importResult?.source === "tab2" && (
-            <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">✕ {importError}</div>
-          )}
-        </div>
-
-        {/* Shared error fallback (before any result) */}
-        {importError && importResult === null && (
-          <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">✕ {importError}</div>
-        )}
 
         {/* Job List */}
         <div className="bg-white rounded-2xl border border-neutral-100">
