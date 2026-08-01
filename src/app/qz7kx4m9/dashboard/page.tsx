@@ -6,7 +6,7 @@ export default async function AdminDashboard() {
   const [competitions, trainings, jobs, mediaPartners, companyPartners] = await Promise.all([
     prisma.competition.count({ where: { isActive: true } }),
     prisma.training.count({ where: { isActive: true } }),
-    prisma.jobExpo.count({ where: { isActive: true, source: "tab1" } }),
+    prisma.jobExpo.count({ where: { isActive: true } }),
     prisma.mediaPartner.count({ where: { isActive: true } }),
     prisma.companyPartner.count({ where: { isActive: true } }),
   ]);

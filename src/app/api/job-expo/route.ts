@@ -14,7 +14,6 @@ export async function GET(req: NextRequest) {
     const jobs = await prisma.jobExpo.findMany({
       where: {
         isActive: true,
-        source: "tab1",
         ...(search && {
           OR: [
             { title: { contains: search, mode: "insensitive" } },
