@@ -31,10 +31,10 @@ export default function PartnerSection() {
                 </div>
 
                 {/* Marquee — di bawah judul */}
-                <div className="absolute z-[25] w-full" style={{ top: "20%" }}>
+                <div className="absolute z-[25] w-full" style={{ top: "17%" }}>
                     <MediaPartnersSection />
                 </div>
-                <div className="absolute bottom-[40%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
+                <div className="absolute bottom-[38%] left-1/2 -translate-x-1/2 z-[25] w-full flex justify-center px-4 text-center">
                     <p style={{
                         fontFamily: "TimesNewRoman, serif",
                         fontStyle: "normal",
@@ -48,7 +48,7 @@ export default function PartnerSection() {
                     </p>
                 </div>
 
-                <div className="absolute z-[25] w-full" style={{ bottom: "10%" }}>
+                <div className="absolute z-[25] w-full" style={{ bottom: "5%" }}>
                     <CompanyPartnersSlider />
                 </div>
             </div>
@@ -88,10 +88,13 @@ export default function PartnerSection() {
                     textAlign: "center",
                     margin: 0,
                     marginTop: "4%",
+                    paddingTop: "24px",
                 }}>
                     Our Company Partners
                 </p>
-                <CompanyPartnersSlider />
+                <div style={{ marginTop: "16px" }}>
+                    <CompanyPartnersSlider />
+                </div>
 
                 <div style={{ paddingBottom: "8%" }} />
             </div>

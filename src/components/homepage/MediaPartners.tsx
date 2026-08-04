@@ -7,7 +7,7 @@ const GAP = 60;
 const ITEM_W_DESKTOP = 220;
 const ITEM_W_MOBILE = 110;
 const GAP_MOBILE = 28;
-const SPEED_PX_PER_SEC = 90;
+const SPEED_PX_PER_SEC = 150;
 
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
