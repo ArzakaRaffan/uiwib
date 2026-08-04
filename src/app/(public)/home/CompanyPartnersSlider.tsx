@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 import { CompanyPartner } from "@/types";
 
 const GAP = 60;
-const ITEM_W_DESKTOP = 200;
-const ITEM_W_MOBILE = 120;
-const GAP_MOBILE = 24;
+const ITEM_W_DESKTOP = 240;
+const ITEM_W_MOBILE = 150;
+const GAP_MOBILE = 30;
+const SPEED_PX_PER_SEC = 90;
 
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
@@ -21,10 +22,11 @@ function useIsMobile() {
     return isMobile;
 }
 
-function MarqueeRow({ logos, duration, isMobile }: { logos: CompanyPartner[]; duration: number; isMobile: boolean }) {
+function MarqueeRow({ logos, isMobile }: { logos: CompanyPartner[]; isMobile: boolean }) {
     const itemW = isMobile ? ITEM_W_MOBILE : ITEM_W_DESKTOP;
     const gap = isMobile ? GAP_MOBILE : GAP;
     const travel = logos.length * (itemW + gap);
+    const duration = travel / SPEED_PX_PER_SEC;
 
     return (
         <div style={{ overflow: "hidden", width: "100%" }}>
@@ -37,7 +39,7 @@ function MarqueeRow({ logos, duration, isMobile }: { logos: CompanyPartner[]; du
                 {[...logos, ...logos, ...logos].map((company, i) => (
                     <div key={i} style={{
                         width: `${itemW}px`,
-                        height: isMobile ? "60px" : "90px",
+                        height: isMobile ? "75px" : "110px",
                         flexShrink: 0,
                         marginRight: `${gap}px`,
                         display: "flex",
@@ -48,7 +50,7 @@ function MarqueeRow({ logos, duration, isMobile }: { logos: CompanyPartner[]; du
                             src={company.logoUrl}
                             alt={company.name}
                             style={{
-                                maxHeight: isMobile ? "50px" : "70px",
+                                maxHeight: isMobile ? "65px" : "100px",
                                 maxWidth: "100%",
                                 width: "auto",
                                 height: "auto",
@@ -90,13 +92,13 @@ export default function CompanyPartnersSlider() {
     return (
         <div style={{ width: "100%" }}>
             {row1.length > 0 && (
-                <MarqueeRow logos={row1} duration={10} isMobile={isMobile} />
+                <MarqueeRow logos={row1} isMobile={isMobile} />
             )}
             {row1.length > 0 && row2.length > 0 && (
                 <div style={{ marginTop: isMobile ? "-8px" : "8px" }} />
             )}
             {row2.length > 0 && (
-                <MarqueeRow logos={row2} duration={10} isMobile={isMobile} />
+                <MarqueeRow logos={row2} isMobile={isMobile} />
             )}
         </div>
     );

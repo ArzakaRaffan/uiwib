@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import { MediaPartner } from "@/types";
 
 const GAP = 60;
-const ITEM_W_DESKTOP = 180;
-const ITEM_W_MOBILE = 80;
-const GAP_MOBILE = 20;
+const ITEM_W_DESKTOP = 220;
+const ITEM_W_MOBILE = 110;
+const GAP_MOBILE = 28;
+const SPEED_PX_PER_SEC = 90;
 
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
@@ -20,10 +21,11 @@ function useIsMobile() {
     return isMobile;
 }
 
-function MarqueeRow({ logos, duration, isMobile }: { logos: string[]; duration: number; isMobile: boolean }) {
+function MarqueeRow({ logos, isMobile }: { logos: string[]; isMobile: boolean }) {
     const itemW = isMobile ? ITEM_W_MOBILE : ITEM_W_DESKTOP;
     const gap = isMobile ? GAP_MOBILE : GAP;
     const travel = logos.length * (itemW + gap);
+    const duration = travel / SPEED_PX_PER_SEC;
 
     return (
         <div style={{ overflow: "hidden", width: "100%" }}>
@@ -36,7 +38,7 @@ function MarqueeRow({ logos, duration, isMobile }: { logos: string[]; duration: 
                 {[...logos, ...logos, ...logos].map((src, i) => (
                     <div key={i} style={{
                         width: `${itemW}px`,
-                        height: isMobile ? "50px" : "90px",
+                        height: isMobile ? "70px" : "110px",
                         flexShrink: 0,
                         marginRight: `${gap}px`,
                         display: "flex",
@@ -78,13 +80,13 @@ export default function MediaPartnersSection() {
     return (
         <div style={{ width: "100%" }}>
             {row1.length > 0 && (
-                <MarqueeRow logos={row1} duration={isMobile ? 40 : 45} isMobile={isMobile} />
+                <MarqueeRow logos={row1} isMobile={isMobile} />
             )}
             {row1.length > 0 && row2.length > 0 && (
                 <div style={{ marginTop: isMobile ? "-35px" : "16px" }} />
             )}
             {row2.length > 0 && (
-                <MarqueeRow logos={row2} duration={isMobile ? 40 : 45} isMobile={isMobile} />
+                <MarqueeRow logos={row2} isMobile={isMobile} />
             )}
         </div>
     );
