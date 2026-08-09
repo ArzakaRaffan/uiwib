@@ -43,14 +43,20 @@ export default function AdminJobExpoPage() {
     setImportResult(null);
     setImportError("");
     try {
-      const res  = await fetch("/api/job-expo/import", {
+      const res = await fetch("/api/job-expo/import", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify({ csvUrl: csvUrl.trim() || undefined, source }),
       });
-      const data = await res.json();
-      if (!data.success) throw new Error(data.error);
-      setImportResult(data);
+      let data: Record<string, unknown>;
+      try {
+        data = await res.json();
+      } catch {
+        const text = await res.text().catch(() => "(empty)");
+        throw new Error(`HTTP ${res.status} — server returned non-JSON:\n${text.slice(0, 300)}`);
+      }
+      if (!data.success) throw new Error(data.error as string);
+      setImportResult(data as unknown as ImportResult);
       fetchJobs();
     } catch (e: unknown) {
       setImportError(e instanceof Error ? e.message : "Import failed");
