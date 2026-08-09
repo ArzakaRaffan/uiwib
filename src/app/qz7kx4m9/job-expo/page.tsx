@@ -17,12 +17,13 @@ const TYPE_LABEL: Record<string, string> = {
   PART_TIME:  "Part Time",
 };
 
-type ImportResult = { added: number; updated: number; skipped: number; expired: number; total: number };
+type ImportResult = { added: number; updated: number; skipped: number; expired: number; total: number; source: string };
 
 export default function AdminJobExpoPage() {
   const [jobs, setJobs]               = useState<JobExpo[]>([]);
   const [search, setSearch]           = useState("");
   const [csvUrl, setCsvUrl]           = useState("");
+  const [source, setSource]           = useState<"tab1" | "tab2">("tab1");
   const [importing, setImporting]     = useState(false);
   const [importResult, setImportResult] = useState<ImportResult | null>(null);
   const [importError, setImportError] = useState("");
@@ -45,7 +46,7 @@ export default function AdminJobExpoPage() {
       const res  = await fetch("/api/job-expo/import", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ csvUrl: csvUrl.trim() || undefined }),
+        body:    JSON.stringify({ csvUrl: csvUrl.trim() || undefined, source }),
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
@@ -117,6 +118,14 @@ export default function AdminJobExpoPage() {
           </div>
 
           <div className="flex gap-3">
+            <select
+              value={source}
+              onChange={(e) => setSource(e.target.value as "tab1" | "tab2")}
+              className="px-3 py-2.5 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100 bg-white"
+            >
+              <option value="tab1">Tab 1 (Glints standard)</option>
+              <option value="tab2">Tab 2 (L1/L2 category)</option>
+            </select>
             <input
               type="url"
               value={csvUrl}
@@ -135,7 +144,7 @@ export default function AdminJobExpoPage() {
 
           {importResult && (
             <div className="flex flex-wrap items-center gap-4 px-4 py-3 rounded-xl bg-green-50 border border-green-200 text-sm">
-              <span className="text-green-600 font-semibold">✓ Import complete</span>
+              <span className="text-green-600 font-semibold">✓ Import complete <span className="text-green-500 font-normal">({importResult.source})</span></span>
               <span className="text-neutral-600">Added: <strong className="text-green-700">{importResult.added}</strong></span>
               <span className="text-neutral-600">Updated: <strong className="text-blue-700">{importResult.updated}</strong></span>
               <span className="text-neutral-600">Skipped: <strong className="text-neutral-500">{importResult.skipped}</strong></span>
