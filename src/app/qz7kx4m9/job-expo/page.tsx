@@ -17,7 +17,7 @@ const TYPE_LABEL: Record<string, string> = {
   PART_TIME:  "Part Time",
 };
 
-type ImportResult = { added: number; updated: number; skipped: number; expired: number; total: number; source: string };
+type ImportResult = { added: number; updated: number; skipped: number; total: number; source: string };
 
 export default function AdminJobExpoPage() {
   const [jobs, setJobs]               = useState<JobExpo[]>([]);
@@ -154,10 +154,7 @@ export default function AdminJobExpoPage() {
               <span className="text-neutral-600">Added: <strong className="text-green-700">{importResult.added}</strong></span>
               <span className="text-neutral-600">Updated: <strong className="text-blue-700">{importResult.updated}</strong></span>
               <span className="text-neutral-600">Skipped: <strong className="text-neutral-500">{importResult.skipped}</strong></span>
-              {importResult.expired > 0 && (
-                <span className="text-neutral-600">Expired: <strong className="text-orange-600">{importResult.expired}</strong></span>
-              )}
-              <span className="text-neutral-400 text-xs">of {importResult.total} rows</span>
+<span className="text-neutral-400 text-xs">of {importResult.total} rows</span>
             </div>
           )}
 

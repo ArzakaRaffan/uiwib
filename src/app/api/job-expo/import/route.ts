@@ -157,11 +157,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: "CSV is empty or failed to parse", details: errors }, { status: 422 });
     }
 
-    // Collect all valid job_links before validation so expiry doesn't false-deactivate skipped rows.
-    const allSheetLinks = data
-      .map((row) => row["job_link"]?.trim())
-      .filter((link): link is string => Boolean(link));
-
     let skipped = 0;
     let added = 0;
     let updated = 0;
@@ -184,15 +179,8 @@ export async function POST(req: NextRequest) {
       ({ added, updated } = await importTab1(validRows));
     }
 
-    // Per-source expiry: deactivate records from this source no longer in the sheet.
-    const expired = await prisma.jobExpo.updateMany({
-      where: { source, jobLink: { notIn: allSheetLinks }, isActive: true },
-      data: { isActive: false },
-    });
-
     return NextResponse.json({
-      success: true, source, added, updated, skipped,
-      expired: expired.count, total: data.length,
+      success: true, source, added, updated, skipped, total: data.length,
     });
   } catch (e) {
     console.error(e);
